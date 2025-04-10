@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 import styles from "./page.module.css";
 import Search from "./components/ui/Search/Search";
 import Brands from "./components/ui/Brands/Brands";
@@ -83,25 +84,25 @@ export default function Home() {
             <div className={styles.articles__inner}>
                 <article className={`${styles.article} ${styles.article_preview}`}>
 
-                    <a className={styles.article__link} href="#">
+                    <Link className={styles.article__link} href="#">
                         <p className={styles.article__meta}>02.06.2023</p>
                         <h3 className={`${styles.article__title} ${styles.article__title_small}`}>Пополнение каталога запчастей на MAN</h3>
                         <p className={styles.article__content}>Более 7000 новых запчастей в нашем каталоге MAN. Запчасти для грузовых автомобилей доступны к заказу уже сегодня с доставкой по всему миру</p>
-                    </a>
+                    </Link>
                 </article>
                 <article className={`${styles.article} ${styles.article_preview}`}>
-                    <a className={styles.article__link} href="#">
+                    <Link className={styles.article__link} href="#">
                         <p className={styles.article__meta}>02.06.2023</p>
                         <h3 className={`${styles.article__title} ${styles.article__title_small}`}>Самый большой каталог запчастей для грузовых автомобилей</h3>
                         <p className={styles.article__content}>В нашем каталоге более 300 000 запчастей для MAN, Scania, Volvo, Mercedes-Benz, DAF и другие. Новые, оригинальные запчасти от производителей с гарантией и доставкой по всему миру</p>
-                    </a>
+                    </Link>
                 </article>
                 <article className={`${styles.article} ${styles.article_preview}`}>
-                    <a className={styles.article__link} href="#">
+                    <Link className={styles.article__link} href="#">
                         <p className={styles.article__meta}>02.06.2023</p>
                         <h3 className={`${styles.article__title} ${styles.article__title_small}`}>Новые функции на нашей платформе для заказа запчастей</h3>
                         <p className={styles.article__content}>Регистрируйтесь и начинайте заказывать запчасти для грузовых автомобилей полностью онлайн. Отслеживайте процесс доставки/оплаты и получайте быструю консультацию от менеджеров</p>
-                    </a>
+                    </Link>
                 </article>
             </div>
         </section>

@@ -1,6 +1,7 @@
 'use client'
 import styles from "./brands.module.css";
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Brands({ brands = [], theme = "default" }) {
     if (brands.length > 5) {
@@ -9,7 +10,7 @@ export default function Brands({ brands = [], theme = "default" }) {
     return (
         <div className={styles.brands}>
             {brands.map((item, index) => (
-                <a key={index} href={`/catalog/${item}`}>
+                <Link href={`/catalog/${item}`}key={index}>
                     <Image
                         className={`${styles.brands__item} ${theme == 'gray' ? styles.brands__item_gray : ''}`}
                         src={`/brands/${item}.svg`}
@@ -21,7 +22,7 @@ export default function Brands({ brands = [], theme = "default" }) {
                             height: 'calc(100vw/1.5/14.4)',
                         }}
                     />
-                </a>
+                </Link>
             ))}
         </div>
     )

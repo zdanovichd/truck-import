@@ -2,6 +2,7 @@
 import styles from "./header.module.css";
 import Image from "next/image";
 import { useEffect } from 'react';
+import Link from 'next/link'
 
 export default function Header() {
 
@@ -103,7 +104,7 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
 }, []);
   return (
     <header className={styles.header}>
-        <a className="logo" href="/">
+        <Link className="logo" href="/">
             <Image
               src="/logo.svg"
               alt="logo"
@@ -115,7 +116,7 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
               }}
               priority
             />
-        </a>
+        </Link>
         <nav
             className="site_nav"
             aria-label="Сайт"
@@ -131,118 +132,118 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                     </button>
                     <ul className="menu menu_submenu" id="catalog-submenu">
                         <li className="menu__item">
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/mercedes"
                                 aria-current="page"
                             >
                                 Mercedes
-                            </a>
+                            </Link>
                         </li>
                         <li className="menu__item">
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/man"
                                 aria-current="page"
-                            >Man</a>
+                            >Man</Link>
                         </li>
                         <li className="menu__item">
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/scania"
                                 aria-current="page"
-                            >Scania</a>
+                            >Scania</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/volvo"
                                 aria-current="page"
-                            >Volvo</a>
+                            >Volvo</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/hengst"
                                 aria-current="page"
-                            >Hengst</a>
+                            >Hengst</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/kolbenschmidt"
                                 aria-current="page"
-                            >Kolbenschmidt</a>
+                            >Kolbenschmidt</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/daf"
                                 aria-current="page"
-                            >Daf</a>
+                            >Daf</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/iveco"
                                 aria-current="page"
-                            >Iveco</a>
+                            >Iveco</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/renault"
                                 aria-current="page"
-                            >Renault</a>
+                            >Renault</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/febi"
                                 aria-current="page"
-                            >Febi</a>
+                            >Febi</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/mahle"
                                 aria-current="page"
-                            >MAHLE</a>
+                            >MAHLE</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/luk"
                                 aria-current="page"
-                            >Luk</a>
+                            >Luk</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/oeg"
                                 aria-current="page"
-                            >OE Germany</a>
+                            >OE Germany</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/webasto"
                                 aria-current="page"
-                            >Webasto</a>
+                            >Webasto</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/bosch"
                                 aria-current="page"
-                            >BOSCH</a>
+                            >BOSCH</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="/catalog/zf"
                                 aria-current="page"
-                            >ZF</a>
+                            >ZF</Link>
                         </li>
                     </ul>
                 </li>
@@ -256,39 +257,39 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                     </button>
                     <ul className="menu menu_submenu" id="buyers-submenu">
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Оплата и доставка</a>
+                            >Оплата и доставка</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Гарантия</a>
+                            >Гарантия</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Контакты</a>
+                            >Контакты</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Сотрудничество</a>
+                            >Сотрудничество</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Возврат</a>
+                            >Возврат</Link>
                         </li>
                     </ul>
                 </li>
@@ -302,18 +303,18 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                     </button>
                     <ul className="menu menu_submenu" id="about-submenu">
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Документы</a>
+                            >Документы</Link>
                         </li>
                         <li className="menu__item" >
-                            <a
+                            <Link
                                 className="menu__link"
                                 href="#"
                                 aria-current="page"
-                            >Вакансии</a>
+                            >Вакансии</Link>
                         </li>
                     </ul>
                 </li>
