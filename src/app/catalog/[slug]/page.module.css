@@ -1,0 +1,11 @@
+.category__hero {
+  padding: calc(60vw/14.4) 10.5vw;
+  background-color: #F4F4F3;
+}
+
+.category__title {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: calc(44vw/14.4);
+  text-align: center;
+}

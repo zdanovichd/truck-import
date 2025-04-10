@@ -1,0 +1,38 @@
+.search {
+    display: flex;
+    margin: 0;
+    /* border: 1px */
+    height: calc(60vw/14.4);
+}
+
+.search__input {
+    margin: 0;
+    font-size: calc(16vw/14.4);
+    padding: calc(20vw/14.4) calc(40vw/14.4);
+    width: calc(511vw/14.4);
+    /* border: none; */
+    border-width: calc(1vw/14.4) 0 calc(1vw/14.4) calc(1vw/14.4);
+    border-style: solid;
+    border-color: #C6C6C6;
+    border-radius: calc(10vw/14.4) 0 0 calc(10vw/14.4);
+    outline:none;
+}
+
+.search__button {
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0 calc(27.5vw/14.4);
+    border-width: calc(1vw/14.4) calc(1vw/14.4) calc(1vw/14.4) 0;
+    border-style: solid;
+    border-color: #BCA13480;
+    /* border-color: red; */
+    border-radius: 0 calc(10vw/14.4) calc(10vw/14.4) 0;
+    background-color: #C9AC37;
+    height: calc(60vw/14.4);
+}
+
+.search__icon {
+    width: calc(26vw/14.4);
+    height: calc(26vw/14.4);
+}

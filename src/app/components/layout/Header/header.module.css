@@ -1,0 +1,34 @@
+.header {
+   display: flex;
+   flex-direction: row;
+   background-color: #141313;
+   padding: 0 10.5vw;
+   width: 100vw;
+   /* width: 79.167vw; */
+   height: 6.667vw;
+   /* margin: 0 auto; */
+   align-items: center;
+   justify-content: space-between;
+}
+
+.header__button {
+   display: flex;
+   align-items: center;
+   color: #141313;
+   background-color: #C9AC37;
+   border: none;
+   padding: .735vw 1.34vw;
+   border-radius: .7vw;
+   gap: calc(6vw/14.4);
+   font-family: 'Gilroy-Bold', sans-serif;
+   /* font-size: .965rem; */
+   font-size: calc(16vw/14.4);
+   line-height: 120%;
+   vertical-align: middle;
+   cursor: pointer;
+}
+
+.header__button img {
+   width: 1.45vw;
+   height: auto;
+}

@@ -1,0 +1,14 @@
+.brands {
+    display: flex;
+    align-items: center;
+    gap: calc(47vw/14.4);
+}
+
+.brands__item {
+    width: calc(250vw/1.5/14.4);
+    height: calc(100vw/1.5/14.4);
+}
+
+.brands__item_gray {
+    filter: grayscale(100%) contrast(0) brightness(70%);
+}

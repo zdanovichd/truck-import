@@ -1,0 +1,113 @@
+.footer {
+   display: flex;
+     flex-direction: column;
+     background-color: #141313;
+     padding: calc(100vw/14.4) 10.5vw;
+     width: 100vw;
+     align-items: left;
+     justify-content: space-between;
+     gap: calc(60vw/14.4);
+ }
+
+ .footer__item {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .footer__item.footer__item_bottom {
+   align-items: end;
+ }
+
+ .footer__nav {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   /* width: auto; */
+   flex-grow: 2;
+   max-width: calc(747vw/14.4);
+ }
+
+ .phones {
+   display: flex;
+   flex-direction: column;
+   border-left: calc(2vw/14.4) solid #BCA134;
+   /* align-items: center; */
+   justify-content: center;
+
+   padding-left: calc(20vw/14.4);
+   gap: calc(20vw/14.4);
+ }
+
+ .phones__item {
+   font-family: 'Gilroy-Medium', sans-serif;
+   font-weight: 400;
+   font-size: calc(32vw/14.4);
+   color: #FFFFFF;
+   text-decoration: none;
+ }
+
+ .footer__inner {
+   display: flex;
+   flex-direction: row;
+   gap: calc(41vw/14.4);
+ }
+
+ .footer__privacy {
+   font-family: 'Gilroy-Medium', sans-serif;
+   font-weight: 400;
+   font-size: calc(16vw/14.4);
+   color: #FFFFFF99;
+   text-decoration: underline;
+ }
+
+ .footer__contacts {
+   display: flex;
+   flex-direction: column;
+   gap: calc(8vw/14.4);
+ }
+
+ .footer__contact {
+   display: flex;
+   align-items: center;
+   gap: calc(21vw/14.4);
+   font-family: 'Gilroy-Medium', sans-serif;
+   font-weight: 400;
+   font-size: calc(20vw/14.4);
+   vertical-align: middle;
+   text-decoration: none;
+   color: #FFFFFF;
+   max-width: calc(362vw/14.4);
+   line-height: 105%;
+   letter-spacing: -2%;
+ }
+
+ .footer__contact img {
+   width: calc(32vw/14.4);
+   height: calc(32vw/14.4);
+ }
+
+ .footer__socials {
+   display: flex;
+   flex-direction: column;
+   gap: calc(20vw/14.4);
+   margin-left: calc(-3vw/14.4);
+ }
+
+ .footer__socials_title {
+   font-family: 'Gilroy-Medium', sans-serif;
+   font-weight: 400;
+   font-size: calc(18vw/14.4);
+   color: #FFFFFF;
+ }
+
+ .footer__socials_inner {
+   display: flex;
+   flex-direction: row;
+   gap: calc(20vw/14.4);
+ }
+
+ .footer__social img {
+   width: calc(32vw/14.4);
+   height: calc(32vw/14.4);
+ }
+
