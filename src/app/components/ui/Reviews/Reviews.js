@@ -16,7 +16,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export default function Reviews() {
+export default function Reviews({ description = ""}) {
     const [spaceBetween, setSpaceBetween] = useState(0);
     const [windowWidth, setWindowWidth] = useState(0);
 
@@ -46,6 +46,8 @@ export default function Reviews() {
             <SectionTitle
                 title="Отзывы"
             />
+            {/* {description} */}
+            <p className={styles.reviews__description}>{description}</p>
             <div className={styles.swiper__container}>
                 <Swiper
                     slidesPerView={2}

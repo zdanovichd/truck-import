@@ -18,8 +18,8 @@ export async function generateMetadata({ params }) {
   const subcategory = subcategories.find(subcategory => subcategory.slug === sub);
 
   return {
-    title: subcategory?.title || 'Default Title',
-    description: subcategory?.description || 'Default Description',
+    title: subcategory?.meta__title || 'Default Title',
+    description: subcategory?.meta__description || 'Default Description',
   };
 }
 

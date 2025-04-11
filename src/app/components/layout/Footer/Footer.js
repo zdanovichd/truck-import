@@ -18,7 +18,6 @@ export default function Footer() {
                 width: 'calc(291vw/14.4)',
                 height: 'auto',
               }}
-              priority
             />
         </Link>
         <div className={styles.footer__item}>
@@ -118,8 +117,6 @@ export default function Footer() {
                                 width: 'calc(32vw/14.4)',
                                 height: 'calc(32vw/14.4)',
                               }}
-                              priority
-
                             />
                         import-aa@mail.ru
                         </Link>
@@ -134,7 +131,6 @@ export default function Footer() {
                                 width: 'calc(32vw/14.4)',
                                 height: 'calc(32vw/14.4)',
                               }}
-                              priority
                             />
                         МО, городской округ Люберцы, рп. Октябрьский, ул. Ленина д.41
                     </Link>
@@ -154,7 +150,6 @@ export default function Footer() {
                               width: 'calc(32vw/14.4)',
                               height: 'calc(32vw/14.4)',
                             }}
-                            priority
                           />
                             {/* <img src="/img/whatsapp.svg" alt="whatsapp"> */}
                         </Link>
@@ -169,7 +164,6 @@ export default function Footer() {
                                 width: 'calc(32vw/14.4)',
                                 height: 'calc(32vw/14.4)',
                               }}
-                              priority
                             />
                         </Link>
                     </div>

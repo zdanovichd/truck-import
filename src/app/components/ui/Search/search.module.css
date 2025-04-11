@@ -3,6 +3,8 @@
     margin: 0;
     /* border: 1px */
     height: calc(60vw/14.4);
+    box-shadow: 0px 4px 15px 0px #00000026;
+    border-radius: calc(10vw/14.4);
 }
 
 .search__input {

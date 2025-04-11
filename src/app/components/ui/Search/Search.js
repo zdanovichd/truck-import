@@ -11,7 +11,10 @@ export default function Search({style}) {
                 name="s"
                 placeholder="Введите номер детали"
             />
-            <button className={styles.search__button}>
+            <button
+                className={styles.search__button}
+                aria-label="Начать поиск"
+            >
                 <svg
                     className={styles.search__icon}
                     width="22"

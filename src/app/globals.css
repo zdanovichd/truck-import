@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 ul, li {
   list-style: none;
   padding: 0;
@@ -101,7 +105,7 @@ ul, li {
 }
 
 #catalog-submenu {
-  padding-right: 25vw;
+  /* padding-right: 25vw; */
   max-height: calc(220vw/14.4);
 }
 
@@ -122,8 +126,8 @@ a[aria-current="page"] {
 .menu .menu {
   gap: .86vw 1.05vw;
   padding: .8vw .2vw;
-
-  width: 100%;
+  width: 34vw;
+  /* width: 100%; */
   height: max-content;
 
 

@@ -1,288 +1,538 @@
 [
     {
       "h1": "Запчасти для грузовиков Mercedes",
-      "title": "Запчасти для грузовиков Мерседес купить в Москве с доставкой",
-      "description": "Купить запчасти для грузовых автомобилей Mercedes по выгодным ценам с доставкой по всей России. В наличии оригинальные и аналоговые детали для Actros, Atego, Axor. Мы подбираем по артикулу, работаем с проверенными производителями и гарантируем качество!",
+      "meta__title": "Запчасти для грузовиков Мерседес купить в Москве с доставкой",
+      "meta__description": "Купить запчасти для грузовых автомобилей Mercedes по выгодным ценам с доставкой по всей России. В наличии оригинальные и аналоговые детали для Actros, Atego, Axor. Мы подбираем по артикулу, работаем с проверенными производителями и гарантируем качество!",
       "slug": "mercedes",
       "name": "Mercedes",
       "subcategories" : [
         {
           "h1": "Запчасти Mercedes Actros",
-          "title": "Запчасти Mercedes Actros купить в Москве",
-          "description": "Купить запчасти для Мерседес Актрос в Москве по выгодным ценам. Оригинальные и б/у детали с гарантией, доставка по всей России. Большой ассортимент, подбор по артикулу, быстрая отправка. Надежные запчасти для вашего грузовика – закажите прямо сейчас!",
+          "meta__title": "Запчасти Mercedes Actros купить в Москве",
+          "meta__description": "Купить запчасти для Мерседес Актрос в Москве по выгодным ценам. Оригинальные и б/у детали с гарантией, доставка по всей России. Большой ассортимент, подбор по артикулу, быстрая отправка. Надежные запчасти для вашего грузовика – закажите прямо сейчас!",
           "slug": "actros",
           "name": "Actros"
         },
         {
           "h1": "Запчасти Мерседес Атего",
-          "title": "Купить запчасти для Мерседес Атего: кузов, наружные элементы, доставка по России",
-          "description": "Запчасти для грузовиков по доступным ценам! У нас вы найдете все необходимые кузовные элементы и детали для вашего автомобиля из Европы, проверенные и без пробега по РФ. Быстрая доставка по всей России и удобный каталог для заказа. Обеспечьте своему грузовику надежность!",
+          "meta__title": "Купить запчасти для Мерседес Атего: кузов, наружные элементы, доставка по России",
+          "meta__description": "Запчасти для грузовиков по доступным ценам! У нас вы найдете все необходимые кузовные элементы и детали для вашего автомобиля из Европы, проверенные и без пробега по РФ. Быстрая доставка по всей России и удобный каталог для заказа. Обеспечьте своему грузовику надежность!",
           "slug": "atego",
           "name": "Atego"
         },
         {
           "h1": "Запчасти Mercedes Axor",
-          "title": "Запчасти для Мерседес Аксор: каталог с фото, купить по низким ценам в Москве",
-          "description": "Запчасти для Мерседес Аксор по доступным ценам! В нашем каталоге вы найдете реальные фотографии и актуальные цены на запчасти. Быстрая доставка по всей России. Заказывайте прямо сейчас и обеспечьте своему автомобилю надежность и качество!",
+          "meta__title": "Запчасти для Мерседес Аксор: каталог с фото, купить по низким ценам в Москве",
+          "meta__description": "Запчасти для Мерседес Аксор по доступным ценам! В нашем каталоге вы найдете реальные фотографии и актуальные цены на запчасти. Быстрая доставка по всей России. Заказывайте прямо сейчас и обеспечьте своему автомобилю надежность и качество!",
           "slug": "axor",
           "name": "Axor"
         }
+      ],
+      "subcat__title" : "Модельный ряд грузовиков Mercedes-Benz",
+      "first__section__title": "Подбор запчастей для грузовых автомобилей Mercedes",
+      "first__section__data": "<p>Для удобства наших клиентов мы предоставляем возможность подбора запчастей по артикулу. Это позволяет избежать ошибок при выборе деталей и гарантирует совместимость с вашей моделью грузового автомобиля. Вы также можете обратиться к нашим специалистам, которые помогут найти нужную запчасть.</p>",
+      "second__section__title": "Широкий ассортимент запчастей для Mercedes Actros, Atego, Axor",
+      "second__section__data": "<p>Широкий ассортимент запчастей для Mercedes Actros, Atego, Axor:</p><ul><li>Mercedes Actros – широкий выбор запчастей для двигателя, подвески, тормозной системы.</li><li>Mercedes Atego – детали топливной системы, фильтра, компрессор, амортизатор, колодки.</li><li>Mercedes Axor – запасные части для масляной системы, сцепления, краны, клапаны.</li></ul><p>Наш магазин запчастей гарантирует наличие товаров на складе, а также предлагает новые оригинальные запчасти и качественные аналоги.</p>",
+      "third__section__title": "Подбор запчастей для грузовых автомобилей Mercedes",
+      "third__section__data": "<p>Наша компания предлагает только проверенные запчасти Mercedes, соответствующие стандартам производителя. Мы работаем напрямую с поставщиками, что позволяет нам контролировать качество товаров. Вы получаете оригинальные запчасти, а также надежные аналоги с гарантией.</p>",
+      "faq__title": "Часто задаваемые вопросы о запчастях для Мерседеса",
+      "faq__data": [
+        ["Какие запчасти можно купить для грузового Mercedes?", "В нашем каталоге запчастей представлены детали для двигателя, подвески, тормозной системы, топливной системы, а также электрооборудования."],
+        ["Как заказать запчасть на Мерседес?", "Вы можете сделать заказ через сайт или связаться с нашим менеджером по контактам."],
+        ["Есть ли гарантия на запчасти?", "Да, мы предоставляем гарантию на все запасные части."]
       ]
     },
     {
       "h1": "Запчасти для грузовиков MAN",
-      "title": "Каталог запчастей MAN (МАН) – купить автозапчасти в интернет-магазине, лучшие цены",
-      "description": "Купить запчасти MAN (МАН) по выгодным ценам – каталог автозапчастей для TGA, TGL, TGX, TGS. В наличии оригинальные и аналоговые детали. Можно заказать с доставкой в интернет-магазине",
+      "meta__title": "Каталог запчастей MAN (МАН) – купить автозапчасти в интернет-магазине, лучшие цены",
+      "meta__description": "Купить запчасти MAN (МАН) по выгодным ценам – каталог автозапчастей для TGA, TGL, TGX, TGS. В наличии оригинальные и аналоговые детали. Можно заказать с доставкой в интернет-магазине",
       "slug": "man",
       "name": "MAN",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "Запчасти для грузовиков Scania",
-      "title": "Каталог запчастей для грузовиков Scania (Скания) - купить онлайн в Москве с доставкой",
-      "description": "Каталог запчастей для грузовиков Scania (Скания). Оригинальные и качественные детали в наличии. Быстрая доставка по всей России. В наличии оригинальные и аналоговые детали для Scania 3-serie, 4-serie, 5-serie, 6-serie. Удобный заказ онлайн. Подберите все необходимое для ремонта и обслуживания вашего грузовика!",
+      "meta__title": "Каталог запчастей для грузовиков Scania (Скания) - купить онлайн в Москве с доставкой",
+      "meta__description": "Каталог запчастей для грузовиков Scania (Скания). Оригинальные и качественные детали в наличии. Быстрая доставка по всей России. В наличии оригинальные и аналоговые детали для Scania 3-serie, 4-serie, 5-serie, 6-serie. Удобный заказ онлайн. Подберите все необходимое для ремонта и обслуживания вашего грузовика!",
       "slug": "scania",
       "name": "Scania",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "volvo",
       "name": "Volvo",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "hengst",
       "name": "Hengst",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "kolbenschmidt",
       "name": "Kolbenschmidt",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "daf",
       "name": "Daf",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "iveco",
       "name": "Iveco",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "renault",
       "name": "Renault",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "febi",
       "name": "Febi",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "mahle",
       "name": "MAHLE",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "luk",
       "name": "Luk",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "oeg",
       "name": "OE Germany",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "webasto",
       "name": "Webasto",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "bosch",
       "name": "BOSCH",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "zf",
       "name": "ZF",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     },
     {
       "h1": "h1",
-      "title": "title",
-      "description": "description",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
       "slug": "brembo",
       "name": "Brembo",
       "subcategories" : [
         {
           "h1": "h1",
-          "title": "title",
-          "description": "description",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
           "slug": "slug",
           "name": "name"
         }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
+      ]
+    },
+    {
+      "h1": "h1",
+      "meta__title": "meta__title",
+      "meta__description": "meta__description",
+      "slug": "ina",
+      "name": "Ina",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ],
+      "subcat__title" : "subcat__title",
+      "first__section__title": "first__section__title",
+      "first__section__data": "first__section__data",
+      "second__section__title": "second__section__title",
+      "second__section__data": "second__section__data",
+      "third__section__title": "third__section__title",
+      "third__section__data": "third__section__data",
+      "faq__title": "faq__title",
+      "faq__data": [
+        ["faq_question_1", "faq_answer_1"],
+        ["faq_question_2", "faq_answer_2"],
+        ["faq_question_3", "faq_answer_3"]
       ]
     }
 ]

@@ -114,7 +114,6 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                 width: 'calc(203vw/14.4)',
                 height: 'auto',
               }}
-              priority
             />
         </Link>
         <nav
@@ -127,6 +126,7 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                         className="menu__btn"
                         aria-expanded="false"
                         aria-controls="catalog-submenu"
+                        aria-label="Каталог запчастей"
                     >
                         Каталог запчастей
                     </button>
@@ -252,6 +252,7 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                         className="menu__btn"
                         aria-expanded="false"
                         aria-controls="buyers-submenu"
+                        aria-label="Покупателям"
                     >
                         Покупателям
                     </button>
@@ -298,6 +299,7 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                         className="menu__btn"
                         aria-expanded="false"
                         aria-controls="about-submenu"
+                        aria-label="О проекте"
                     >
                         О проекте
                     </button>
@@ -330,7 +332,6 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
                 width: '1.45vw',
                 height: 'auto',
               }}
-              priority
             />
             Вход/регистрация
         </button>
