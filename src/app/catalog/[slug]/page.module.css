@@ -9,3 +9,39 @@
   font-size: calc(44vw/14.4);
   text-align: center;
 }
+
+.subcategories {
+  padding: calc(60vw/14.4) 10.5vw calc(100vw/14.4);
+}
+
+.subcategories__inner {
+  display: flex;
+  flex-direction: row;
+  gap: calc(41vw/14.4) 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: calc(1141vw/14.4);
+  padding: calc(60vw/14.4) 0 0;
+}
+
+.subcategory {
+  text-decoration: none;
+  color: #141313;
+  border: calc(1vw/14.4) solid #E1E4ED;
+  border-radius: calc(8vw/14.4);
+  box-shadow: calc(0vw/14.4) calc(1vw/14.4) calc(4vw/14.4) calc(0vw/14.4) #19213D14;
+}
+
+.subcategory__image {
+  width: calc(353vw/14.4);
+  height: calc(350vw/14.4);
+  border-radius: calc(8vw/14.4) calc(8vw/14.4) 0 0;
+}
+
+.subcategory__name {
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-weight: 400;
+  font-size: calc(20vw/14.4);
+  line-height: calc(28vw/14.4);
+  padding: calc(20vw/14.4);
+}

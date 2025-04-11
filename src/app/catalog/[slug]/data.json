@@ -4,118 +4,285 @@
       "title": "Запчасти для грузовиков Мерседес купить в Москве с доставкой",
       "description": "Купить запчасти для грузовых автомобилей Mercedes по выгодным ценам с доставкой по всей России. В наличии оригинальные и аналоговые детали для Actros, Atego, Axor. Мы подбираем по артикулу, работаем с проверенными производителями и гарантируем качество!",
       "slug": "mercedes",
-      "name": "Mercedes"
+      "name": "Mercedes",
+      "subcategories" : [
+        {
+          "h1": "Запчасти Mercedes Actros",
+          "title": "Запчасти Mercedes Actros купить в Москве",
+          "description": "Купить запчасти для Мерседес Актрос в Москве по выгодным ценам. Оригинальные и б/у детали с гарантией, доставка по всей России. Большой ассортимент, подбор по артикулу, быстрая отправка. Надежные запчасти для вашего грузовика – закажите прямо сейчас!",
+          "slug": "actros",
+          "name": "Actros"
+        },
+        {
+          "h1": "Запчасти Мерседес Атего",
+          "title": "Купить запчасти для Мерседес Атего: кузов, наружные элементы, доставка по России",
+          "description": "Запчасти для грузовиков по доступным ценам! У нас вы найдете все необходимые кузовные элементы и детали для вашего автомобиля из Европы, проверенные и без пробега по РФ. Быстрая доставка по всей России и удобный каталог для заказа. Обеспечьте своему грузовику надежность!",
+          "slug": "atego",
+          "name": "Atego"
+        },
+        {
+          "h1": "Запчасти Mercedes Axor",
+          "title": "Запчасти для Мерседес Аксор: каталог с фото, купить по низким ценам в Москве",
+          "description": "Запчасти для Мерседес Аксор по доступным ценам! В нашем каталоге вы найдете реальные фотографии и актуальные цены на запчасти. Быстрая доставка по всей России. Заказывайте прямо сейчас и обеспечьте своему автомобилю надежность и качество!",
+          "slug": "axor",
+          "name": "Axor"
+        }
+      ]
     },
     {
       "h1": "Запчасти для грузовиков MAN",
       "title": "Каталог запчастей MAN (МАН) – купить автозапчасти в интернет-магазине, лучшие цены",
       "description": "Купить запчасти MAN (МАН) по выгодным ценам – каталог автозапчастей для TGA, TGL, TGX, TGS. В наличии оригинальные и аналоговые детали. Можно заказать с доставкой в интернет-магазине",
       "slug": "man",
-      "name": "MAN"
+      "name": "MAN",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "Запчасти для грузовиков Scania",
       "title": "Каталог запчастей для грузовиков Scania (Скания) - купить онлайн в Москве с доставкой",
       "description": "Каталог запчастей для грузовиков Scania (Скания). Оригинальные и качественные детали в наличии. Быстрая доставка по всей России. В наличии оригинальные и аналоговые детали для Scania 3-serie, 4-serie, 5-serie, 6-serie. Удобный заказ онлайн. Подберите все необходимое для ремонта и обслуживания вашего грузовика!",
       "slug": "scania",
-      "name": "Scania"
+      "name": "Scania",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "volvo",
-      "name": "Volvo"
+      "name": "Volvo",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "hengst",
-      "name": "Hengst"
+      "name": "Hengst",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "kolbenschmidt",
-      "name": "Kolbenschmidt"
+      "name": "Kolbenschmidt",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "daf",
-      "name": "Daf"
+      "name": "Daf",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "iveco",
-      "name": "Iveco"
+      "name": "Iveco",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "renault",
-      "name": "Renault"
+      "name": "Renault",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "febi",
-      "name": "Febi"
+      "name": "Febi",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "mahle",
-      "name": "MAHLE"
+      "name": "MAHLE",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "luk",
-      "name": "Luk"
+      "name": "Luk",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "oeg",
-      "name": "OE Germany"
+      "name": "OE Germany",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "webasto",
-      "name": "Webasto"
+      "name": "Webasto",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "bosch",
-      "name": "BOSCH"
+      "name": "BOSCH",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "zf",
-      "name": "ZF"
+      "name": "ZF",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     },
     {
       "h1": "h1",
       "title": "title",
       "description": "description",
       "slug": "brembo",
-      "name": "Brembo"
+      "name": "Brembo",
+      "subcategories" : [
+        {
+          "h1": "h1",
+          "title": "title",
+          "description": "description",
+          "slug": "slug",
+          "name": "name"
+        }
+      ]
     }
 ]
