@@ -17,8 +17,9 @@
 .subcategories__inner {
   display: flex;
   flex-direction: row;
-  gap: calc(37vw/14.4);
-  /* justify-content: space-between; */
+  gap: calc(36vw/14.4);
+  justify-content: flex-start;
+  margin: 0 auto;
   /* gap: */
   flex-wrap: wrap;
   max-width: calc(1141vw/14.4);
