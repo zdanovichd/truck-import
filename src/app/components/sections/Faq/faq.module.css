@@ -4,28 +4,12 @@
     align-items: center;
     padding: calc(60vw/14.4) 10.5vw;
     gap: calc(60vw/14.4);
+    background-color: #F4F4F3;
 }
 
 .faqs__inner {
-
+    display: flex;
+    flex-direction: column;
+    gap: calc(2vw/14.4);
 }
 
-.faq {
-
-}
-
-.faq__inner {
-
-}
-
-.faq__question {
-
-}
-
-.faq__toggle {
-
-}
-
-.faq__answer {
-
-}

@@ -29,12 +29,13 @@
         }
       ],
       "subcat__title" : "Модельный ряд грузовиков Mercedes-Benz",
-      "first__section__title": "Подбор запчастей для грузовых автомобилей Mercedes",
-      "first__section__data": "<p>Для удобства наших клиентов мы предоставляем возможность подбора запчастей по артикулу. Это позволяет избежать ошибок при выборе деталей и гарантирует совместимость с вашей моделью грузового автомобиля. Вы также можете обратиться к нашим специалистам, которые помогут найти нужную запчасть.</p>",
-      "second__section__title": "Широкий ассортимент запчастей для Mercedes Actros, Atego, Axor",
-      "second__section__data": "<p>Широкий ассортимент запчастей для Mercedes Actros, Atego, Axor:</p><ul><li>Mercedes Actros – широкий выбор запчастей для двигателя, подвески, тормозной системы.</li><li>Mercedes Atego – детали топливной системы, фильтра, компрессор, амортизатор, колодки.</li><li>Mercedes Axor – запасные части для масляной системы, сцепления, краны, клапаны.</li></ul><p>Наш магазин запчастей гарантирует наличие товаров на складе, а также предлагает новые оригинальные запчасти и качественные аналоги.</p>",
-      "third__section__title": "Подбор запчастей для грузовых автомобилей Mercedes",
-      "third__section__data": "<p>Наша компания предлагает только проверенные запчасти Mercedes, соответствующие стандартам производителя. Мы работаем напрямую с поставщиками, что позволяет нам контролировать качество товаров. Вы получаете оригинальные запчасти, а также надежные аналоги с гарантией.</p>",
+      "first__place" : [
+        ["Подбор запчастей для грузовых автомобилей Mercedes", "<p>Для удобства наших клиентов мы предоставляем возможность подбора запчастей по артикулу. Это позволяет избежать ошибок при выборе деталей и гарантирует совместимость с вашей моделью грузового автомобиля. Вы также можете обратиться к нашим специалистам, которые помогут найти нужную запчасть.</p>"],
+        ["Широкий ассортимент запчастей для Mercedes Actros, Atego, Axor", "<p>Широкий ассортимент запчастей для Mercedes Actros, Atego, Axor:</p><ul><li>Mercedes Actros – широкий выбор запчастей для двигателя, подвески, тормозной системы.</li><li>Mercedes Atego – детали топливной системы, фильтра, компрессор, амортизатор, колодки.</li><li>Mercedes Axor – запасные части для масляной системы, сцепления, краны, клапаны.</li></ul><p>Наш магазин запчастей гарантирует наличие товаров на складе, а также предлагает новые оригинальные запчасти и качественные аналоги.</p>"]
+      ],
+      "second__place" : [
+        ["Подбор запчастей для грузовых автомобилей Mercedes", "<p>Наша компания предлагает только проверенные запчасти Mercedes, соответствующие стандартам производителя. Мы работаем напрямую с поставщиками, что позволяет нам контролировать качество товаров. Вы получаете оригинальные запчасти, а также надежные аналоги с гарантией.</p>"]
+      ],
       "faq__title": "Часто задаваемые вопросы о запчастях для Мерседеса",
       "faq__data": [
         ["Какие запчасти можно купить для грузового Mercedes?", "В нашем каталоге запчастей представлены детали для двигателя, подвески, тормозной системы, топливной системы, а также электрооборудования."],
@@ -53,22 +54,54 @@
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
-          "slug": "slug",
-          "name": "name"
+          "slug": "tga",
+          "name": "TGA"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "tgl",
+          "name": "TGL"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "tgm",
+          "name": "TGM"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "tgs",
+          "name": "TGS"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "tgx",
+          "name": "TGX"
         }
       ],
-      "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
-      "faq__title": "faq__title",
+      "first__place" : [
+        ["Запчасти MAN: Что нужно знать перед покупкой", "<p>При выборе запчастей MAN важно учитывать артикул, код, производителя и совместимость с конкретной моделью грузового автомобиля. В нашем каталоге представлены оригинальные и аналоги от ведущих производителей, что позволяет найти оптимальный вариант по цене и качеству. Оптовая продажа и розничные поставки позволяют приобретать товары как для личного использования, так и для автопарков.</p>"],
+        ["Как выбрать запчасти MAN: советы и рекомендации", "<p>Перед покупкой запчасти необходимо:</p><ul><li>Использовать поиск по VIN, чтобы находить точную деталь.</li><li>Проверить наличие запчастей на складах и актуальную цену.</li><li>Ознакомиться с отзывами клиентов и рекомендациями менеджеров.</li><li>Уточнить возможность доставки в Москву или по всей России.</li><li>Проверить условия возврата и гарантии.</li></ul>"],
+        ["Поиск запчастей MAN по VIN: пошаговая инструкция", "<ol><li>Введите VIN-код в каталог.</li><li>Система показывает доступные оригинальные и аналоговые детали.</li><li>Сравните цены и условия доставки.</li><li>Добавьте товар в корзину и оформите заказ.</li><li>Выберите удобный способ получения – на складе или с доставкой.</li></ol>"]
+      ],
+      "second__place" : [
+        ["Сравнение цен на запчасти MAN: как не переплатить", "<p>При анализе стоимости запчастей стоит учитывать:</p><ul><li>Производителя (оригинальные или аналоги).</li><li>Специфику модели: MAN TGA, TGX, TGS, TGM, TGL.</li><li>Доступность на складах и стоимость доставки.</li><li>Технические характеристики (например, тормозная система, шины, лампы).</li><ul>"],
+        ["Запчасти MAN для различных моделей: полный обзор", "<ul><li>MAN TGA – моторные и трансмиссионные жидкости, диски, аккумуляторы.</li><li>MAN TGX – щетки стеклоочистителя, тормозная система, топливные фильтры.</li><li>MAN TGS – автохимия, стекла, шины, колесные диски.</li><li>MAN TGM – кузовные детали, омыватель стекла, коврики, чехлы.</li><ul>"],
+        ["Распространенные ошибки при покупке запчастей MAN и как их избежать", "<ol><li>Покупка без проверки артикула и VIN-кода.</li><li>Выбор неоригинальных деталей без проверки качества.</li><li>Отсутствие информации о возврате и гарантии.</li><li>Заказ без учета условий доставки за пределы МКАД.</li></ol><p>Для точного подбора запчастей MAN используйте наш каталог, где можно найти любые запчасти по артикулу, производителю и цене. Оформите заказ онлайн и получите быструю доставку по всей России удобным способом.</p>"]
+      ],
+      "subcat__title" : "Модельный ряд грузовиков MAN",
+      "faq__title": "Часто задаваемые вопросы о запчастях MAN",
       "faq__data": [
-        ["faq_question_1", "faq_answer_1"],
-        ["faq_question_2", "faq_answer_2"],
-        ["faq_question_3", "faq_answer_3"]
+        ["В наличии ли нужные мне запчасти для грузовиков MAN?", "Наш интернет-магазин предлагает широкий ассортимент оригинальных запчастей MAN, включая детали двигателя, тормозной системы, подвески и КПП. Для точного подбора воспользуйтесь онлайн-каталогом или отправьте VIN-запрос через форму на сайте. Специалисты оперативно проверят наличие нужных запчастей на складе и предложат оптимальные варианты. Регулярные поставки от официального дистрибьютора позволяют поддерживать стабильное наличие популярных позиций."],
+        ["Как часто нужно менять запчасти для грузовиков MAN?", "Периодичность замены запчастей MAN зависит от модели техники, условий эксплуатации и рекомендаций производителя. Основные интервалы обслуживания: каждые 15-20 тыс. км – замена масла и фильтров; 40-60 тыс. км – проверка тормозной системы; 100-120 тыс. км – замена ремня ГРМ. При интенсивной работе в сложных условиях интервалы сокращаются. Своевременное обслуживание продлевает ресурс агрегатов и минимизирует риск поломок."],
+        ["Есть ли гарантии на запчасти MAN?", "Мы предоставляем официальную гарантию от производителя на весь ассортимент запчастей MAN сроком до 12 месяцев. Гарантийные обязательства распространяются при условии профессиональной установки и соблюдения правил эксплуатации. В случае выявления заводского брака мы обеспечиваем бесплатную замену или возврат средств. Все запчасти сертифицированы и имеют необходимую документацию, подтверждающую их оригинальность."]
       ]
     },
     {
@@ -82,22 +115,44 @@
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
-          "slug": "slug",
-          "name": "name"
+          "slug": "3-serie",
+          "name": "3 серии"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "4-serie",
+          "name": "4 серии"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "5-serie",
+          "name": "5 серии"
+        },
+        {
+          "h1": "h1",
+          "meta__title": "meta__title",
+          "meta__description": "meta__description",
+          "slug": "6-serie",
+          "name": "6 серии"
         }
       ],
-      "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
-      "faq__title": "faq__title",
+      "subcat__title" : "Модельный ряд грузовиков Scania",
+      "first__place" : [
+        ["Как выбрать запчасти Scania: советы и рекомендации", "<p>Чтобы правильно выбрать запчасти для грузовиков Scania, важно учитывать модель и год выпуска автомобиля. В Москве наши специалисты помогут подобрать оптимальный вариант по запросу клиента. Особое внимание уделяйте тормозным системам, элементам подвески и кузовным запчасти. При выборе выбранной запчасти обращайте внимание на совместимость с двигателем и коробкой передач. Для технического обслуживания рекомендуем оригинальные масла и клапана гидроусилителя.</p>"],
+        ["Широкий ассортимент запчастей для Scania 3-Serie, 4-Serie, 5-Serie, 6-Serie", "<p>В нашем каталоге представлены запчасти для всех популярных серий грузовиков Scania с распределением по моделям. Для каждой серии доступны запчасти осей, системы охлаждения, топливная система и элементы рулевого управления. Широкий выбор ступицы, диски и тормозные механизмы обеспечивает комплексное обслуживание спецтехники. Цены на товары конкурентные, возможна доставка по Москве и регионам.</p>"]
+      ],
+      "second__place" : [
+        ["Гарантия качества на запчасти для грузовиков Scania", "<p>Мы предоставляем официальную гарантию на все запчасти для грузовиков Scania. Это касается как оригинальных деталей, так и качественных аналогов. Гарантийный срок зависит от типа товара – от элементов подвески до системы охлаждения. При возникновении вопросов вы можете обратиться к нам по телефону. Все запчасти проходят тщательную проверку перед отправкой клиенту, что обеспечивает высокое качество каждой единицы товара.</p>"]
+      ],
+      "faq__title": "Часто задаваемые вопросы о запчастях Scania",
       "faq__data": [
-        ["faq_question_1", "faq_answer_1"],
-        ["faq_question_2", "faq_answer_2"],
-        ["faq_question_3", "faq_answer_3"]
+        ["В наличии ли нужные мне запчасти для грузовиков Scania?", "Да, в нашем каталоге представлен широкий ассортимент запчастей с распределением по моделям и сериям. Вы можете выбрать необходимые детали, включая тормозные системы, элементы подвески, кузовные запчасти и компоненты двигателя. Если вы не нашли нужный товар, отправьте запрос через форму на сайте или позвоните нам."],
+        ["Как оформить заказ на запчасти Scania?", "Оформить заказ очень просто: выберите интересующую запчасть в каталоге, добавьте ее в корзину и следуйте инструкциям на сайте. Также вы можете связаться с нами по телефону, и наши специалисты помогут вам оформить заказ."],
+        ["Как быстро осуществляется доставка запчастей в Москву и регионы?", "Доставка запчастей Scania по Москве выполняется в течение 1–2 дней после оформления заказа. В регионы отправляем транспортными компаниями, сроки зависят от удаленности. Точные даты доставки уточняйте у наших менеджеров."]
       ]
     },
     {
@@ -116,12 +171,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -145,12 +200,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -174,12 +229,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -203,12 +258,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -232,12 +287,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -261,12 +316,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -290,12 +345,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -319,12 +374,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -348,12 +403,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -377,12 +432,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -406,12 +461,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -435,12 +490,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -464,12 +519,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -493,12 +548,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],
@@ -522,12 +577,12 @@
         }
       ],
       "subcat__title" : "subcat__title",
-      "first__section__title": "first__section__title",
-      "first__section__data": "first__section__data",
-      "second__section__title": "second__section__title",
-      "second__section__data": "second__section__data",
-      "third__section__title": "third__section__title",
-      "third__section__data": "third__section__data",
+      "first__place" : [
+        ["first__section__title", "first__section__data"]
+      ],
+      "second__place" : [
+        ["second__section__title", "second__section__data"]
+      ],
       "faq__title": "faq__title",
       "faq__data": [
         ["faq_question_1", "faq_answer_1"],

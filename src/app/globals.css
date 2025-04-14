@@ -106,6 +106,7 @@ ul, li {
 
 #catalog-submenu {
   /* padding-right: 25vw; */
+  width: 34vw;
   max-height: calc(220vw/14.4);
 }
 
@@ -126,8 +127,8 @@ a[aria-current="page"] {
 .menu .menu {
   gap: .86vw 1.05vw;
   padding: .8vw .2vw;
-  width: 34vw;
-  /* width: 100%; */
+
+  width: 100%;
   height: max-content;
 
 

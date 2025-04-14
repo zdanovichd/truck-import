@@ -32,7 +32,9 @@ export default async function Page({ params }) {
   const { slug } = await params
   const brand = brands.find(brand => brand.slug === slug);
   const subcategories = brand.subcategories;
-  // console.log(subcategories);
+  const first__place = brand.first__place;
+  const second__place = brand.second__place;
+  console.log(first__place);
   if (!brand) {
     notFound();
   }
@@ -159,7 +161,21 @@ export default async function Page({ params }) {
             </div>
           </div>
         </section>
-        <section className={styles.assortment}>
+        {first__place.map((item, index) => (
+            <section className={styles.assortment} key={index}>
+              <SectionTitle
+                title={item[0]}
+                align="left"
+              />
+              <div
+                  className={styles.assortment__inner}
+                  dangerouslySetInnerHTML={{ __html: item[1] }}
+                >
+              </div>
+            </section>
+              ))}
+
+        {/* <section className={styles.assortment}>
           <SectionTitle
             title={brand.first__section__title}
             align="left"
@@ -180,15 +196,15 @@ export default async function Page({ params }) {
               dangerouslySetInnerHTML={{ __html: brand.second__section__data }}
             >
           </div>
-        </section>
+        </section> */}
       <Reviews
         description={`Наши клиенты отмечают надежность и долговечность представленных запчастей на грузовики ${brand.name}. Многие владельцы грузовиков ${brand.name} доверяют нам, поскольку у нас всегда в наличии запасные части, соответствующие стандартам качества. Ознакомьтесь с фотографиями запчастей в нашем каталоге и сделайте правильный выбор!`}
       />
-      {/* <Faq
+      <Faq
         title={brand.faq__title}
         data={brand.faq__data}
-      /> */}
-      <section className={styles.assortment}>
+      />
+      {/* <section className={styles.assortment}>
           <SectionTitle
             title={brand.third__section__title}
             align="left"
@@ -198,7 +214,20 @@ export default async function Page({ params }) {
               dangerouslySetInnerHTML={{ __html: brand.third__section__data }}
             >
           </div>
-        </section>
+        </section> */}
+        {second__place.map((item, index) => (
+            <section className={styles.assortment} key={index}>
+              <SectionTitle
+                title={item[0]}
+                align="left"
+              />
+              <div
+                  className={styles.assortment__inner}
+                  dangerouslySetInnerHTML={{ __html: item[1] }}
+                >
+              </div>
+            </section>
+              ))}
       <section className="">
 
       </section>

@@ -17,8 +17,9 @@
 .subcategories__inner {
   display: flex;
   flex-direction: row;
-  gap: calc(41vw/14.4) 0;
-  justify-content: space-between;
+  gap: calc(37vw/14.4);
+  /* justify-content: space-between; */
+  /* gap: */
   flex-wrap: wrap;
   max-width: calc(1141vw/14.4);
   padding: calc(60vw/14.4) 0 0;
@@ -99,18 +100,24 @@ width: auto;
   gap: calc(18vw/14.4);
 }
 
-.assortment li {
+.assortment ul li {
   list-style: disc;
 }
 
-.assortment ul {
+.assortment ol li {
+  list-style: number;
+}
+
+.assortment ul,
+.assortment ol {
   padding-left: calc(24vw/14.4);
 }
 
 
 .assortment p,
 .assortment ul,
-.assortment li {
+.assortment li,
+.assortment ol {
   font-family: 'Gilroy-Regular', sans-serif;
   font-size: calc(18vw/14.4);
 }

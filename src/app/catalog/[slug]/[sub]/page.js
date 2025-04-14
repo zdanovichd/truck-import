@@ -40,6 +40,7 @@ export default async function Page({ params }) {
       <section className={styles.category__hero}>
         <h1 className={styles.category__title}>{subcategory.h1}</h1>
       </section>
+      
     </main>
   );
 }
