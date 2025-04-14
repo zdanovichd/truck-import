@@ -34,7 +34,7 @@ export default async function Page({ params }) {
   const subcategories = brand.subcategories;
   const first__place = brand.first__place;
   const second__place = brand.second__place;
-  console.log(first__place);
+  // console.log(first__place);
   if (!brand) {
     notFound();
   }

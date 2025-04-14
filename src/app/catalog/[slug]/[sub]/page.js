@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { slug, sub } = await params
-  console.log(sub)
+  // console.log(sub)
   const brand = brands.find(brand => brand.slug === slug);
   const subcategories = brand.subcategories;
   const subcategory = subcategories.find(subcategory => subcategory.slug === sub);
@@ -40,7 +40,7 @@ export default async function Page({ params }) {
       <section className={styles.category__hero}>
         <h1 className={styles.category__title}>{subcategory.h1}</h1>
       </section>
-      
+
     </main>
   );
 }

@@ -12,13 +12,17 @@
 
 .subcategories {
   padding: calc(60vw/14.4) 10.5vw calc(100vw/14.4);
+  /* margin: 0 auto; */
 }
 
 .subcategories__inner {
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  gap: calc(36vw/14.4);
+  gap: calc(29vw/14.4);
   justify-content: flex-start;
+  /* justify-content: space-between; */
+  /* gap: calc(37vw/14.4); */
   margin: 0 auto;
   /* gap: */
   flex-wrap: wrap;
@@ -27,6 +31,7 @@
 }
 
 .subcategory {
+  /* margin: 0 auto; */
   text-decoration: none;
   color: #141313;
   border: calc(1vw/14.4) solid #E1E4ED;
