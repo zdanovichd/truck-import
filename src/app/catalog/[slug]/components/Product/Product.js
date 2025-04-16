@@ -11,7 +11,21 @@ import Feedback from "@/app/components/ui/Feedback/Feedback";
 import { useState } from 'react';
 
 export default function Product({ product = [] }) {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0); // Основное значение
+    const [inputValue, setInputValue] = useState(count.toString()); // Локальное значение для input
+
+    // Обработчик изменения количества
+    const handleCountChange = (newCount) => {
+        const validatedCount = Math.max(0, Math.min(newCount, product.count)); // Ограничение min=1, max=product.count
+        setCount(validatedCount);
+        setInputValue(validatedCount.toString());
+    };
+
+    // Обработчик ввода
+    const handleInputBlur = () => {
+        const numValue = parseInt(inputValue) || 1; // Если не число - вернет 1
+        handleCountChange(numValue);
+    };
     console.log(count);
     const specifications = product.specifications;
   return (
@@ -77,24 +91,36 @@ export default function Product({ product = [] }) {
                                 <>
                                     <button
                                         className={styles.cart__button_enabled}
-                                        onClick={() => setCount(count - 1)}
-                                    >-</button>
+                                        onClick={() => handleCountChange(count - 1)}
+                                        // disabled={count <= 1} // Отключаем если count = 1
+                                    >
+                                    -
+                                    </button>
+
                                     <input
                                         type="number"
-                                        value={count}
-                                        onChange={(e) => setCount(Number(e.target.value))}
+                                        value={inputValue}
+                                        onChange={(e) => setInputValue(e.target.value)}
+                                        onBlur={handleInputBlur}
+                                        onKeyDown={(e) => e.key === 'Enter' && handleInputBlur()}
+                                        // min="0"
+                                        max={product.count}
+                                        className={styles.counter__input}
                                     />
+
                                     <button
                                         className={styles.cart__button_enabled}
-                                        onClick={() => setCount(count + 1)}
-                                        disabled={count == product.count ? true : false}
-                                    >+</button>
+                                        onClick={() => handleCountChange(count + 1)}
+                                        disabled={count >= product.count} // Отключаем если достигнут максимум
+                                    >
+                                    +
+                                    </button>
                                 </>
 
                             ) : (
                                 <button
                                     className={styles.cart__button_enabled}
-                                    onClick={() => setCount(count + 1)}
+                                    onClick={() => handleCountChange(count + 1)}
                                 >
                                     <Image
                                         src="/cart.svg"

@@ -298,6 +298,7 @@
     padding: calc(30vw/14.4);
     background: #F4F4F3;
     margin-top: calc(5vw/14.4);
+    /* cursor: pointer; */
 }
 
 .cart__button_enabled {
@@ -316,6 +317,11 @@
     line-height: 120%;
     letter-spacing: -2%;
     gap: calc(10vw/14.4);
+    cursor: pointer;
+}
+
+.cart__button_enabled:disabled {
+    cursor: default;
 }
 
 .cart__button_disabled {
