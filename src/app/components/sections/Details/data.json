@@ -1,0 +1,97 @@
+[
+    {
+        "title": "Бампер и грузовые запчасти",
+        "slug": "bumper",
+        "image": "/services/0.png"
+    },
+    {
+        "title": "Запчасти двигателя",
+        "slug": "engine",
+        "image": "/services/1.png"
+    },
+    {
+        "title": "Запчасти рулевого управления",
+        "slug": "steering",
+        "image": "/services/2.png"
+    },
+    {
+        "title": "Запчасти топливной системы",
+        "slug": "fuel",
+        "image": "/services/3.png"
+    },
+    {
+        "title": "Запчасти трансмиссии",
+        "slug": "transmission",
+        "image": "/services/4.png"
+    },
+    {
+        "title": "Камеры тормозные и энергоаккумуляторы",
+        "slug": "brakecam",
+        "image": "/services/5.png"
+    },
+    {
+        "title": "Колодки и диски тормозные",
+        "slug": "brakepads",
+        "image": "/services/6.png"
+    },
+    {
+        "title": "Компрессор воздушный",
+        "slug": "compressor",
+        "image": "/services/7.png"
+    },
+    {
+        "title": "Краны, клапаны и модуляторы",
+        "slug": "valves",
+        "image": "/services/8.png"
+    },
+    {
+        "title": "Масло, антифриз и ГСМ",
+        "slug": "fluids",
+        "image": "/services/9.png"
+    },
+    {
+        "title": "Подвеска",
+        "slug": "suspension",
+        "image": "/services/10.png"
+    },
+    {
+        "title": "Радиатор и интеркулер",
+        "slug": "radiator",
+        "image": "/services/11.png"
+    },
+    {
+        "title": "Ремни, ролики и натяжители",
+        "slug": "belts",
+        "image": "/services/12.png"
+    },
+    {
+        "title": "Электрика, стартеры и генераторы",
+        "slug": "electric",
+        "image": "/services/13.png"
+    },
+    {
+        "title": "Ступицы",
+        "slug": "hubs",
+        "image": "/services/14.png"
+    },
+    {
+        "title": "Сцепление",
+        "slug": "clutch",
+        "image": "/services/15.png"
+    },
+    {
+        "title": "Турбина",
+        "slug": "turbine",
+        "image": "/services/16.png"
+    },
+    {
+        "title": "Фары и фонари",
+        "slug": "lights",
+        "image": "/services/17.png"
+    },
+    {
+        "title": "Фильтры",
+        "slug": "filters",
+        "image": "/services/18.png"
+    }
+]

@@ -2,7 +2,7 @@
 import styles from "./sectiontitle.module.css";
 import Image from "next/image";
 
-export default function SectionTitle({ title=[], align = "center"}) {
+export default function SectionTitle({ title=[], align = "center", fontSize = 36}) {
     const validTextAlignValues = [
         "left", "right", "center", "justify", "start", "end", "match-parent",
         "inherit", "initial", "unset"
@@ -21,7 +21,10 @@ export default function SectionTitle({ title=[], align = "center"}) {
     return (
         <h2
             className={styles.title}
-            style={{textAlign: align}}
+            style={{
+                textAlign: align,
+                fontSize: `calc(${fontSize}vw/14.4)`
+            }}
         >{title}</h2>
     )
 }

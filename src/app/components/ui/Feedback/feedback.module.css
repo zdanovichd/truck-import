@@ -1,0 +1,45 @@
+.feedback {
+    display: flex;
+    flex-direction: column;
+    width: calc(426vw/14.4);
+    gap: calc(16vw/14.4);
+}
+
+.feedback input {
+    gap: calc(1vw/14.4);
+
+    border: calc(1vw/14.4) solid #C6C6C6;
+    border-radius: calc(10vw/14.4);
+
+    background-color: #ffffff;
+
+    padding: calc(16vw/14.4) calc(30vw/14.4);
+
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 500;
+    font-size: calc(16vw/14.4);
+    outline: none;
+}
+
+.feedback input::placeholder {
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 500;
+    font-size: calc(16vw/14.4);
+    color: #A9A9A9;
+}
+
+.feedback button {
+    gap: calc(6vw/14.4);
+
+    border: none;
+    border-radius: calc(10vw/14.4);
+
+    background-color: #C9AC37;
+
+    padding: calc(16vw/14.4) calc(30vw/14.4);
+
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 700;
+    font-size: calc(16vw/14.4);
+    outline: none;
+}

@@ -1,4 +1,5 @@
-[
+{
+  "brands": [
     {
       "h1": "Запчасти для грузовиков Mercedes",
       "meta__title": "Запчасти для грузовиков Мерседес купить в Москве с доставкой",
@@ -11,21 +12,69 @@
           "meta__title": "Запчасти Mercedes Actros купить в Москве",
           "meta__description": "Купить запчасти для Мерседес Актрос в Москве по выгодным ценам. Оригинальные и б/у детали с гарантией, доставка по всей России. Большой ассортимент, подбор по артикулу, быстрая отправка. Надежные запчасти для вашего грузовика – закажите прямо сейчас!",
           "slug": "actros",
-          "name": "Actros"
+          "name": "Actros",
+          "faq__title": "Часто задаваемые вопросы о запчастях для Мерседеса",
+          "faq__data": [
+            ["Как выбрать запчасти для Mercedes Actros?", "Наши квалифицированные специалисты помогут вам найти нужные детали для вашего автомобиля."],
+            ["Какие марки грузовых автомобилей представлены?", "У нас есть запчасти для Scania, DAF, Volvo, Iveco, Renault, MAN и других брендов."],
+            ["Где купить запчасти Mercedes Actros?", "Вы можете оформить заказ на нашем сайте и выбрать любой удобный способ доставки."]
+          ],
+          "first__place": [
+            ["Обзор запчастей для Mercedes Actros", "<p>Mercedes Benz Actros – один из самых популярных грузовых автомобилей, который широко используется в различных сферах грузоперевозок. В нашем каталоге запчастей вы найдете запасные части для Mercedes Actros, включая элементы тормозной системы, подвески Mercedes, топливной системы, а также блок управления. Мы предлагаем как оригинальные запчасти, так и качественные аналоги.</p>"],
+            ["Амортизаторы для Mercedes Actros: особенности и выбор", "<p>Правильный выбор амортизаторов задних для Mercedes Actros играет ключевую роль в безопасности движения. В нашем каталоге представлены амортизаторы задние ведущих производителей, совместимые с Mercedes Benz Actros. Мы предлагаем как оригинальные запчасти, так и проверенные аналоги.</p>"],
+            ["Типы АКПП для Mercedes Actros", "<p>Mercedes Benz Actros комплектуется различными видами автоматических коробок передач (АКПП), включая:</p><ul><li>Полуавтоматическую АКПП с электронным управлением.</li><li>Полностью автоматическую АКПП с гидротрансформатором.</li><li>Роботизированную трансмиссию с адаптивными функциями.</li></ul><p>Выбор подходящей АКПП зависит от условий эксплуатации и требований к грузовому автомобилю.</p>"]
+          ],
+          "second__place": [
+            ["Цены на запчасти для Mercedes Actros", "<p>Цены на запчасти Mercedes Benz Actros зависят от типа и бренда производителя. Мы предлагаем конкурентоспособные цены на детали для:</p><ul><li>Тормозной системы;</li><li>Подвески Mercedes;</li><li>Блоков управления;</li><li>Топливной системы;</li><li>Фильтров и других элементов.</li></ul><p>Свяжитесь с нашим менеджером для получения актуальной информации о наличии и стоимости.</p>"],
+            ["Обслуживание и ремонт Mercedes Actros: советы и рекомендации", "<p>Правильное обслуживание Mercedes Actros позволяет значительно увеличить срок службы автомобиля. Основные рекомендации:</p><ul><li>Регулярная замена масла в двигателе и трансмиссии.</li><li>Проверка рулевого управления и тормозной системы.</li><li>Использование оригинальных запчастей для ремонта.</li></ul><p>Наши квалифицированные специалисты помогут вам подобрать запчасти для Mercedes и дадут рекомендации по их установке. Свяжитесь с нами для консультации и подбора необходимых деталей.</p>"],
+            ["Гарантия качества запчастей для Mercedes Actros", "<p>Мы гарантируем высокое качество всех представленных запчастей Mercedes. Вся продукция проходит строгий контроль, а наши специалисты рекомендуют только проверенные оригинальные запчасти. В случае необходимости возможен возврат товара в соответствии с нашей политикой.</p>"]
+          ]
         },
         {
           "h1": "Запчасти Мерседес Атего",
           "meta__title": "Купить запчасти для Мерседес Атего: кузов, наружные элементы, доставка по России",
           "meta__description": "Запчасти для грузовиков по доступным ценам! У нас вы найдете все необходимые кузовные элементы и детали для вашего автомобиля из Европы, проверенные и без пробега по РФ. Быстрая доставка по всей России и удобный каталог для заказа. Обеспечьте своему грузовику надежность!",
           "slug": "atego",
-          "name": "Atego"
+          "name": "Atego",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "Запчасти Mercedes Axor",
           "meta__title": "Запчасти для Мерседес Аксор: каталог с фото, купить по низким ценам в Москве",
           "meta__description": "Запчасти для Мерседес Аксор по доступным ценам! В нашем каталоге вы найдете реальные фотографии и актуальные цены на запчасти. Быстрая доставка по всей России. Заказывайте прямо сейчас и обеспечьте своему автомобилю надежность и качество!",
           "slug": "axor",
-          "name": "Axor"
+          "name": "Axor",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "Модельный ряд грузовиков Mercedes-Benz",
@@ -55,35 +104,115 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "tga",
-          "name": "TGA"
+          "name": "TGA",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "tgl",
-          "name": "TGL"
+          "name": "TGL",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "tgm",
-          "name": "TGM"
+          "name": "TGM",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "tgs",
-          "name": "TGS"
+          "name": "TGS",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "tgx",
-          "name": "TGX"
+          "name": "TGX",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "first__place" : [
@@ -116,28 +245,92 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "3-serie",
-          "name": "3 серии"
+          "name": "3 серии",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "4-serie",
-          "name": "4 серии"
+          "name": "4 серии",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "5-serie",
-          "name": "5 серии"
+          "name": "5 серии",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         },
         {
           "h1": "h1",
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "6-serie",
-          "name": "6 серии"
+          "name": "6 серии",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "Модельный ряд грузовиков Scania",
@@ -167,7 +360,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -196,7 +405,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -225,7 +450,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -254,7 +495,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -283,7 +540,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -312,7 +585,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -341,7 +630,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -370,7 +675,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -399,7 +720,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -428,7 +765,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -457,7 +810,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -486,7 +855,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -515,7 +900,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -544,7 +945,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -573,7 +990,23 @@
           "meta__title": "meta__title",
           "meta__description": "meta__description",
           "slug": "slug",
-          "name": "name"
+          "name": "name",
+          "faq__title": "faq__title",
+          "faq__data": [
+            ["faq_question_1", "faq_answer_1"],
+            ["faq_question_2", "faq_answer_2"],
+            ["faq_question_3", "faq_answer_3"]
+          ],
+          "first__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ],
+          "second__place": [
+            ["", ""],
+            ["", ""],
+            ["", ""]
+          ]
         }
       ],
       "subcat__title" : "subcat__title",
@@ -590,4 +1023,25 @@
         ["faq_question_3", "faq_answer_3"]
       ]
     }
-]
+  ],
+  "products": [
+    {
+      "sku": "QEV111AJC39M",
+      "name": "Mercedes-Benz Evobus",
+      "price": "20",
+      "count": "5",
+      "description": "Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации ",
+      "brand": "Mercedes",
+      "delivery": "15 дней",
+      "specifications": [
+        ["Заголовок", "инфо"],
+        ["Заголовок", "инфо"],
+        ["Заголовок", "инфо"],
+        ["Заголовок", "инфо"],
+        ["Заголовок", "инфо"],
+        ["Заголовок", "инфо"],
+        ["Заголовок", "инфо"]
+      ]
+    }
+  ]
+}

@@ -39,8 +39,8 @@
  }
 
  .phones__item {
-   font-family: 'Gilroy-Medium', sans-serif;
-   font-weight: 400;
+   font-family: var(--font-gilroy), sans-serif;
+   font-weight: 500;
    font-size: calc(32vw/14.4);
    color: #FFFFFF;
    text-decoration: none;
@@ -53,8 +53,8 @@
  }
 
  .footer__privacy {
-   font-family: 'Gilroy-Medium', sans-serif;
-   font-weight: 400;
+   font-family: var(--font-gilroy), sans-serif;
+   font-weight: 500;
    font-size: calc(16vw/14.4);
    color: #FFFFFF99;
    text-decoration: underline;
@@ -70,8 +70,8 @@
    display: flex;
    align-items: center;
    gap: calc(21vw/14.4);
-   font-family: 'Gilroy-Medium', sans-serif;
-   font-weight: 400;
+   font-family: var(--font-gilroy), sans-serif;
+   font-weight: 500;
    font-size: calc(20vw/14.4);
    vertical-align: middle;
    text-decoration: none;
@@ -94,8 +94,8 @@
  }
 
  .footer__socials_title {
-   font-family: 'Gilroy-Medium', sans-serif;
-   font-weight: 400;
+   font-family: var(--font-gilroy), sans-serif;
+   font-weight: 500;
    font-size: calc(18vw/14.4);
    color: #FFFFFF;
  }

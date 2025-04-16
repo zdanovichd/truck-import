@@ -1,5 +1,3 @@
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,6 +6,10 @@
 
 body {
   overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
 
 ul, li {
@@ -46,7 +48,8 @@ ul, li {
   align-items: center;
   padding:  .5vw .68vw;
   font-size: calc(18vw/14.4);
-  font-family: 'Gilroy-Medium', sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 500;
   color: #ffffff;
   cursor: pointer;
   border: none;
@@ -82,7 +85,7 @@ ul, li {
 
 .menu__btn-icon {
   color: inherit;
-  transition: transform .1s linear;
+  /* transition: transform .1s linear; */
   width: .7vw;
   height: .6vw;
 }
@@ -163,7 +166,7 @@ a[aria-current="page"] {
 
 .menu[hidden] {
   display: none;
-  transition: display 0.2s linear;
+  /* transition: display 0.2s linear; */
 }
 
 .logo {
@@ -181,7 +184,8 @@ height: auto;
 }
 
 .text {
-  font-family: 'Gilroy-Regular', sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 400;
   font-size: calc(18vw/14.4);
 }
 

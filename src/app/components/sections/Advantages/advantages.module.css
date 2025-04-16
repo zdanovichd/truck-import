@@ -29,7 +29,8 @@
 }
 
 .advantages__text {
-    font-family: 'Gilroy-Bold', sans-serif;
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 700;
     font-size: calc(22vw/14.4);
     text-align: center;
 }

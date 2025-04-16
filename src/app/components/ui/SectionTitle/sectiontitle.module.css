@@ -1,7 +1,6 @@
 .title {
-    font-family: 'Gilroy-Medium', sans-serif;
+    font-family: var(--font-gilroy), sans-serif;
     font-weight: 400;
-    font-size: calc(36vw/14.4);
     color: #141313;
     /* text-align: center; */
 }
