@@ -203,8 +203,26 @@ export default async function Category({ brand = [] }) {
               </div>
             </section>
               ))}
-      <section className="">
-              {/* <Feedback /> */}
+      <section className={styles.feedback}>
+              <div className={styles.feedback__inner}>
+                <SectionTitle
+                  title={`Доставка запчастей для грузовиков ${brand.name} по Москве: условия и стоимость`}
+                  align="left"
+                  fontSize={32}
+                />
+                <div className={styles.feedback__content}>
+                  <p>Мы предлагаем быструю доставку по Москве и всей России.</p>
+                  <br/>
+                  <ul>
+                    <li>Доставка осуществляется в течение 1-2 дней при наличии товара на складе.</li>
+                    <li>Возможен самовывоз из пункта выдачи.</li>
+                    <li>Для оптовых покупателей действуют специальные условия.</li>
+                  </ul>
+                  <br/>
+                  <p>Выберите нужную запчасть, оформите заказ и получите товар в кратчайшие сроки! Свяжитесь с нами для консультации и подбора необходимых деталей!</p>
+                </div>
+              </div>
+              <Feedback />
       </section>
     </main>
   );

@@ -6,6 +6,7 @@ import Details from "@/app/components/sections/Details/Details";
 import Search from "@/app/components/ui/Search/Search";
 import SectionTitle from "@/app/components/ui/SectionTitle/SectionTitle";
 import Faq from "@/app/components/sections/Faq/Faq";
+import Feedback from "@/app/components/ui/Feedback/Feedback";
 
 export const dynamicParams = false;
 
@@ -147,7 +148,25 @@ export default async function Page({ params }) {
         </div>
       </section>
 
-      <section></section>
+      <section className={styles.feedback}>
+              <div className={styles.feedback__inner}>
+                <SectionTitle
+                  title={`Доставка запчастей по Москве: условия и стоимость`}
+                  align="left"
+                  fontSize={32}
+                />
+                <div className={styles.feedback__content}>
+                  <p>Мы предлагаем быструю доставку по Москве и Московской области. Возможны разные способы получения товаров:</p>
+                  <br/>
+                  <ul>
+                    <li>Самовывоз из нашего склада.</li>
+                    <li>Доставка курьером по Москве.</li>
+                    <li>Отправка транспортной компанией по всей России.</li>
+                  </ul>
+                </div>
+              </div>
+              <Feedback />
+      </section>
     </main>
   );
 }

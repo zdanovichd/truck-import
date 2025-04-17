@@ -24,7 +24,7 @@ ul, li {
   min-width: max-content;
   background: #141313;
   color: #ffffff;
-  gap: 5.3vw;
+  gap: calc(60vw/14.4);
 }
 
 .menu.menu_vertical {

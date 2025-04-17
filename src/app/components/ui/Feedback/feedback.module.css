@@ -1,11 +1,59 @@
 .feedback {
     display: flex;
     flex-direction: column;
+    /* width: 550; */
+    height: calc(461vw/14.4);
+    gap: calc(30vw/14.4);
+    border-radius: calc(8vw/14.4);
+    padding: calc(40vw/14.4);
+    border: calc(1vw/14.4) solid #E1E4ED;
+    box-shadow: calc(0vw/14.4) calc(1vw/14.4) calc(4vw/14.4) calc(0vw/14.4) #19213D14;
+    background: #141313;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback__title {
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 500;
+    font-size: calc(32vw/14.4);
+    line-height: 110.00000000000001%;
+    letter-spacing: -2%;
+    text-align: center;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.feedback__subtitle {
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 400;
+    font-size: calc(16vw/14.4);
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.feedback__mark {
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 400;
+    font-size: calc(14vw/14.4);
+    line-height: 100%;
+    letter-spacing: -2%;
+    text-align: center;
+    vertical-align: middle;
+    color: #B0B0B0;
+}
+
+.feedback__form {
+    display: flex;
+    flex-direction: column;
     width: calc(426vw/14.4);
     gap: calc(16vw/14.4);
 }
 
-.feedback input {
+.feedback__form input {
     gap: calc(1vw/14.4);
 
     border: calc(1vw/14.4) solid #C6C6C6;
@@ -21,14 +69,14 @@
     outline: none;
 }
 
-.feedback input::placeholder {
+.feedback__form input::placeholder {
     font-family: var(--font-gilroy), sans-serif;
     font-weight: 500;
     font-size: calc(16vw/14.4);
     color: #A9A9A9;
 }
 
-.feedback button {
+.feedback__form button {
     gap: calc(6vw/14.4);
 
     border: none;

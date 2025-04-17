@@ -1,340 +1,237 @@
 'use client'
 import styles from "./header.module.css";
 import Image from "next/image";
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import Link from 'next/link'
 
-export default function Header() {
+const menuItems = [
+  {
+    title: "Каталог запчастей",
+    name: "catalog",
+    items: [
+      { name: "Mercedes", href: "/catalog/mercedes" },
+      { name: "Man", href: "/catalog/man" },
+      { name: "Scania", href: "/catalog/scania" },
+      { name: "Volvo", href: "/catalog/volvo" },
+      { name: "Hengst", href: "/catalog/hengst" },
+      { name: "Kolbenschmidt", href: "/catalog/kolbenschmidt" },
+      { name: "Daf", href: "/catalog/daf" },
+      { name: "Iveco", href: "/catalog/iveco" },
+      { name: "Renault", href: "/catalog/renault" },
+      { name: "Febi", href: "/catalog/febi" },
+      { name: "MAHLE", href: "/catalog/mahle" },
+      { name: "Luk", href: "/catalog/luk" },
+      { name: "OE Germany", href: "/catalog/oeg" },
+      { name: "Webasto", href: "/catalog/webasto" },
+      { name: "BOSCH", href: "/catalog/bosch" },
+      { name: "ZF", href: "/catalog/zf" }
+    ]
+  },
+  {
+    title: "Покупателям",
+    name: "buyers",
+    items: [
+      { name: "Оплата и доставка", href: "#" },
+      { name: "Гарантия", href: "#" },
+      { name: "Контакты", href: "#" },
+      { name: "Сотрудничество", href: "#" },
+      { name: "Возврат", href: "#" }
+    ]
+  },
+  {
+    title: "О проекте",
+    name: "about",
+    items: [
+      { name: "Документы", href: "#" },
+      { name: "Вакансии", href: "#" }
+    ]
+  }
+];
 
+const arrowIcon = `
+  <svg
+    width="10"
+    height="7"
+    viewBox="0 0 10 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    class="menu__btn-icon"
+  >
+    <path d="M9 1L5 5L1 1" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+`;
+
+export default function Header() {
   useEffect(() => {
     const nav = document.querySelector('.site_nav');
-    if (nav) {
-      nav.classList.add('enhanced');
-    }
+    if (!nav) return;
 
+    nav.classList.add('enhanced');
+    const submenus = nav.querySelectorAll('.menu__item[data-has-children]');
 
-    const submenus = nav.querySelectorAll(
-      '.menu__item[data-has-children]'
-    )
-    const dropdowns = nav.querySelectorAll(
-      '.menu__item[data-has-children] > .menu'
-    )
+    const toggleDropdown = (button, dropdown, submenus) => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-    const icon = `
-        <svg
-            width="10"
-            height="7"
-            viewBox="0 0 10 7"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            class="menu__btn-icon"
-        >
-            <path d="M9 1L5 5L1 1" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-        </svg>
+        // Сначала закрываем все
+        submenus.forEach(item => {
+          const otherDropdown = item.querySelector('.menu');
+          const otherButton = item.querySelector('.menu__btn');
+          otherDropdown.setAttribute('hidden', '');
+          otherButton.setAttribute('aria-expanded', 'false');
+        });
 
-    `
-
-    // Находим подменю, заменяем в нём span на кнопку
-    submenus.forEach((item) => {
-      const dropdown = item.querySelector(':scope > .menu')
-      dropdown.setAttribute('hidden', '')
-
-      const button = item.querySelector(':scope > .menu__btn')
-
-      button.innerHTML += icon
-
-      button.addEventListener('click', function (e) {
-        toggleDropdown(button, dropdown)
-      })
-
-      // Обрабатываем нажатие на Esc
-      dropdown.addEventListener('keydown', (e) => {
-        e.stopImmediatePropagation()
-
-        if (e.keyCode === 27 && focusIsInside(dropdown)) {
-          toggleDropdown(button, dropdown)
-          button.focus()
+        // Открываем текущий, если он не был уже открыт
+        if (!isExpanded) {
+          button.setAttribute('aria-expanded', 'true');
+          dropdown.removeAttribute('hidden');
         }
-      }, false)
-    })
+    };
 
+    const handleClickOutside = (e) => {
+      submenus.forEach(item => {
+        const dropdown = item.querySelector('.menu');
+        const button = item.querySelector('.menu__btn');
+        if (!item.contains(e.target)) {
+          dropdown.setAttribute('hidden', '');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
+    };
 
-function toggleDropdown(button, dropdown) {
-  if (button.getAttribute('aria-expanded') === 'true') {
-    button.setAttribute('aria-expanded', 'false')
-    dropdown.setAttribute('hidden', '')
-  } else {
-    button.setAttribute('aria-expanded', 'true')
-    dropdown.removeAttribute('hidden')
-  }
-}
+    submenus.forEach((item) => {
+      const dropdown = item.querySelector('.menu');
+      const button = item.querySelector('.menu__btn');
 
-function focusIsInside(element) {
-  return element.contains(document.activeElement)
-}
+      dropdown.setAttribute('hidden', '');
+      button.innerHTML += arrowIcon;
 
-function collapseDropdownsWhenTabbingOutsideNav(e) {
-  if (e.keyCode === 9 && !focusIsInside(nav)) {
-    dropdowns.forEach(function (dropdown) {
-      dropdown.setAttribute('hidden', '')
-      const btn = dropdown.parentNode.querySelector('button')
-      btn.setAttribute('aria-expanded', 'false')
-    })
-  }
-}
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown(button, dropdown, submenus); // передаём submenus
+      });
 
-function collapseDropdownsWhenClickingOutsideNav(e) {
-  const target = e.target
+      dropdown.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          toggleDropdown(button, dropdown);
+          button.focus();
+        }
+      });
+    });
 
-  dropdowns.forEach(function (dropdown) {
-    if (!dropdown.parentNode.contains(target)) {
-      dropdown.setAttribute('hidden', '')
-      const btn = dropdown.parentNode.querySelector('button')
-      btn.setAttribute('aria-expanded', 'false')
-    }
-  });
-}
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && !nav.contains(document.activeElement)) {
+        submenus.forEach(item => {
+          const dropdown = item.querySelector('.menu');
+          const button = item.querySelector('.menu__btn');
+          dropdown.setAttribute('hidden', '');
+          button.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
 
-// Закрываем навигацию, если протапались за её пределы
-document.addEventListener('keyup', collapseDropdownsWhenTabbingOutsideNav)
+    window.addEventListener('click', handleClickOutside);
 
-// Закрываем навигацию, если кликнули вне навигации
-window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
-}, []);
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  const phoneNumbers = useMemo(() => [
+    { number: "+7 (900) 604-46-14", href: "tel:+79006044614" },
+    { number: "+7 (909) 913-11-86", href: "tel:+79099131186" }
+  ], []);
+
   return (
     <header className={styles.header}>
-        <Link className="logo" href="/">
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={500} // дефолтное значение (для SSR)
-              height={300}
-              style={{
-                width: 'calc(203vw/14.4)',
-                height: 'auto',
-              }}
-            />
+      <div className={styles.header__top}>
+        <Link className="logo" href="/" passHref>
+          <Image
+            src="/logo.svg"
+            alt="logo"
+            width={500}
+            height={300}
+            style={{
+              width: 'calc(145vw/14.4)',
+              height: 'auto',
+            }}
+            priority
+          />
         </Link>
-        <nav
-            className="site_nav"
-            aria-label="Сайт"
-        >
-            <ul className="menu main__menu">
-                <li className="menu__item" data-has-children>
-                    <button
-                        className="menu__btn"
-                        aria-expanded="false"
-                        aria-controls="catalog-submenu"
-                        aria-label="Каталог запчастей"
-                    >
-                        Каталог запчастей
-                    </button>
-                    <ul className="menu menu_submenu" id="catalog-submenu">
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="/catalog/mercedes"
-                                aria-current="page"
-                            >
-                                Mercedes
-                            </Link>
-                        </li>
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="/catalog/man"
-                                aria-current="page"
-                            >Man</Link>
-                        </li>
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="/catalog/scania"
-                                aria-current="page"
-                            >Scania</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/volvo"
-                                aria-current="page"
-                            >Volvo</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/hengst"
-                                aria-current="page"
-                            >Hengst</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/kolbenschmidt"
-                                aria-current="page"
-                            >Kolbenschmidt</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/daf"
-                                aria-current="page"
-                            >Daf</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/iveco"
-                                aria-current="page"
-                            >Iveco</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/renault"
-                                aria-current="page"
-                            >Renault</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/febi"
-                                aria-current="page"
-                            >Febi</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/mahle"
-                                aria-current="page"
-                            >MAHLE</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/luk"
-                                aria-current="page"
-                            >Luk</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/oeg"
-                                aria-current="page"
-                            >OE Germany</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/webasto"
-                                aria-current="page"
-                            >Webasto</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/bosch"
-                                aria-current="page"
-                            >BOSCH</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="/catalog/zf"
-                                aria-current="page"
-                            >ZF</Link>
-                        </li>
-                    </ul>
-                </li>
-                <li className="menu__item" data-has-children>
-                    <button
-                        className="menu__btn"
-                        aria-expanded="false"
-                        aria-controls="buyers-submenu"
-                        aria-label="Покупателям"
-                    >
-                        Покупателям
-                    </button>
-                    <ul className="menu menu_submenu" id="buyers-submenu">
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Оплата и доставка</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Гарантия</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Контакты</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Сотрудничество</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Возврат</Link>
-                        </li>
-                    </ul>
-                </li>
-                <li className="menu__item" data-has-children>
-                    <button
-                        className="menu__btn"
-                        aria-expanded="false"
-                        aria-controls="about-submenu"
-                        aria-label="О проекте"
-                    >
-                        О проекте
-                    </button>
-                    <ul className="menu menu_submenu" id="about-submenu">
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Документы</Link>
-                        </li>
-                        <li className="menu__item" >
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >Вакансии</Link>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+
+        <div className={styles.header__inner}>
+          <div className={styles.header__item}>
+            <Link className={styles.header__phone} href={phoneNumbers[0].href}>
+              {phoneNumbers[0].number}
+            </Link>
+            <Link className={styles.header__feedback} href="#">
+              Заказать звонок
+            </Link>
+          </div>
+
+          <div className={styles.header__item}>
+            <Link className={styles.header__phone} href={phoneNumbers[1].href}>
+              {phoneNumbers[1].number}
+            </Link>
+            <p className={styles.header__working_hours}>Пн-Пт: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.header__bottom}>
+        <nav className="site_nav" aria-label="Сайт">
+          <ul className="menu main__menu">
+            {menuItems.map((section, index) => (
+              <li key={index} className="menu__item" data-has-children>
+                <button
+                  className="menu__btn"
+                  aria-expanded="false"
+                  aria-controls={`${section.name.toLowerCase().replace(/\s+/g, '-')}-submenu`}
+                  aria-label={section.name}
+                >
+                  {section.title}
+                </button>
+                <ul className="menu menu_submenu" id={`${section.name.toLowerCase().replace(/\s+/g, '-')}-submenu`}>
+                  {section.items.map((item, i) => (
+                    <li key={i} className="menu__item">
+                      <Link
+                        className="menu__link"
+                        href={item.href}
+                        aria-current="page"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </nav>
-        <button className={styles.header__button}>
-            <Image
-              src="/account-avatar.svg"
-              alt="account-avatar"
-              width={500} // дефолтное значение (для SSR)
-              height={300}
-              style={{
-                width: '1.45vw',
-                height: 'auto',
-              }}
-            />
-            Вход/регистрация
-        </button>
+
+        <div className={styles.header__buttons}>
+          <button className={styles.header__account} aria-label="Аккаунт">
+            <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.85938 10.2855C5.85938 13.9379 8.84766 16.9261 12.5 16.9261C16.1523 16.9261 19.1406 13.9379 19.1406 10.2855C19.1406 6.63318 16.1523 3.6449 12.5 3.6449C8.84766 3.6449 5.85938 6.63318 5.85938 10.2855ZM17.5781 10.2855C17.5781 13.0785 15.293 15.3636 12.5 15.3636C9.70703 15.3636 7.42188 13.0785 7.42188 10.2855C7.42188 7.49255 9.70703 5.2074 12.5 5.2074C15.293 5.2074 17.5781 7.49255 17.5781 10.2855Z" fill="#C9AC37"/>
+              <path d="M4.76562 22.5251C6.83594 20.4548 9.57031 19.322 12.5 19.322C15.4297 19.322 18.1641 20.4548 20.2344 22.5251L21.3477 21.4118C18.9844 19.0681 15.8398 17.7595 12.5 17.7595C9.16016 17.7595 6.01563 19.0681 3.65234 21.4118L4.76562 22.5251Z" fill="#C9AC37"/>
+            </svg>
+          </button>
+
+          <button className={styles.header__button} aria-label="Корзина">
+            <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clipPath="url(#clip0_199_680)">
+                <path d="M24.7961 7.29121C24.6508 7.08496 24.414 6.96152 24.1617 6.96152H7.58124L6.32577 2.6334C5.83358 0.928711 4.66405 0.745117 4.18436 0.745117H0.837488C0.408582 0.745117 0.0617065 1.09277 0.0617065 1.5209C0.0617065 1.94902 0.409363 2.29668 0.837488 2.29668H4.18358C4.28983 2.29668 4.61249 2.29668 4.8328 3.05762L9.15077 18.9256C9.24452 19.26 9.54999 19.4912 9.89764 19.4912H20.4437C20.7711 19.4912 21.0633 19.2865 21.1734 18.9779L24.8906 7.99902C24.9766 7.76152 24.9406 7.49668 24.7953 7.29043L24.7961 7.29121ZM19.8984 17.9404H10.4875L8.01796 8.51387H23.0594L19.8984 17.9404ZM18.3594 21.0639C17.2805 21.0639 16.4062 21.9381 16.4062 23.017C16.4062 24.0959 17.2805 24.9701 18.3594 24.9701C19.4383 24.9701 20.3125 24.0959 20.3125 23.017C20.3125 21.9381 19.4383 21.0639 18.3594 21.0639ZM11.3281 21.0639C10.2492 21.0639 9.37499 21.9381 9.37499 23.017C9.37499 24.0959 10.2492 24.9701 11.3281 24.9701C12.407 24.9701 13.2812 24.0959 13.2812 23.017C13.2812 21.9381 12.407 21.0639 11.3281 21.0639Z" fill="black"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_199_680">
+                  <rect width="25" height="25" fill="white" transform="translate(0 0.357605)"/>
+                </clipPath>
+              </defs>
+            </svg>
+            Корзина
+          </button>
+        </div>
+      </div>
     </header>
   )
 }

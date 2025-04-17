@@ -1,7 +1,7 @@
 .product__search {
     display: flex;
     flex-direction: row;
-    padding: calc(40vw/14.4) 10.5vw;
+    padding: calc(40vw/14.4) calc(150vw/14.4);
     background-color: #F4F4F3;
     justify-content: space-between;
     align-items: center;
@@ -21,7 +21,7 @@
 .product {
     display: flex;
     flex-direction: column;
-    padding: calc(60vw/14.4) 10.5vw calc(80vw/14.4);
+    padding: calc(60vw/14.4) calc(150vw/14.4) calc(80vw/14.4);
     gap: calc(60vw/14.4);
 }
 

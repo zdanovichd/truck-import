@@ -9,7 +9,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: calc(80vw/14.4) 10.5vw;
+    padding: calc(80vw/14.4) calc(150vw/14.4);
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
