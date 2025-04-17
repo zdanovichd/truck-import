@@ -75,71 +75,78 @@ export default function Header() {
 
         // Сначала закрываем все
         submenus.forEach(item => {
-          const otherDropdown = item.querySelector('.menu');
-          const otherButton = item.querySelector('.menu__btn');
-          otherDropdown.setAttribute('hidden', '');
-          otherButton.setAttribute('aria-expanded', 'false');
+            const otherDropdown = item.querySelector('.menu');
+            const otherButton = item.querySelector('.menu__btn');
+            otherDropdown.setAttribute('hidden', '');
+            otherButton.setAttribute('aria-expanded', 'false');
         });
 
         // Открываем текущий, если он не был уже открыт
         if (!isExpanded) {
-          button.setAttribute('aria-expanded', 'true');
-          dropdown.removeAttribute('hidden');
+            button.setAttribute('aria-expanded', 'true');
+            dropdown.removeAttribute('hidden');
         }
     };
 
     const handleClickOutside = (e) => {
-      submenus.forEach(item => {
-        const dropdown = item.querySelector('.menu');
-        const button = item.querySelector('.menu__btn');
-        if (!item.contains(e.target)) {
-          dropdown.setAttribute('hidden', '');
-          button.setAttribute('aria-expanded', 'false');
-        }
-      });
+        submenus.forEach(item => {
+            const dropdown = item.querySelector('.menu');
+            const button = item.querySelector('.menu__btn');
+            if (!item.contains(e.target)) {
+            dropdown.setAttribute('hidden', '');
+            button.setAttribute('aria-expanded', 'false');
+            }
+        });
     };
 
     submenus.forEach((item) => {
-      const dropdown = item.querySelector('.menu');
-      const button = item.querySelector('.menu__btn');
+        const dropdown = item.querySelector('.menu');
+        const button = item.querySelector('.menu__btn');
 
-      dropdown.setAttribute('hidden', '');
-      button.innerHTML += arrowIcon;
+        dropdown.setAttribute('hidden', '');
+        button.innerHTML += arrowIcon;
 
-      button.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleDropdown(button, dropdown, submenus); // передаём submenus
-      });
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown(button, dropdown, submenus); // передаём submenus
+        });
 
-      dropdown.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          toggleDropdown(button, dropdown);
-          button.focus();
-        }
-      });
+        dropdown.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+            toggleDropdown(button, dropdown);
+            button.focus();
+            }
+        });
+        const links = dropdown.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+            dropdown.setAttribute('hidden', '');
+            button.setAttribute('aria-expanded', 'false');
+            });
+        });
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab' && !nav.contains(document.activeElement)) {
-        submenus.forEach(item => {
-          const dropdown = item.querySelector('.menu');
-          const button = item.querySelector('.menu__btn');
-          dropdown.setAttribute('hidden', '');
-          button.setAttribute('aria-expanded', 'false');
-        });
-      }
+        if (e.key === 'Tab' && !nav.contains(document.activeElement)) {
+            submenus.forEach(item => {
+                const dropdown = item.querySelector('.menu');
+                const button = item.querySelector('.menu__btn');
+                dropdown.setAttribute('hidden', '');
+                button.setAttribute('aria-expanded', 'false');
+            });
+        }
     });
 
     window.addEventListener('click', handleClickOutside);
 
     return () => {
-      window.removeEventListener('click', handleClickOutside);
+        window.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
   const phoneNumbers = useMemo(() => [
-    { number: "+7 (900) 604-46-14", href: "tel:+79006044614" },
-    { number: "+7 (909) 913-11-86", href: "tel:+79099131186" }
+        { number: "+7 (900) 604-46-14", href: "tel:+79006044614" },
+        { number: "+7 (909) 913-11-86", href: "tel:+79099131186" }
   ], []);
 
   return (
@@ -191,7 +198,7 @@ export default function Header() {
                 >
                   {section.title}
                 </button>
-                <ul className="menu menu_submenu" id={`${section.name.toLowerCase().replace(/\s+/g, '-')}-submenu`}>
+                <ul className="menu menu_submenu" id={`${section.name.toLowerCase().replace(/\s+/g, '-')}-submenu`} hidden>
                   {section.items.map((item, i) => (
                     <li key={i} className="menu__item">
                       <Link
