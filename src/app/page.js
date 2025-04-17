@@ -7,6 +7,14 @@ import Advantages from "./components/sections/Advantages/Advantages";
 import SectionTitle from "./components/ui/SectionTitle/SectionTitle";
 import Reviews from "./components/ui/Reviews/Reviews";
 
+export async function generateMetadata() {
+  return {
+    title: "Грузовые запчасти оптом в Москве | truck-import.ru",
+    description: "Запчасти для грузовых автомобилей оптом в Москве. Продажа оригинальных и аналоговых запчастей для MAN, MERCEDES, VOLVO, DAF, SCANIA, IVECO, и других марок. Гибкие условия, быстрая доставка, проверенные поставщики. Мы предлагаем надежные запчасти для вашего бизнеса!",
+  }
+}
+
+
 export default function Home() {
   return (
     <main>

@@ -35,11 +35,17 @@ export async function generateMetadata({ params }) {
 
   const brand = brands.find(brand => brand.slug === slug);
   const product = products.find(product => product.sku === slug);
-
-  return {
-    title: brand?.meta__title || 'Default Title',
-    description: brand?.meta__description || 'Default Description',
-  };
+  if (brand) {
+    return {
+      title: brand?.meta__title || 'Default Title',
+      description: brand?.meta__description || 'Default Description',
+    };
+  } else if (product) {
+    return {
+      title: product?.meta__title || 'Default Title',
+      description: product?.meta__description || 'Default Description',
+    };
+  }
 }
 
 export default async function Page({ params }) {

@@ -10,6 +10,7 @@ import Faq from "@/app/components/sections/Faq/Faq";
 import Feedback from "@/app/components/ui/Feedback/Feedback";
 import { useState } from 'react';
 
+
 export default function Product({ product = [] }) {
     const [count, setCount] = useState(0); // Основное значение
     const [inputValue, setInputValue] = useState(count.toString()); // Локальное значение для input

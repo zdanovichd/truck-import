@@ -7,8 +7,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
-  title: "Truck Import",
-  description: "",
+  title: "Грузовые запчасти оптом в Москве | truck-import.ru",
+  description: "Запчасти для грузовых автомобилей оптом в Москве. Продажа оригинальных и аналоговых запчастей для MAN, MERCEDES, VOLVO, DAF, SCANIA, IVECO, и других марок. Гибкие условия, быстрая доставка, проверенные поставщики. Мы предлагаем надежные запчасти для вашего бизнеса!",
 };
 
 export default function RootLayout({ children }) {
