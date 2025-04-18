@@ -1,14 +1,6 @@
 // import Image from "next/image";
 import styles from "./page.module.css";
 import data from './data.json';
-import { notFound } from "next/navigation";
-import SectionTitle from "@/app/components/ui/SectionTitle/SectionTitle";
-import Image from "next/image";
-import Link from 'next/link';
-import Reviews from "@/app/components/ui/Reviews/Reviews";
-import Search from "@/app/components/ui/Search/Search";
-import Faq from "@/app/components/sections/Faq/Faq";
-import Feedback from "@/app/components/ui/Feedback/Feedback";
 import Category from "./components/Category/Category";
 import Product from "./components/Product/Product";
 
