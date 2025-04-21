@@ -53,7 +53,16 @@ export default function Home() {
             brands={["kolbenschmidt", "mahle", "luk", "oeg", "webasto"]}
           />
           <Brands
-            brands={["bosch", "brembo", "zf"]}
+            brands={["garrett", "gf", "hella"]}
+          />
+          <Brands
+            brands={["behr", "beral", "dayco", "delphi", "fedoro"]}
+          />
+          <Brands
+            brands={["holset", "jost", "knorr-bremse", "monroe"]}
+          />
+          <Brands
+            brands={["skf", "textar", "trw", "wabco"]}
           />
         </div>
       </section>

@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import styles from "./page.module.css";
 import data from './data.json';
 import Category from "./components/Category/Category";
@@ -9,11 +8,11 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   const brands = data.brands;
   const products = data.products;
+
   const brands_slugs = brands.map(brand => brand.slug);
-  // console.log(all_slugs)
   const product_slugs = products.map(product => product.sku);
+  
   const all_slugs = [...brands_slugs, ...product_slugs];
-  // all_slugs.push(product_slugs);
 
   return all_slugs.map((slug) => ({
     slug: slug, // Ключ должен совпадать с именем папки [slug]
@@ -48,12 +47,6 @@ export default async function Page({ params }) {
 
   const brand = brands.find(brand => brand.slug === slug);
   const product = products.find(product => product.sku === slug);
-
-
-  // console.log(first__place);
-  // if (!brand) {
-  //   notFound();
-  // }
 
   return ( <>
     {brand ? (
