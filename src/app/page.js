@@ -53,6 +53,9 @@ export default function Home() {
             brands={["kolbenschmidt", "mahle", "luk", "oeg", "webasto"]}
           />
           <Brands
+            brands={["bosch", "brembo", "zf"]}
+          />
+          <Brands
             brands={["garrett", "gf", "hella"]}
           />
           <Brands
