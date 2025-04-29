@@ -42,7 +42,7 @@ export default async function Page({ params }) {
   const subcategories = brand.subcategories;
   const subcategory = subcategories.find(subcategory => subcategory.slug === sub);
 
-  console.log(subcategory.first__place);
+  // console.log(subcategory.first__place);
 
     if (!subcategory) {
       notFound();

@@ -20,9 +20,11 @@ export default function Home() {
     <main>
       <section className={styles.hero}>
         <h1 className={styles.title}>Грузовые запчасти оптом</h1>
-        <Search
-          style={{ marginBottom: 'calc(117vw / 14.4)' }}
-        />
+        <div className={styles.search}>
+          <Search
+            // style={{ marginBottom: 'calc(117vw / 14.4)' }}
+          />
+        </div>
         <Brands
           brands={["scania", "daf", "volvo", "mercedes", "man"]}
           theme="gray"

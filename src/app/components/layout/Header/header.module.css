@@ -3,10 +3,6 @@
    flex-direction: column;
    background-color: #141313;
    width: 100vw;
-   /* width: 79.167vw; */
-   /* height: 6.667vw; */
-   /* margin: 0 auto; */
-   /* align-items: center; */
    justify-content: space-between;
 }
 
@@ -27,7 +23,6 @@
    gap: calc(6vw/14.4);
    font-family: var(--font-gilroy), sans-serif;
    font-weight: 700;
-   /* font-size: .965rem; */
    font-size: calc(16vw/14.4);
    line-height: 120%;
    vertical-align: middle;
@@ -46,7 +41,6 @@
    gap: calc(6vw/14.4);
    font-family: var(--font-gilroy), sans-serif;
    font-weight: 700;
-   /* font-size: .965rem; */
    font-size: calc(16vw/14.4);
    line-height: 120%;
    vertical-align: middle;
@@ -113,8 +107,6 @@
    vertical-align: middle;
    text-decoration: underline;
    text-decoration-style: dotted;
-   /* text-decoration-offset: 13.5%;
-   text-decoration-thickness: 6.5%; */
    color: #C9AC37;
 }
 
@@ -126,4 +118,133 @@
    letter-spacing: -2%;
    vertical-align: middle;
    color: #AAAAAA;
+}
+
+@media screen and (max-width: 767px) {
+   .header {
+      display: none;
+      /* display: flex; */
+      flex-direction: column;
+      background-color: #141313;
+      width: 100vw;
+      justify-content: space-between;
+   }
+
+   .header__buttons {
+      display: flex;
+      flex-direction: row;
+      gap: calc(10vw/14.4);
+   }
+
+   .header__button {
+      display: flex;
+      align-items: center;
+      color: #141313;
+      background-color: #C9AC37;
+      border: none;
+      padding: calc(10vw/14.4) calc(20vw/14.4);
+      border-radius: calc(10vw/14.4);
+      gap: calc(6vw/14.4);
+      font-family: var(--font-gilroy), sans-serif;
+      font-weight: 700;
+      /* font-size: .965rem; */
+      font-size: calc(16vw/14.4);
+      line-height: 120%;
+      vertical-align: middle;
+      cursor: pointer;
+      height: max-content;
+   }
+
+   .header__account {
+      display: flex;
+      align-items: center;
+      color: #141313;
+      background-color: #FFFFFF14;
+      border: none;
+      padding: calc(10vw/14.4);
+      border-radius: calc(10vw/14.4);
+      gap: calc(6vw/14.4);
+      font-family: var(--font-gilroy), sans-serif;
+      font-weight: 700;
+      /* font-size: .965rem; */
+      font-size: calc(16vw/14.4);
+      line-height: 120%;
+      vertical-align: middle;
+      cursor: pointer;
+      height: max-content;
+   }
+
+   .header__account svg {
+      width: calc(25vw/14.4);
+      height: auto;
+   }
+
+   .header__button svg {
+      width: calc(25vw/14.4);
+      height: auto;
+   }
+
+   .header__top {
+      padding: calc(20vw/14.4) calc(150vw/14.4);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 0.5px solid #BCA13480
+   }
+
+   .header__bottom {
+      padding: 0 calc(150vw/14.4);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: calc(85vw/14.4);
+      align-items: center;
+   }
+
+   .header__inner {
+      display: flex;
+      flex-direction: row;
+      gap: calc(60vw/14.4);
+   }
+
+   .header__item {
+      display: flex;
+      flex-direction: column;
+      gap: calc(4vw/14.4);
+   }
+
+   .header__phone {
+      font-family: var(--font-gilroy), sans-serif;
+      font-weight: 500;
+      font-size: calc(20vw/14.4);
+      line-height: 105%;
+      letter-spacing: -2%;
+      vertical-align: middle;
+      color: #FFFFFF;
+      text-decoration: none;
+   }
+
+   .header__feedback {
+      font-family: var(--font-gilroy), sans-serif;
+      font-weight: 500;
+      font-size: calc(16vw/14.4);
+      line-height: 105%;
+      letter-spacing: -2%;
+      vertical-align: middle;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      /* text-decoration-offset: 13.5%;
+      text-decoration-thickness: 6.5%; */
+      color: #C9AC37;
+   }
+
+   .header__working_hours {
+      font-family: var(--font-gilroy), sans-serif;
+      font-weight: 400;
+      font-size: calc(16vw/14.4);
+      line-height: 105%;
+      letter-spacing: -2%;
+      vertical-align: middle;
+      color: #AAAAAA;
+   }
 }

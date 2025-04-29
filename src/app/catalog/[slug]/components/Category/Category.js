@@ -149,29 +149,6 @@ export default async function Category({ brand = [] }) {
               </div>
             </section>
               ))}
-
-        {/* <section className={styles.assortment}>
-          <SectionTitle
-            title={brand.first__section__title}
-            align="left"
-          />
-          <div
-              className={styles.assortment__inner}
-              dangerouslySetInnerHTML={{ __html: brand.first__section__data }}
-            >
-          </div>
-        </section>
-        <section className={styles.assortment}>
-          <SectionTitle
-            title={brand.second__section__title}
-            align="left"
-          />
-          <div
-              className={styles.assortment__inner}
-              dangerouslySetInnerHTML={{ __html: brand.second__section__data }}
-            >
-          </div>
-        </section> */}
       <Reviews
         description={`Наши клиенты отмечают надежность и долговечность представленных запчастей на грузовики ${brand.name}. Многие владельцы грузовиков ${brand.name} доверяют нам, поскольку у нас всегда в наличии запасные части, соответствующие стандартам качества. Ознакомьтесь с фотографиями запчастей в нашем каталоге и сделайте правильный выбор!`}
       />
@@ -179,17 +156,6 @@ export default async function Category({ brand = [] }) {
         title={brand.faq__title}
         data={brand.faq__data}
       />
-      {/* <section className={styles.assortment}>
-          <SectionTitle
-            title={brand.third__section__title}
-            align="left"
-          />
-          <div
-              className={styles.assortment__inner}
-              dangerouslySetInnerHTML={{ __html: brand.third__section__data }}
-            >
-          </div>
-        </section> */}
         {second__place.map((item, index) => (
             <section className={styles.assortment} key={index}>
               <SectionTitle

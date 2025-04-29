@@ -27,7 +27,7 @@ export default function Product({ product = [] }) {
         const numValue = parseInt(inputValue) || 1; // Если не число - вернет 1
         handleCountChange(numValue);
     };
-    console.log(count);
+    // console.log(count);
     const specifications = product.specifications;
   return (
     <main>
