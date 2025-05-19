@@ -20,87 +20,68 @@ export default function Footer() {
               }}
             />
         </Link>
-        <div className={styles.footer__item}>
+        <div className={`${styles.footer__item} ${styles.footer__item_top}`}>
             <div className={styles.phones}>
                 <Link className={styles.phones__item} href="tel:+79099131186">+7 (909) 913-11-86</Link>
                 <Link className={styles.phones__item} href="tel:+79006044614">+7 (900) 604-46-14</Link>
             </div>
             <div className={styles.footer__nav}>
-                <nav
-                    className="site_nav"
-                    aria-label="Сайт"
-                >
-                    <ul className="menu menu_vertical">
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >
-                                Оплата и доставка
-                            </Link>
-                        </li>
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >
-                                Гарантия
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-                <nav
-                    className="site_nav"
-                    aria-label="Сайт"
-                >
-                    <ul className="menu menu_vertical">
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >
-                                Каталог запчастей
-                            </Link>
-                        </li>
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >
-                                О проекте
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-                <nav
-                    className="site_nav"
-                    aria-label="Сайт"
-                >
-                    <ul className="menu menu_vertical">
-                    <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >
-                                Блог
-                            </Link>
-                        </li>
-                        <li className="menu__item">
-                            <Link
-                                className="menu__link"
-                                href="#"
-                                aria-current="page"
-                            >
-                                Контакты
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+                <ul className={styles.footer__menu}>
+                    <li className={styles.footer__menu_item}>
+                        <Link
+                            className={styles.footer__menu_link}
+                            href="#"
+                            aria-current="page"
+                        >
+                            Оплата и доставка
+                        </Link>
+                    </li>
+                    <li className={styles.footer__menu_item}>
+                        <Link
+                            className={styles.footer__menu_link}
+                            href="#"
+                            aria-current="page"
+                        >
+                            Гарантия
+                        </Link>
+                    </li>
+                    <li className={styles.footer__menu_item}>
+                        <Link
+                            className={styles.footer__menu_link}
+                            href="#"
+                            aria-current="page"
+                        >
+                            Каталог запчастей
+                        </Link>
+                    </li>
+                    <li className={styles.footer__menu_item}>
+                        <Link
+                            className={styles.footer__menu_link}
+                            href="#"
+                            aria-current="page"
+                        >
+                            О проекте
+                        </Link>
+                    </li>
+                    <li className={styles.footer__menu_item}>
+                        <Link
+                            className={styles.footer__menu_link}
+                            href="#"
+                            aria-current="page"
+                        >
+                            Блог
+                        </Link>
+                    </li>
+                    <li className={styles.footer__menu_item}>
+                        <Link
+                            className={styles.footer__menu_link}
+                            href="#"
+                            aria-current="page"
+                        >
+                            Контакты
+                        </Link>
+                    </li>
+                </ul>
             </div>
         </div>
         <div className={`${styles.footer__item} ${styles.footer__item_bottom}`}>

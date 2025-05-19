@@ -3,7 +3,7 @@ import Rating from "../Rating/Rating";
 import styles from "./reviews.module.css";
 import Image from "next/image";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle";
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,23 +19,36 @@ import 'swiper/css/pagination';
 export default function Reviews({ description = ""}) {
     const [spaceBetween, setSpaceBetween] = useState(0);
     const [windowWidth, setWindowWidth] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    const handleDevice = () => {
+        if (window.innerWidth < 768) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+    }
 
     useEffect(() => {
-      // Функция для обновления размеров
-      const handleResize = () => {
-        const newWidth = window.innerWidth;
-        setWindowWidth(newWidth);
-        setSpaceBetween((10 * newWidth) / 100 / 14.4);
-      };
+        handleDevice();
+        // Функция для обновления размеров
+        const handleResize = () => {
+            const newWidth = window.innerWidth;
+            setWindowWidth(newWidth);
+            isMobile ? setSpaceBetween((10 * newWidth) / 100 / 3.9) : setSpaceBetween((10 * newWidth) / 100 / 14.4);
 
-      // Вызываем сразу для установки начальных значений
-      handleResize();
+        };
 
-      // Добавляем слушатель
-      window.addEventListener('resize', handleResize);
+        // Вызываем сразу для установки начальных значений
+        handleResize();
 
-      // Убираем слушатель при размонтировании
-      return () => window.removeEventListener('resize', handleResize);
+
+        window.addEventListener('resize', handleDevice);
+        // Добавляем слушатель
+        window.addEventListener('resize', handleResize);
+
+        // Убираем слушатель при размонтировании
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const navigationNextRef = useRef(null);
@@ -47,12 +60,14 @@ export default function Reviews({ description = ""}) {
                 title="Отзывы"
             />
             {/* {description} */}
-            <p className={styles.reviews__description}>{description}</p>
+            {description && (
+                <p className={styles.reviews__description}>{description}</p>
+            )}
             <div className={styles.swiper__container}>
                 <Swiper
-                    slidesPerView={2}
+                    slidesPerView={1}
                     loop={true}
-                    slidesPerGroup={2}
+                    slidesPerGroup={1}
                     spaceBetween={spaceBetween}
                     setWrapperSize={true}
                     navigation={{
@@ -61,6 +76,12 @@ export default function Reviews({ description = ""}) {
                     }}
                     pagination={true}
                     modules={[Navigation, Pagination]}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 2,
+                            slidesPerGroup: 2,
+                        },
+                    }}
                     >
 
                     <SwiperSlide className={styles.review}>
@@ -78,8 +99,8 @@ export default function Reviews({ description = ""}) {
                                 width={500}
                                 height={300}
                                 style={{
-                                    width: 'calc(48vw/14.4)',
-                                    height: 'calc(48vw/14.4)',
+                                    width: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
+                                    height: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
                                 }}
                             />
                             <p className={styles.review__name}>Алексей М.</p>
@@ -101,8 +122,8 @@ export default function Reviews({ description = ""}) {
                                 width={500}
                                 height={300}
                                 style={{
-                                    width: 'calc(48vw/14.4)',
-                                    height: 'calc(48vw/14.4)',
+                                    width: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
+                                    height: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
                                 }}
                             />
                             <p className={styles.review__name}>Роман С.</p>
@@ -124,8 +145,8 @@ export default function Reviews({ description = ""}) {
                                 width={500}
                                 height={300}
                                 style={{
-                                    width: 'calc(48vw/14.4)',
-                                    height: 'calc(48vw/14.4)',
+                                    width: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
+                                    height: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
                                 }}
                             />
                             <p className={styles.review__name}>Егор Р.</p>
@@ -147,8 +168,8 @@ export default function Reviews({ description = ""}) {
                                 width={500}
                                 height={300}
                                 style={{
-                                    width: 'calc(48vw/14.4)',
-                                    height: 'calc(48vw/14.4)',
+                                    width: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
+                                    height: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
                                 }}
                             />
                             <p className={styles.review__name}>Илья Л.</p>
@@ -170,8 +191,8 @@ export default function Reviews({ description = ""}) {
                                 width={500}
                                 height={300}
                                 style={{
-                                    width: 'calc(48vw/14.4)',
-                                    height: 'calc(48vw/14.4)',
+                                    width: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
+                                    height: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
                                 }}
                             />
                             <p className={styles.review__name}>Илья А.</p>
@@ -193,8 +214,8 @@ export default function Reviews({ description = ""}) {
                                 width={500}
                                 height={300}
                                 style={{
-                                    width: 'calc(48vw/14.4)',
-                                    height: 'calc(48vw/14.4)',
+                                    width: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
+                                    height: `calc(48vw/${isMobile ? '3.9' : '14.4'})`,
                                 }}
                             />
                             <p className={styles.review__name}>Максим А.</p>

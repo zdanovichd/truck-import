@@ -2,7 +2,7 @@
 import styles from "./details.module.css";
 import Image from "next/image";
 import Link from 'next/link';
-import services from './data.json';
+import services from '../../../json/services.json';
 
 export default function Details({ sub = [], data = [] }) {
     // console.log(sub);
@@ -12,7 +12,7 @@ export default function Details({ sub = [], data = [] }) {
                 {services.map((item, index) => (
                     <Link
                         key={index}
-                        href={`/catalog/${data.slug}/${sub.slug}/${item.slug}`}
+                        href={`/catalog/${data.slug}/parts/${item.slug}`}
                         className={styles.service}
                     >
                         <Image

@@ -57,7 +57,7 @@ export default function Home() {
           <Brands
             brands={["bosch", "brembo", "zf"]}
           />
-          <Brands
+          {/* <Brands
             brands={["holset", "jost", "knorr-bremse", "monroe"]}
           />
           <Brands
@@ -68,7 +68,7 @@ export default function Home() {
           />
           <Brands
             brands={["skf", "textar", "trw", "wabco"]}
-          />
+          /> */}
         </div>
       </section>
       <section className={styles.assortment}>

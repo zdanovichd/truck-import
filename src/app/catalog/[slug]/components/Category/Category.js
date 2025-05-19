@@ -28,7 +28,7 @@ export default async function Category({ brand = [] }) {
               {subcategories.map((item, index) => (
                 <Link
                   key={index}
-                  href={`/catalog/${brand.slug}/${item.slug}`}
+                  href={`/catalog/${brand.slug}/models/${item.slug}`}
                   className={styles.subcategory}
                 >
                   <Image

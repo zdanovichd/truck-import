@@ -12,6 +12,7 @@ export default function Advantages({ advantages = [], advantagesText = "normal" 
             <SectionTitle
                 title="Преимущества для оптовых покупателей"
                 align="center"
+
             />
             <div className={styles.advantages__inner}>
                 {advantages.map((item, index) => (
@@ -23,10 +24,10 @@ export default function Advantages({ advantages = [], advantagesText = "normal" 
                             alt={`${item[0]} logo`}
                             width={400} // дефолтное значение (для SSR)
                             height={300}
-                            style={{
-                                width: 'auto',
-                                height: 'calc(87vw/14.4)',
-                            }}
+                            // style={{
+                            //     width: 'auto',
+                            //     height: 'calc(87vw/14.4)',
+                            // }}
                             priority
                         />
                         <p

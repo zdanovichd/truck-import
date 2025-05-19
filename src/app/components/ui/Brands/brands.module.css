@@ -12,3 +12,22 @@
 .brands__item_gray {
     filter: grayscale(100%) contrast(0) brightness(70%);
 }
+
+@media screen and (max-width: 767px) {
+    .brands {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: calc(30vw/3.9);
+    }
+
+    .brands__item {
+        width: calc(250vw/2.7/3.9);
+        height: calc(100vw/2.7/3.9);
+    }
+
+    .brands__item_gray {
+        filter: grayscale(100%) contrast(0) brightness(70%);
+    }
+}

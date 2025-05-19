@@ -15,12 +15,8 @@ export default function Brands({ brands = [], theme = "default" }) {
                         className={`${styles.brands__item} ${theme == 'gray' ? styles.brands__item_gray : ''}`}
                         src={`/brands/${item}.svg`}
                         alt={`${item} logo`}
-                        width={500} // дефолтное значение (для SSR)
+                        width={500}
                         height={300}
-                        style={{
-                            width: 'calc(250vw/1.5/14.4)',
-                            height: 'calc(100vw/1.5/14.4)',
-                        }}
                     />
                 </Link>
             ))}

@@ -37,3 +37,48 @@
 .advantages__text_small {
     font-size: calc(16vw/14.4);
 }
+
+@media screen and (max-width: 767px) {
+    .advantages {
+        display: flex;
+        flex-direction: column;
+        background-color: #F4F4F3;
+        width: 100vw;
+        padding: calc(100vw/3.9) calc(24vw/3.9);
+        align-items: center;
+        gap: calc(80vw/3.9);
+    }
+
+    .advantages__inner {
+        display: flex;
+        flex-direction: row;
+        /* width: calc(306vw/3.9); */
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: calc(60vw/3.9) 0;
+    }
+
+    .advantages__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calc(20vw/3.9);
+        width: calc(160vw/3.9);
+    }
+
+    .advantages__image {
+      height: calc(50vw/3.9);
+      width: auto;
+    }
+
+    .advantages__text {
+        font-family: var(--font-gilroy), sans-serif;
+        font-weight: 700;
+        font-size: calc(14vw/3.9);
+        text-align: center;
+    }
+    .advantages__text_small {
+        font-size: calc(16vw/3.9);
+    }
+}
