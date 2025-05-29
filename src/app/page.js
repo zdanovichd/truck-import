@@ -46,16 +46,16 @@ export default function Home() {
         />
         <div className={styles.spares__inner}>
           <Brands
-            brands={["man", "daf", "mercedes", "scania", "volvo"]}
+            brands={["man", "daf", "mercedes", "scania"]}
           />
           <Brands
-            brands={["fag", "ina", "febi", "hengst"]}
+            brands={["fag", "ina", "hengst"]}
           />
           <Brands
-            brands={["kolbenschmidt", "mahle", "luk", "oeg", "webasto"]}
+            brands={["kolbenschmidt", "mahle", "oeg"]}
           />
           <Brands
-            brands={["bosch", "brembo", "zf"]}
+            brands={["brembo", "zf", "volvo"]}
           />
           {/* <Brands
             brands={["holset", "jost", "knorr-bremse", "monroe"]}

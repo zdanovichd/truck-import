@@ -13,3 +13,26 @@
   font-size: calc(44vw/14.4);
   text-align: left;
 }
+
+.catalog__content {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding: calc(60vw/14.4) calc(150vw/14.4);
+}
+
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: calc(10vw/14.4);
+  width: calc(851vw/14.4);
+}
+
+.filters {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}

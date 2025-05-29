@@ -1,7 +1,10 @@
+// 'use client';
 import styles from "./page.module.css";
-import data from './data.json';
+// import data from './data.json';
+import data from '../../json/data.json';
 import Category from "./components/Category/Category";
 import Product from "./components/Product/Product";
+// import { useState } from 'react';
 
 export const dynamicParams = false;
 
@@ -11,7 +14,7 @@ export async function generateStaticParams() {
 
   const brands_slugs = brands.map(brand => brand.slug);
   const product_slugs = products.map(product => product.sku);
-  
+
   const all_slugs = [...brands_slugs, ...product_slugs];
 
   return all_slugs.map((slug) => ({

@@ -16,7 +16,7 @@
     border: calc(1vw/14.4) solid #E1E4ED;
     border-radius: calc(6vw/14.4);
     padding: calc(8vw/14.4) calc(12vw/14.4);
-    min-width: calc(220vw/14.4);
+    min-width: calc(185vw/14.4);
     display: flex;
     justify-content: space-between;
     align-items: center;

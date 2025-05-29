@@ -1,40 +1,73 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { Suspense } from 'react'
 import SortControl from '../SortControl/SortControl';
 import ProductList from '../ProductList/ProductList';
+import BrandFilter from '../BrandFilter/BrandFilter'; // если ты хочешь оставить доп фильтрацию
 import styles from './clientpage.module.css';
+import data from '../../../json/data.json';
 
 export default function ClientPage({ brand, service }) {
-    const initialProducts = [
-        { id: 1, name: 'Смартфон', price: 25000 },
-        { id: 2, name: 'Ноутбук', price: 65000 },
-        { id: 3, name: 'Наушники', price: 5000 },
-        { id: 4, name: 'Планшет', price: 32000 },
-      ];
+  const initialProducts = data.products;
 
-      // Сортировка по умолчанию — сначала дешевле
-      const [sortType, setSortType] = useState('cheap');
-      const [products, setProducts] = useState(
-        [...initialProducts].sort((a, b) => a.price - b.price)
-      );
+  // ✅ Фильтруем по имени бренда, полученному из пропсов
+  const brandFilteredProducts = useMemo(() => {
+    return initialProducts.filter(
+      (product) => product.model.toLowerCase() === brand.slug.toLowerCase()
+    );
+  }, [initialProducts, brand.slug]);
 
-      const handleSortChange = (type) => {
-        setSortType(type);
-        const sorted = [...initialProducts].sort((a, b) =>
-          type === 'cheap' ? a.price - b.price : b.price - a.price
-        );
-        setProducts(sorted);
-      };
+  // Получаем список брендов из этой группы, если нужны чекбоксы
+  const allBrands = useMemo(() => {
+    const brandSet = new Set(brandFilteredProducts.map(p => p.brand));
+    return Array.from(brandSet);
+  }, [brandFilteredProducts]);
+
+  const [sortType, setSortType] = useState('cheap');
+  const [selectedBrands, setSelectedBrands] = useState([]);
+
+  // Фильтрация и сортировка
+  const finalProducts = useMemo(() => {
+    const filtered = selectedBrands.length > 0
+      ? brandFilteredProducts.filter(p => selectedBrands.includes(p.brand))
+      : brandFilteredProducts;
+
+    return [...filtered].sort((a, b) =>
+      sortType === 'cheap'
+        ? Number(a.price) - Number(b.price)
+        : Number(b.price) - Number(a.price)
+    );
+  }, [brandFilteredProducts, sortType, selectedBrands]);
+
+  const handleSortChange = (type) => {
+    setSortType(type);
+  };
 
   return (
     <main>
       <section className={styles.catalog__hero}>
-        <h1 className={styles.catalog__title}>{service.title} для {brand.name}</h1>
+        <h1 className={styles.catalog__title}>
+          {service.title} для {brand.name}
+        </h1>
         <SortControl onSortChange={handleSortChange} selected={sortType} />
       </section>
-      <section>
-        <ProductList products={products} />
+
+      <section className={styles.catalog__content}>
+        <aside className={styles.filters}>
+          {/* можно отключить фильтр по бренду, если он не нужен */}
+          <BrandFilter
+            allBrands={allBrands}
+            selectedBrands={selectedBrands}
+            onChange={setSelectedBrands}
+          />
+        </aside>
+
+        <div className={styles.products}>
+            <Suspense fallback={<p>Loading feed...</p>}>
+                <ProductList products={finalProducts} />
+            </Suspense>
+        </div>
       </section>
     </main>
   );

@@ -1,3 +1,4 @@
+"use client";
 // import Image from "next/image";
 import styles from "./category.module.css";
 import SectionTitle from "@/app/components/ui/SectionTitle/SectionTitle";
@@ -7,9 +8,14 @@ import Reviews from "@/app/components/ui/Reviews/Reviews";
 import Search from "@/app/components/ui/Search/Search";
 import Faq from "@/app/components/sections/Faq/Faq";
 import Feedback from "@/app/components/ui/Feedback/Feedback";
+import { useState, useEffect } from "react";
 
-export default async function Category({ brand = [] }) {
-
+export default function Category({ brand = [] }) {
+  const { innerWidth, innerHeight } = useWindowSize();
+  if (!innerWidth) {
+      // Можно вернуть null или заглушку, пока не определится ширина окна
+      return null;
+  }
     const subcategories = brand.subcategories;
   const first__place = brand.first__place;
   const second__place = brand.second__place;
@@ -31,10 +37,10 @@ export default async function Category({ brand = [] }) {
                   href={`/catalog/${brand.slug}/models/${item.slug}`}
                   className={styles.subcategory}
                 >
-                  <Image
+                  {/* <Image
                     className={styles.subcategory__image}
                     // src={`/categories/${brand.slug}/${item.slug}/${brand.slug}-${item.slug}.png`}
-                    src={'/7_0.jpg'}
+                    src={item.image && item.image.trim() !== '' ? item.image : `https://placehold.co/${parseInt((357 / 1440) * innerWidth)}x${parseInt((371 / 1440) * innerWidth)}.png?text=${brand.name} ${item.name}`}
                     alt={`${brand.name} ${item.name}`}
                     width={500} // дефолтное значение (для SSR)
                     height={300}
@@ -43,6 +49,11 @@ export default async function Category({ brand = [] }) {
                       height: 'calc(350vw/14.4)',
                       objectFit: 'cover',
                     }}
+                  /> */}
+                  <OptimizedImageWithFallback
+                    src={item.image}
+                    fallBackSrc={`https://placehold.co/${parseInt((357 / 1440) * innerWidth)}x${parseInt((371 / 1440) * innerWidth)}.png?text=${brand.name} ${item.name}`}
+                    alt={`${brand.name} ${item.name}`}
                   />
                   <p className={styles.subcategory__name}>Запчасти {brand.name} {item.name}</p>
                 </Link>
@@ -191,5 +202,55 @@ export default async function Category({ brand = [] }) {
               <Feedback />
       </section>
     </main>
+  );
+}
+
+function useWindowSize() {
+    // Initialize state with undefined values that will be set on client side
+    const [windowSize, setWindowSize] = useState({
+        innerWidth: undefined,
+        innerHeight: undefined,
+    });
+
+    useEffect(() => {
+        // Handler to call on window resize
+        function handleResize() {
+            setWindowSize({
+                innerWidth: window.innerWidth,
+                innerHeight: window.innerHeight,
+            });
+        }
+
+        // Only set up event listeners and initial size on client side
+        if (typeof window !== "undefined") {
+            // Set size immediately
+            handleResize();
+
+            // Add event listener
+            window.addEventListener("resize", handleResize);
+
+            // Remove event listener on cleanup
+            return () => window.removeEventListener("resize", handleResize);
+        }
+    }, []); // Empty array ensures effect is only run on mount and unmount
+
+    return windowSize;
+}
+
+function OptimizedImageWithFallback({ src, alt, fallBackSrc = fallback.src }) {
+  const [imageError, setImageError] = useState(false);
+  return (
+      <Image
+        src={imageError ? fallBackSrc : src }
+        alt={alt}
+        width={500}
+        height={300}
+        style={{
+                      width: 'calc(353vw/14.4)',
+                      height: 'calc(350vw/14.4)',
+                      objectFit: 'cover',
+                    }}
+        onError={() => setImageError(true)}
+      />
   );
 }
