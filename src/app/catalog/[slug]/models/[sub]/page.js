@@ -1,6 +1,6 @@
 // import Image from "next/image";
 import styles from "./page.module.css";
-import data from '../../data.json';
+import data from '../../../../json/data.json';
 import { notFound } from "next/navigation";
 import Details from "@/app/components/sections/Details/Details";
 import Search from "@/app/components/ui/Search/Search";
