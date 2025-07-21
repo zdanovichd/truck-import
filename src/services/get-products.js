@@ -4,7 +4,7 @@ export const getProducts = async ({ page = 1, limit = 2 }) => {
   const cookieStore = await cookies();
 
   const result = await fetch(
-    `/api/products?page=${page}&limit=${limit}`,
+    `https://truck-import.vercel.app/api/products?page=${page}&limit=${limit}`,
     {
       headers: {
         Cookie: cookieStore.toString(),
