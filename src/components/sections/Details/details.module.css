@@ -1,0 +1,94 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.services {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: calc(80vw/14.4) calc(150vw/14.4);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: calc(30vw/14.4) calc(9.4vw/14.4);
+    /* background-color: #F4F4F3; */
+}
+
+.service {
+    width: calc(220vw/14.4);
+    max-width: calc(220vw/14.4);
+    overflow: hidden;
+    border: calc(1vw/14.4) solid #E1E4ED;
+    -webkit-box-shadow: calc(0vw/14.4) calc(1vw/14.4) calc(4vw/14.4) calc(0vw/14.4) #19213D14;
+    box-shadow: calc(0vw/14.4) calc(1vw/14.4) calc(4vw/14.4) calc(0vw/14.4) #19213D14;
+    border-radius: calc(8vw/14.4);
+    text-decoration: none;
+    color: #141313;
+}
+
+.service__name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 500;
+    font-size: calc(16vw/14.4);
+    color: #141313;
+    padding: calc(20vw/14.4) calc(10vw/14.4);
+    width: calc(220vw/14.4);
+    height: calc(90vw/14.4);
+    text-decoration: none;
+    background-color: #F4F4F3;
+    border: none;
+    -webkit-box-shadow: calc(0vw/14.4) calc(1vw/14.4) calc(4vw/14.4) calc(0vw/14.4) #19213D14;
+    box-shadow: calc(0vw/14.4) calc(1vw/14.4) calc(4vw/14.4) calc(0vw/14.4) #19213D14;
+    border-radius: calc(8vw/14.4);
+}
+
+.service__image {
+    width: calc(220vw/14.4);
+    height: calc(200vw/14.4);
+    object-fit: cover;
+}
+
+@media screen and (max-width: 767px) {
+
+    .services {
+        padding: calc(60vw/3.9) calc(24vw/3.9);
+        gap: calc(20vw/3.9) calc(10vw/3.9);
+    }
+
+    .service {
+        width: calc(166vw/3.9);
+        max-width: calc(166vw/3.9);
+        border: calc(1vw/3.9) solid #E1E4ED;
+        -webkit-box-shadow: calc(0vw/3.9) calc(1vw/3.9) calc(4vw/3.9) calc(0vw/3.9) #19213D14;
+        box-shadow: calc(0vw/3.9) calc(1vw/3.9) calc(4vw/3.9) calc(0vw/3.9) #19213D14;
+        border-radius: calc(8vw/3.9);
+    }
+
+    .service__name {
+        font-size: calc(14vw/3.9);
+        padding: calc(18vw/3.9) calc(10vw/3.9);
+        width: calc(166vw/3.9);
+        height: calc(80vw/3.9);
+        -webkit-box-shadow: calc(0vw/3.9) calc(1vw/3.9) calc(4vw/3.9) calc(0vw/3.9) #19213D14;
+        box-shadow: calc(0vw/3.9) calc(1vw/3.9) calc(4vw/3.9) calc(0vw/3.9) #19213D14;
+        border-radius: calc(8vw/3.9);
+    }
+
+    .service__image {
+        width: calc(166vw/3.9);
+        height: calc(150vw/3.9);
+        object-fit: cover;
+    }
+}

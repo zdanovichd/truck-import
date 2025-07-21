@@ -133,6 +133,7 @@ a[aria-current="page"] {
 
 /* Вложенное меню */
 .menu .menu {
+  position: absolute;
   gap: .86vw 1.05vw;
   padding: .8vw .2vw;
 
@@ -321,9 +322,15 @@ height: auto;
     /* transition: background-color 0.2s linear; */
   }
 
+  .menu__btn {
+    padding: calc(15vw/3.9) 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .menu__btn[aria-expanded="true"] {
     border-radius: .35vw .35vw 0 0;
-    background-color: #272626;
+    background-color: #141313;
     border: none;
 
   }
@@ -367,13 +374,13 @@ height: auto;
 
   .menu__item {
     position: relative;
-
   }
 
   #catalog-submenu {
     /* padding-right: 25vw; */
     width: 34vw;
-    max-height: calc(220vw/3.9);
+    max-height: max-content;
+    height: 100%;
   }
 
   #about-submenu {
@@ -381,7 +388,9 @@ height: auto;
   }
 
   .menu__link {
+    line-height: 120%;
     text-decoration: none;
+    padding: calc(10vw/3.9) 0 calc(10vw/3.9) calc(20vw/3.9);
   }
 
   a[aria-current="page"] {
@@ -405,7 +414,7 @@ height: auto;
 
     /* background-color: red; */
 
-    background-color: #272626;
+    background-color: #141313;
     border: 0;
     border-radius: 0 .35vw .35vw .35vw;
   }
@@ -430,6 +439,21 @@ height: auto;
   .menu[hidden] {
     display: none;
     /* transition: display 0.2s linear; */
+  }
+
+  .menu.menu_submenu {
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    max-height: max-content;
+    height: 100%;
+  }
+
+  .menu__btn-icon {
+    color: inherit;
+    /* transition: transform .1s linear; */
+    width: calc(6.736100673675537vw/3.9);
+    height: calc(11.635083198547363vw/3.9);
   }
 
   .logo {

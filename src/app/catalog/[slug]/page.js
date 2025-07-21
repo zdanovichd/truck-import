@@ -1,62 +1,65 @@
-// 'use client';
 import styles from "./page.module.css";
-// import data from './data.json';
-import data from '../../json/data.json';
-import Category from "./components/Category/Category";
-import Product from "./components/Product/Product";
-// import { useState } from 'react';
+import products from '@/json/products.json';
+import Product from "@/components/ui/Product/Product";
+import { notFound } from "next/navigation";
+import { Suspense } from 'react';
+async function getProduct(sku) {
+  try {
+    const res = await fetch(`http://localhost:3000/api/products/${sku}`);
 
-export const dynamicParams = false;
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
 
-export async function generateStaticParams() {
-  const brands = data.brands;
-  const products = data.products;
+    const contentType = res.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Response is not JSON');
+    }
 
-  const brands_slugs = brands.map(brand => brand.slug);
-  const product_slugs = products.map(product => product.sku);
-
-  const all_slugs = [...brands_slugs, ...product_slugs];
-
-  return all_slugs.map((slug) => ({
-    slug: slug, // Ключ должен совпадать с именем папки [slug]
-  }));
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    return null; // или можно вернуть объект с ошибкой { error: error.message }
+  }
 }
 
-export async function generateMetadata({ params }) {
-  const { slug } = await params
-  const brands = data.brands;
-  const products = data.products;
 
-  const brand = brands.find(brand => brand.slug === slug);
-  const product = products.find(product => product.sku === slug);
-  if (brand) {
-    return {
-      title: brand?.meta__title || 'Default Title',
-      description: brand?.meta__description || 'Default Description',
-    };
-  } else if (product) {
+export async function generateMetadata({ params }) {
+
+  const { slug } = await params
+  // const products = data.products;
+  const productData = getProduct(slug);
+  const [product] = await Promise.all([productData])
+
+  // const product = products.find(product => product.sku === slug);
+  if (!product) {
+    notFound();
+  }
+
+  if (product) {
     return {
       title: product?.meta__title || 'Default Title',
       description: product?.meta__description || 'Default Description',
     };
   }
+
 }
 
 export default async function Page({ params }) {
-  // Находим бренд по slug из параметров URL
   const { slug } = await params
-  const brands = data.brands;
-  const products = data.products;
+  // const products = data.products;
 
-  const brand = brands.find(brand => brand.slug === slug);
   const product = products.find(product => product.sku === slug);
+  if (!product) {
+    notFound();
+  }
 
   return ( <>
-    {brand ? (
-      <Category brand={brand} />
-    ) : (
-      <Product product={product} />
-    )}
+    {product &&
+      <Suspense fallback={<p>Loading product...</p>}>
+        <Product product={product} />
+      </Suspense>
+    }
   </>
   );
 }
