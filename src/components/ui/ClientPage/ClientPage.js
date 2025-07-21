@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 
 
 async function getProducts() {
-  const res = await fetch(`http://localhost:3000/api/products?limit=12?sortBy=price`);
+  const res = await fetch(`/api/products?limit=12?sortBy=price`);
   return await res.json();
 }
 
