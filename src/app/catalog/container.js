@@ -137,7 +137,7 @@ export const ProductsContainer = () => {
                     )}
 
                     {/* Многоточие, если есть разрыв между первой и текущей страницей */}
-                    {page > 4 && <span className={styles.ellipsis}>...</span>}
+                    {page > 3 && <span className={styles.ellipsis}>...</span>}
 
                     {/* Показываем 2 страницы перед текущей */}
                     {/* {page > 3 && (

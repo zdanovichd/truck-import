@@ -45,14 +45,16 @@ function ProductItem({ product, innerWidth }) {
 
             <div className={styles.product__card}>
                 <div className={styles.product__image_container}>
-                    <Image
-                        src={`https://placehold.co/${parseInt(276 * 4 / 1440 * innerWidth)}x${parseInt(250 * 4 / 1440 * innerWidth)}.png?text=${product.sku}`}
-                        // width={parseInt(276 / 1440 * innerWidth)}
-                        // height={parseInt(250 / 1440 * innerWidth)}
-                        fill
-                        alt={`${product.name} ${product.sku}`}
-                        className={styles.product__image}
-                    />
+                    <Link href={`/catalog/${product.sku}`}>
+                        <Image
+                            src={`https://placehold.co/${parseInt(276 * 4 / 1440 * innerWidth)}x${parseInt(250 * 4 / 1440 * innerWidth)}.png?text=${product.sku}`}
+                            // width={parseInt(276 / 1440 * innerWidth)}
+                            // height={parseInt(250 / 1440 * innerWidth)}
+                            fill
+                            alt={`${product.name} ${product.sku}`}
+                            className={styles.product__image}
+                        />
+                    </Link>
                 </div>
 
                 <div className={styles.product__code}><Link href={`/catalog/${product.sku}`}>{product.sku}</Link></div>
@@ -69,7 +71,9 @@ function ProductItem({ product, innerWidth }) {
                             Модель:{" "}
                         </span>
                         <span className={styles.product__brand_value}>
-                            {product.model}
+                            <Link href={`/brands/${product.model}`}>
+                                {product.model}
+                            </Link>
                         </span>
                     </span>
                     <span className={styles.product__price}>

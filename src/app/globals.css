@@ -4,8 +4,19 @@
     padding: 0;
 }
 
+
 body {
   overflow-x: hidden;
+}
+
+html {
+  font-size: calc(1vw/14.4*10);
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: calc(1vw/3.9*10);
+  }
 }
 
 ::-webkit-scrollbar {
@@ -19,9 +30,9 @@ ul, li {
   text-align: start;
 }
 
-nextjs-portal {
+/* nextjs-portal {
   display: none;
-}
+} */
 
 .menu {
   display: flex;

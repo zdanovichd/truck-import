@@ -71,10 +71,7 @@ export default function Category({ brand = [] }) {
               alt={'select-category'}
               width={500} // дефолтное значение (для SSR)
               height={300}
-              // style={{
-              //   width: 'auto',
-              //   height: 'calc(87vw/14.4)',
-              // }}
+
             />
             <p className={`${styles.advantages__text} ${styles.advantages__text_small}`}>Широкий ассортимент<br/>оригинальных и<br/>аналоговых запасных<br/>частей</p>
           </div>

@@ -38,11 +38,11 @@ const menuItems = [
     title: "Покупателям",
     name: "buyers",
     items: [
-      { name: "Оплата и доставка", href: "#" },
-      { name: "Гарантия", href: "#" },
-      { name: "Контакты", href: "#" },
+      { name: "Оплата и доставка", href: "/oplata-i-dostavka" },
+      { name: "Гарантия и возврат", href: "/garantii-i-vozvrat" },
+      { name: "Контакты", href: "/contacts" },
       { name: "Сотрудничество", href: "#" },
-      { name: "Возврат", href: "#" }
+      // { name: "Возврат", href: "/garantii-i-vozvrat" }
     ]
   },
   {

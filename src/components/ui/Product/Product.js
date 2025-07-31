@@ -1,36 +1,11 @@
-"use client";
-// import Image from "next/image";
 import styles from "./product.module.css";
-import SectionTitle from "@/components/ui/SectionTitle/SectionTitle";
 import Image from "next/image";
 import Link from "next/link";
-import Reviews from "@/components/ui/Reviews/Reviews";
 import Search from "@/components/ui/Search/Search";
-import Faq from "@/components/sections/Faq/Faq";
-import Feedback from "@/components/ui/Feedback/Feedback";
-import { useState, useEffect } from "react";
+import ProductAddToCart from "@/components/ui/ProductAddToCart/ProductAddToCart";
 
 export default function Product({ product = [] }) {
-    const { innerWidth, innerHeight } = useWindowSize();
 
-    const [count, setCount] = useState(0); // Основное значение
-    const [inputValue, setInputValue] = useState(count.toString()); // Локальное значение для input
-    if (!innerWidth) {
-        // Можно вернуть null или заглушку, пока не определится ширина окна
-        return null;
-    }
-    // Обработчик изменения количества
-    const handleCountChange = (newCount) => {
-        const validatedCount = Math.max(0, Math.min(newCount, product.count)); // Ограничение min=1, max=product.count
-        setCount(validatedCount);
-        setInputValue(validatedCount.toString());
-    };
-
-    // Обработчик ввода
-    const handleInputBlur = () => {
-        const numValue = parseInt(inputValue) || 1; // Если не число - вернет 1
-        handleCountChange(numValue);
-    };
     const specifications = product.specifications;
     return (
         <main>
@@ -48,20 +23,12 @@ export default function Product({ product = [] }) {
                 <div className={styles.product__wrapper}>
                     <div className={styles.product__data}>
                         <Image
-                            src={`https://placehold.co/${parseInt(
-                                (357 / 1440) * innerWidth
-                            )}x${parseInt(
-                                (371 / 1440) * innerWidth
-                            )}.png?text=${product.sku}`}
+                            src={`https://placehold.co/${parseInt( (357 / 1440) * 2000 )}x${parseInt( (371 / 1440) * 2000 )}.png?text=${product.sku}`}
                             // src={`/products/${product.sku}/0.png`}
                             alt={`${product.name} ${product.sku}`}
                             className={styles.product__image}
-                            width={500} // дефолтное значение (для SSR)
+                            width={500}
                             height={300}
-                            // style={{
-                            //     width: "calc(357vw/14.4)",
-                            //     height: "calc(371vw/14.4)",
-                            // }}
                         />
                         <div className={styles.specifications}>
                             <p className={styles.specifications__title}>
@@ -83,7 +50,9 @@ export default function Product({ product = [] }) {
                                                 styles.specification__value
                                             }
                                         >
-                                            {product.brand}
+                                            <Link href={`/brands/${product.brand}`}>
+                                                {product.brand}
+                                            </Link>
                                         </span>
                                     </span>
 
@@ -102,7 +71,9 @@ export default function Product({ product = [] }) {
                                                 styles.specification__value
                                             }
                                         >
-                                            {product.model}
+                                            <Link href={`/brands/${product.model}`}>
+                                                {product.model}
+                                            </Link>
                                         </span>
                                     </span>
 
@@ -166,7 +137,9 @@ export default function Product({ product = [] }) {
                                     Бренд:{" "}
                                 </span>
                                 <span className={styles.selling__brand_value}>
-                                    {product.brand}
+                                    <Link href={`/brands/${product.brand}`}>
+                                        {product.brand}
+                                    </Link>
                                 </span>
                             </span>
                             <span className={styles.selling__delivery}>
@@ -188,81 +161,7 @@ export default function Product({ product = [] }) {
                                 </span>
                             </span>
                         </div>
-                        <div className={styles.cart__button}>
-                            {product.count > 0 ? (
-                                count > 0 ? (
-                                    <>
-                                        <button
-                                            className={
-                                                styles.cart__button_enabled
-                                            }
-                                            onClick={() =>
-                                                handleCountChange(count - 1)
-                                            }
-                                            // disabled={count <= 1} // Отключаем если count = 1
-                                        >
-                                            -
-                                        </button>
-
-                                        <input
-                                            type="number"
-                                            value={inputValue}
-                                            onChange={(e) =>
-                                                setInputValue(e.target.value)
-                                            }
-                                            onBlur={handleInputBlur}
-                                            onKeyDown={(e) =>
-                                                e.key === "Enter" &&
-                                                handleInputBlur()
-                                            }
-                                            // min="0"
-                                            max={product.count}
-                                            className={styles.counter__input}
-                                        />
-
-                                        <button
-                                            className={
-                                                styles.cart__button_enabled
-                                            }
-                                            onClick={() =>
-                                                handleCountChange(count + 1)
-                                            }
-                                            disabled={count >= product.count} // Отключаем если достигнут максимум
-                                        >
-                                            +
-                                        </button>
-                                    </>
-                                ) : (
-                                    <button
-                                        className={styles.cart__button_enabled}
-                                        onClick={() =>
-                                            handleCountChange(count + 1)
-                                        }
-                                    >
-                                        <Image
-                                            src="/cart.svg"
-                                            alt="cart"
-                                            className={styles.cart__icon}
-                                            width={500} // дефолтное значение (для SSR)
-                                            height={300}
-                                            // style={{
-                                            //     width: "calc(25vw/14.4)",
-                                            //     height: "calc(25vw/14.4)",
-                                            // }}
-                                        />
-                                        Добавить в корзину
-                                    </button>
-                                )
-                            ) : (
-                                <button
-                                    className={styles.cart__button_disabled}
-                                    disabled
-                                >
-                                    Нет в наличии
-                                </button>
-                            )}
-                        </div>
-
+                        <ProductAddToCart props_count={product.count}/>
                         <div className={`${styles.specifications} ${styles._mobile}`}>
                             <p className={styles.specifications__title}>
                                 Технические характеристики
@@ -358,36 +257,4 @@ export default function Product({ product = [] }) {
             </section>
         </main>
     );
-}
-
-function useWindowSize() {
-    // Initialize state with undefined values that will be set on client side
-    const [windowSize, setWindowSize] = useState({
-        innerWidth: undefined,
-        innerHeight: undefined,
-    });
-
-    useEffect(() => {
-        // Handler to call on window resize
-        function handleResize() {
-            setWindowSize({
-                innerWidth: window.innerWidth,
-                innerHeight: window.innerHeight,
-            });
-        }
-
-        // Only set up event listeners and initial size on client side
-        if (typeof window !== "undefined") {
-            // Set size immediately
-            handleResize();
-
-            // Add event listener
-            window.addEventListener("resize", handleResize);
-
-            // Remove event listener on cleanup
-            return () => window.removeEventListener("resize", handleResize);
-        }
-    }, []); // Empty array ensures effect is only run on mount and unmount
-
-    return windowSize;
 }

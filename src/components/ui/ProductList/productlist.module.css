@@ -68,7 +68,7 @@
     vertical-align: middle;
 }
 
-.product__brand_value {
+.product__brand_value a {
     color: #A9A9A9;
 }
 

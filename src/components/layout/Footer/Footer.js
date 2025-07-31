@@ -30,7 +30,7 @@ export default function Footer() {
                     <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
-                            href="#"
+                            href="/oplata-i-dostavka"
                             aria-current="page"
                         >
                             Оплата и доставка
@@ -39,16 +39,16 @@ export default function Footer() {
                     <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
-                            href="#"
+                            href="/garantii-i-vozvrat"
                             aria-current="page"
                         >
-                            Гарантия
+                            Гарантия и возврат
                         </Link>
                     </li>
                     <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
-                            href="#"
+                            href="/catalog"
                             aria-current="page"
                         >
                             Каталог запчастей
@@ -75,7 +75,7 @@ export default function Footer() {
                     <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
-                            href="#"
+                            href="/contacts"
                             aria-current="page"
                         >
                             Контакты
