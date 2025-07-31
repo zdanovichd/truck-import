@@ -1,0 +1,49 @@
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-self: center;
+    margin-bottom: calc(24vw/14.4);
+  }
+
+  .rating__star {
+    width: calc(24vw/14.4);
+    height: calc(24vw/14.4);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .rating__star svg {
+    width: calc(18vw/14.4);
+    height: calc(18vw/14.4);
+    margin: auto;
+  }
+
+  ._selected path {
+    fill: #FFC700;
+  }
+
+  @media screen and (max-width: 767px) {
+    .rating {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-self: center;
+      margin-bottom: calc(24vw/3.9);
+    }
+
+    .rating__star {
+      width: calc(24vw/3.9);
+      height: calc(24vw/3.9);
+      display: flex;
+      justify-content: center;
+      align-self: center;
+    }
+
+    .rating__star svg {
+      width: calc(18vw/3.9);
+      height: calc(18vw/3.9);
+      margin: auto;
+    }
+  }

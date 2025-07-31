@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from 'next/link';
 import styles from "./page.module.css";
-import Search from "./components/ui/Search/Search";
-import Brands from "./components/ui/Brands/Brands";
-import Advantages from "./components/sections/Advantages/Advantages";
-import SectionTitle from "./components/ui/SectionTitle/SectionTitle";
-import Reviews from "./components/ui/Reviews/Reviews";
+import Search from "@/components/ui/Search/Search";
+import Brands from "@/components/ui/Brands/Brands";
+import Advantages from "@/components/sections/Advantages/Advantages";
+import SectionTitle from "@/components/ui/SectionTitle/SectionTitle";
+import Reviews from "@/components/ui/Reviews/Reviews";
 
 export async function generateMetadata() {
   return {
@@ -20,9 +20,11 @@ export default function Home() {
     <main>
       <section className={styles.hero}>
         <h1 className={styles.title}>Грузовые запчасти оптом</h1>
-        <Search
-          style={{ marginBottom: 'calc(117vw / 14.4)' }}
-        />
+        <div className={styles.search}>
+          <Search
+            // style={{ marginBottom: 'calc(117vw / 14.4)' }}
+          />
+        </div>
         <Brands
           brands={["scania", "daf", "volvo", "mercedes", "man"]}
           theme="gray"
@@ -44,18 +46,25 @@ export default function Home() {
         />
         <div className={styles.spares__inner}>
           <Brands
-            brands={["man", "daf", "mercedes", "scania", "volvo"]}
+            brands={["man", "daf", "mercedes", "scania"]}
           />
           <Brands
-            brands={["fag", "ina", "febi", "hengst"]}
+            brands={["kolbenschmidt", "hengst", "volvo"]}
+          />
+          {/* <Brands
+            brands={["man", "daf", "mercedes", "scania"]}
           />
           <Brands
-            brands={["kolbenschmidt", "mahle", "luk", "oeg", "webasto"]}
+            brands={["fag", "ina", "hengst"]}
           />
           <Brands
-            brands={["bosch", "brembo", "zf"]}
+            brands={["kolbenschmidt", "mahle", "oeg"]}
           />
           <Brands
+            brands={["brembo", "zf", "volvo"]}
+          /> */}
+
+          {/* <Brands
             brands={["holset", "jost", "knorr-bremse", "monroe"]}
           />
           <Brands
@@ -66,7 +75,7 @@ export default function Home() {
           />
           <Brands
             brands={["skf", "textar", "trw", "wabco"]}
-          />
+          /> */}
         </div>
       </section>
       <section className={styles.assortment}>

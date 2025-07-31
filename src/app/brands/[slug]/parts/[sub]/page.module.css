@@ -1,0 +1,15 @@
+.catalog__hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(60vw/14.4) calc(150vw/14.4);
+  background-color: #F4F4F3;
+}
+
+.catalog__title {
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 400;
+  font-size: calc(44vw/14.4);
+  text-align: left;
+}
