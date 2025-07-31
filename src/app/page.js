@@ -49,6 +49,12 @@ export default function Home() {
             brands={["man", "daf", "mercedes", "scania"]}
           />
           <Brands
+            brands={["kolbenschmidt", "hengst", "volvo"]}
+          />
+          {/* <Brands
+            brands={["man", "daf", "mercedes", "scania"]}
+          />
+          <Brands
             brands={["fag", "ina", "hengst"]}
           />
           <Brands
@@ -56,7 +62,8 @@ export default function Home() {
           />
           <Brands
             brands={["brembo", "zf", "volvo"]}
-          />
+          /> */}
+
           {/* <Brands
             brands={["holset", "jost", "knorr-bremse", "monroe"]}
           />

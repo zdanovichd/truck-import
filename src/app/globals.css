@@ -125,7 +125,8 @@ footer .menu {
 
 #catalog-submenu {
   /* padding-right: 25vw; */
-  width: 55.5vw;
+  /* width: 55.5vw; */
+  width: 36.1vw;
   max-height: calc(220vw/14.4);
 }
 

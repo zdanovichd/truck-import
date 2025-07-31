@@ -9,6 +9,7 @@ import Search from "@/components/ui/Search/Search";
 import Faq from "@/components/sections/Faq/Faq";
 import Feedback from "@/components/ui/Feedback/Feedback";
 import { useState, useEffect } from "react";
+import Details from "@/components/sections/Details/Details";
 
 export default function Category({ brand = [] }) {
   const { innerWidth, innerHeight } = useWindowSize();
@@ -40,7 +41,7 @@ export default function Category({ brand = [] }) {
                   >
                     <OptimizedImageWithFallback
                       src={item.image}
-                      fallBackSrc={`https://placehold.co/${parseInt((357 / 1440) * innerWidth)}x${parseInt((371 / 1440) * innerWidth)}.png?text=${brand.name} ${item.name}`}
+                      fallBackSrc={`https://placehold.co/${parseInt((357 / 1440) * 2000)}x${parseInt((371 / 1440) * 2000)}.png?text=${brand.name} ${item.name}`}
                       alt={`${brand.name} ${item.name}`}
                     />
                     <p className={styles.subcategory__name}>Запчасти {brand.name} {item.name}</p>
@@ -48,6 +49,12 @@ export default function Category({ brand = [] }) {
                 ))}
               </div>
         </section>
+      }
+      {subcategories.length == 0 &&
+        <Details
+          // sub={subcategory}
+          data={brand}
+        />
       }
       <section className={styles.category__search}>
         <SectionTitle

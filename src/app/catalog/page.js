@@ -10,6 +10,13 @@ import { getProducts } from "@/services/get-products";
 import { LIMIT } from "./constants";
 import styles from './page.module.css'
 
+export async function generateMetadata() {
+    return {
+        title: "Каталог запчастей для грузовых автомобилей с наличием и ценами в Москве I Truck-import",
+        description: "Каталог запчастей для грузовых автомобилей с наличием и актуальными ценами в Москве. Оригинальные и аналоговые детали в наличии и под заказ. Быстрая доставка. Купите надёжные запчасти по выгодным ценам — Truck-import",
+    };
+}
+
 export default async function Page({ searchParams }) {
   const { page = "1" } = await searchParams
 
@@ -18,14 +25,12 @@ export default async function Page({ searchParams }) {
     pageNumber = parseInt(page) || 1
   }
 
-  console.log(pageNumber);
-
   return (
     <main>
       <section className={styles.catalog__hero}>
         <h1 className={styles.catalog__title}>
           {/* {service.title} для {brand.name} */}
-          Каталог
+          Каталог запчастей для грузовиков
         </h1>
         {/* <SortControl onSortChange={handleSortChange} selected={sortType} /> */}
       </section>

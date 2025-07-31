@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from 'react';
 async function getProduct(sku) {
   try {
-    const res = await fetch(`https://truck-import.vercel.app/api/products/${sku}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${sku}`);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);

@@ -10,7 +10,7 @@ export default function Brands({ brands = [], theme = "default" }) {
     return (
         <div className={styles.brands}>
             {brands.map((item, index) => (
-                <Link href={`/catalog/${item}`}key={index}>
+                <Link href={`/brands/${item}`}key={index}>
                     <Image
                         className={`${styles.brands__item} ${theme == 'gray' ? styles.brands__item_gray : ''}`}
                         src={`/brands/${item}.svg`}

@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 
 
 async function getProducts() {
-  const res = await fetch(`https://truck-import.vercel.app/api/products?limit=12?sortBy=price`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products?limit=12?sortBy=price`);
   return await res.json();
 }
 

@@ -4,6 +4,7 @@
    background-color: #141313;
    width: 100vw;
    justify-content: space-between;
+   z-index: 9;
 }
 
 .header__buttons {
@@ -73,6 +74,7 @@
    justify-content: space-between;
    height: calc(85vw/14.4);
    align-items: center;
+   z-index: 9;
 }
 
 .header__inner {

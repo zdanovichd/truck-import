@@ -20,18 +20,18 @@ const menuItems = [
       { name: "Iveco", href: "/brands/iveco" },
       { name: "Renault", href: "/brands/renault" },
       { name: "Valeo", href: "/brands/valeo" },
-      { name: "MAHLE", href: "/brands/mahle" },
-      { name: "FPT", href: "/brands/fpt" },
-      { name: "OE Germany", href: "/brands/oeg" },
-      { name: "Liebherr", href: "/brands/liebherr" },
-      { name: "KORTEX", href: "/brands/kortex" },
-      { name: "ZF", href: "/brands/zf" },
-      { name: "Victor Reinz", href: "/brands/victor-reinz" },
+      // { name: "MAHLE", href: "/brands/mahle" },
+      // { name: "FPT", href: "/brands/fpt" },
+      // { name: "OE Germany", href: "/brands/oeg" },
+      // { name: "Liebherr", href: "/brands/liebherr" },
+      // { name: "KORTEX", href: "/brands/kortex" },
+      // { name: "ZF", href: "/brands/zf" },
+      // { name: "Victor Reinz", href: "/brands/victor-reinz" },
       { name: "John Deere", href: "/brands/john-deere" },
       { name: "Komatsu", href: "/brands/komatsu" },
       { name: "Iveco Daily", href: "/brands/iveco-daily" },
-      { name: "KS-AUTO", href: "/brands/ks-auto" },
-      { name: "BF/CS Germany", href: "/brands/bf-cs-germany" },
+      // { name: "KS-AUTO", href: "/brands/ks-auto" },
+      // { name: "BF/CS Germany", href: "/brands/bf-cs-germany" },
     ]
   },
   {
@@ -41,18 +41,17 @@ const menuItems = [
       { name: "Оплата и доставка", href: "/oplata-i-dostavka" },
       { name: "Гарантия и возврат", href: "/garantii-i-vozvrat" },
       { name: "Контакты", href: "/contacts" },
-      { name: "Сотрудничество", href: "#" },
-      // { name: "Возврат", href: "/garantii-i-vozvrat" }
+      // { name: "Сотрудничество", href: "#" },
     ]
   },
-  {
-    title: "О проекте",
-    name: "about",
-    items: [
-      { name: "Документы", href: "#" },
-      { name: "Вакансии", href: "#" }
-    ]
-  }
+  // {
+  //   title: "О проекте",
+  //   name: "about",
+  //   items: [
+  //     { name: "Документы", href: "#" },
+  //     { name: "Вакансии", href: "#" }
+  //   ]
+  // }
 ];
 
 const ArrowIcon = ({ isOpen }) => (

@@ -19,14 +19,14 @@ export default function Details({ sub = [], data = [] }) {
                         <Image
                             className={styles.service__image}
                             src={item.image}
-                            alt={`${item.title} ${data.name} ${sub.name}`}
+                            alt={`${item.title} ${data.name} ${sub.name ? sub.name : ''}`}
                             width={500} // дефолтное значение (для SSR)
                             height={300}
                             style={{
-                            
+
                             }}
                         />
-                        <p className={styles.service__name}>{item.title} {data.name} {sub.name}</p>
+                        <p className={styles.service__name}>{item.title} {data.name} {sub.name ? sub.name : ''}</p>
                     </Link>
                 ))}
             {/* </div> */}

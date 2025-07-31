@@ -8,7 +8,7 @@ import BrandFilter from '@/components/ui/BrandFilter/BrandFilter';
 import { useState, useEffect } from "react";
 
 const fetcher = async (path) => {
-  const response = await fetch(`https://truck-import.vercel.app/api/${path}&limit=${LIMIT}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}&limit=${LIMIT}`);
   if (!response.ok) throw new Error('Failed to fetch products');
   return response.json();
 };
@@ -94,7 +94,7 @@ export const ProductsContainer = () => {
       <aside className={styles.filters}>
 
         <BrandFilter
-          title="Бренд"
+          title="Производитель"
           allBrands={allBrands}
           selectedBrands={selectedBrands}
           onChange={handleBrandChange}

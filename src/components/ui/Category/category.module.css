@@ -49,6 +49,7 @@
   object-fit: cover;
   height: calc(350vw/14.4);
   border-radius: calc(8vw/14.4) calc(8vw/14.4) 0 0;
+  filter: brightness(90%)
 }
 
 .subcategory__name {

@@ -54,7 +54,7 @@ export default function Footer() {
                             Каталог запчастей
                         </Link>
                     </li>
-                    <li className={styles.footer__menu_item}>
+                    {/* <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
                             href="#"
@@ -62,8 +62,8 @@ export default function Footer() {
                         >
                             О проекте
                         </Link>
-                    </li>
-                    <li className={styles.footer__menu_item}>
+                    </li> */}
+                    {/* <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
                             href="#"
@@ -71,7 +71,7 @@ export default function Footer() {
                         >
                             Блог
                         </Link>
-                    </li>
+                    </li> */}
                     <li className={styles.footer__menu_item}>
                         <Link
                             className={styles.footer__menu_link}
