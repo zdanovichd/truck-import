@@ -6,6 +6,7 @@ import ProductList from '@/components/ui/ProductList/ProductList';
 import styles from './page.module.css';
 import BrandFilter from '@/components/ui/BrandFilter/BrandFilter';
 import { useState, useEffect } from "react";
+import Loading from "./loading";
 
 const fetcher = async (path) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}&limit=${LIMIT}`);
@@ -86,7 +87,7 @@ export const ProductsContainer = () => {
   const allModels = data?.allModels || [];
   const allBrands = data?.allBrands || [];
 
-  if (isLoading) return <div className={styles.loading}>Загрузка товаров...</div>;
+  if (isLoading) return <Loading/>;
   if (error) return <div className={styles.error}>Ошибка загрузки: {error.message}</div>;
 
   return (
