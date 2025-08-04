@@ -22,14 +22,18 @@ export default function Product({ product = [] }) {
                 </h1>
                 <div className={styles.product__wrapper}>
                     <div className={styles.product__data}>
-                        <Image
+                        <div className={styles.product__image}>
+                            {/* <p>{product.name}</p> */}
+                            <p>{product.sku}</p>
+                        </div>
+                        {/* <Image
                             src={`https://placehold.co/${parseInt( (357 / 1440) * 2000 )}x${parseInt( (371 / 1440) * 2000 )}.png?text=${product.sku}`}
                             // src={`/products/${product.sku}/0.png`}
                             alt={`${product.name} ${product.sku}`}
                             className={styles.product__image}
                             width={500}
                             height={300}
-                        />
+                        /> */}
                         <div className={styles.specifications}>
                             <p className={styles.specifications__title}>
                                 Технические характеристики

@@ -61,6 +61,24 @@
     width: calc(357vw/14.4);
     height: calc(371vw/14.4);
     object-fit: cover;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    /* z-index: 0; */
+    /* object-fit: cover; */
+    /* height: 100%; */
+    /* border-radius: calc(7vw/14.4) calc(7vw/14.4) 0 0; */
+    background-color: #ccc;
+}
+
+.product__image p {
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 500;
+    font-size: 3rem;
+    color: #aaa;
 }
 
 .product__wrapper {
@@ -235,7 +253,7 @@
 .selling__brand_value a {
     font-family: var(--font-gilroy);
     font-weight: 400;
-    font-size: calc(20vw/14.4);
+    font-size: 2rem;
     line-height: 120%;
     letter-spacing: -2%;
     color: #A9A9A9;

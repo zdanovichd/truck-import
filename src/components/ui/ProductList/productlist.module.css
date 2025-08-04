@@ -4,6 +4,7 @@
     border-radius: calc(8vw/14.4);
     width: calc(277vw/14.4);
     background-color: #F4F4F3;
+    overflow: hidden;
 }
 
 .product__card a {
@@ -15,13 +16,27 @@
     position: relative;
     width: calc(276vw/14.4);
     height: calc(250vw/14.4);
+    overflow: hidden;
 }
 
 .product__image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 0;
     object-fit: cover;
-    border-radius: calc(7vw/14.4) calc(7vw/14.4) 0 0;
+    height: 100%;
+    /* border-radius: calc(7vw/14.4) calc(7vw/14.4) 0 0; */
+    background-color: #ccc;
+}
+
+.product__image p {
+    font-family: var(--font-gilroy), sans-serif;
+    font-weight: 500;
+    font-size: 3rem;
+    color: #aaa;
 }
 
 .product__code {
@@ -242,7 +257,7 @@
         position: relative;
         z-index: 0;
         object-fit: cover;
-        border-radius: calc(7vw/3.9) calc(7vw/3.9) 0 0;
+        /* border-radius: calc(7vw/3.9) calc(7vw/3.9) 0 0; */
     }
 
     .product__data {

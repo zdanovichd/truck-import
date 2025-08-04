@@ -1,6 +1,6 @@
 export default function robots() {
 
-    if (process.env.SITE_URL === "https://truck-import.ru") {
+    // if (process.env.SITE_URL === "https://truck-import.ru") {
         return {
             rules: {
             userAgent: '*',
@@ -9,13 +9,13 @@ export default function robots() {
             },
             sitemap: process.env.SITE_URL + '/sitemap.xml',
         }
-    } else {
-        return {
-            rules: {
-            userAgent: '*',
-            disallow: '/'
-            },
-            sitemap: process.env.SITE_URL + '/sitemap.xml',
-        }
-    }
+    // } else {
+    //     return {
+    //         rules: {
+    //         userAgent: '*',
+    //         disallow: '/'
+    //         },
+    //         sitemap: process.env.SITE_URL + '/sitemap.xml',
+    //     }
+    // }
 }

@@ -46,14 +46,18 @@ function ProductItem({ product, innerWidth }) {
             <div className={styles.product__card}>
                 <div className={styles.product__image_container}>
                     <Link href={`/catalog/${product.sku}`}>
-                        <Image
+                        <div className={styles.product__image}>
+                            {/* <p>{    product.name}</p> */}
+                            <p>{product.sku}</p>
+                        </div>
+                        {/* <Image
                             src={`https://placehold.co/${parseInt(276 * 4 / 1440 * innerWidth)}x${parseInt(250 * 4 / 1440 * innerWidth)}.png?text=${product.sku}`}
                             // width={parseInt(276 / 1440 * innerWidth)}
                             // height={parseInt(250 / 1440 * innerWidth)}
                             fill
                             alt={`${product.name} ${product.sku}`}
                             className={styles.product__image}
-                        />
+                        /> */}
                     </Link>
                 </div>
 

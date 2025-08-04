@@ -44,14 +44,14 @@ const menuItems = [
       // { name: "Сотрудничество", href: "#" },
     ]
   },
-  // {
-  //   title: "О проекте",
-  //   name: "about",
-  //   items: [
-  //     { name: "Документы", href: "#" },
-  //     { name: "Вакансии", href: "#" }
-  //   ]
-  // }
+  {
+    title: "О проекте",
+    name: "about",
+    items: [
+      // { name: "Документы", href: "#" },
+      { name: "Вакансии", href: "/vakansii" }
+    ]
+  }
 ];
 
 const ArrowIcon = ({ isOpen }) => (
