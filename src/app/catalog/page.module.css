@@ -8,7 +8,7 @@
 }
 
 .catalog__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(44vw/14.4);
   text-align: left;
@@ -53,7 +53,7 @@
   /* border-bottom-width: calc(2vw/14.4); */
   background-color: #fff;
   border: none;
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 600;
   font-size: calc(20vw/14.4);
   line-height: calc(20vw/14.4);
@@ -68,7 +68,7 @@
 }
 
 .ellipsis {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 600;
   font-size: calc(20vw/14.4);
   line-height: 100%;
@@ -88,7 +88,7 @@
 }
 
 .empty {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(30vw/14.4);
   line-height: 100%;
@@ -131,7 +131,7 @@
     /* border-bottom-width: calc(2vw/14.4); */
     background-color: #fff;
     border: none;
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 600;
     font-size: calc(20vw/3.9);
     line-height: calc(20vw/3.9);
@@ -146,7 +146,7 @@
   }
 
   .ellipsis {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 600;
     font-size: calc(20vw/3.9);
     line-height: 100%;
@@ -166,7 +166,7 @@
   }
 
   .empty {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: calc(30vw/3.9);
     line-height: 100%;

@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import Search from "../../ui/Search/Search";
+import Feedback from "@/components/ui/Feedback/Feedback";
 
 const menuItems = [
   {
@@ -54,6 +55,8 @@ const menuItems = [
   }
 ];
 
+
+
 const ArrowIcon = ({ isOpen }) => (
   <svg
     width="10"
@@ -73,7 +76,38 @@ export default function Header() {
 
   const [isMobile, setIsMobile] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+
+  const dialogRef = useRef(null);
+
+  const closeModal = () => {
+    dialogRef.current?.close();
+    // document.body.classList.remove("stop-scrolling");
+  };
+
+  const openModal = () => {
+    dialogRef.current?.showModal();
+    // document.body.classList.add("stop-scrolling");
+  };
+
+  const handleDialogClick = (e) => {
+    // Закрываем ТОЛЬКО при клике на бэкдроп (оверлей)
+    const dialog = dialogRef.current;
+    const rect = dialog.getBoundingClientRect();
+
+    // Проверяем, что клик был вне контента модалки
+    const isClickOutside = (
+      e.clientX < rect.left ||
+      e.clientX > rect.right ||
+      e.clientY < rect.top ||
+      e.clientY > rect.bottom
+    );
+
+    if (isClickOutside) {
+      closeModal();
+    }
+  };
 
   const phoneNumbers = useMemo(() => [
     { number: "+7 (900) 604-46-14", href: "tel:+79006044614" },
@@ -223,9 +257,26 @@ export default function Header() {
                 <Link className={styles.header__phone} href={phoneNumbers[0].href}>
                   {phoneNumbers[0].number}
                 </Link>
-                <Link className={styles.header__feedback} href="#">
+                <button
+                  className={styles.header__feedback}
+                  onClick={openModal}
+                >
                   Заказать звонок
-                </Link>
+                </button>
+                <dialog
+                  className={styles.header__modal}
+                  id="header__modal"
+                  method="dialog"
+                  ref={dialogRef}
+                  onClick={handleDialogClick}
+                >
+                  <Feedback/>
+                  <div className={styles.header__modal_close} onClick={closeModal}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L10 10M10 10L19 19M10 10L1 19M10 10L19 1" stroke="#F7F7F7" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                </dialog>
               </div>
 
               <div className={styles.header__item}>

@@ -8,7 +8,7 @@
 }
 
 .garantii__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 4.4rem;
   text-align: left;
@@ -21,7 +21,7 @@
 
 .text__left_border {
     max-width: 108.4rem;
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.8rem;
     text-decoration: none;
@@ -34,7 +34,7 @@
 }
 
 .garantii__h2 {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 3.6rem;
   text-decoration: none;
@@ -43,7 +43,7 @@
 }
 
 .main__text {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 1.8rem;
   text-decoration: none;

@@ -4,7 +4,7 @@
 }
 
 .category__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 500;
   font-size: calc(44vw/14.4);
   text-align: center;
@@ -26,14 +26,14 @@
 }
 
 .category__search_description {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(18vw/14.4);
   text-align: center;
 }
 
 .category__search_mark {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(16vw/14.4);
   text-align: center;
@@ -87,7 +87,7 @@
 .assortment ul,
 .assortment li,
 .assortment ol {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(18vw/14.4);
 }
@@ -129,7 +129,7 @@
 .feedback__content ul,
 .feedback__content li,
 .feedback__content ol {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(18vw/14.4);
 }
@@ -205,7 +205,7 @@
   .assortment ul,
   .assortment li,
   .assortment ol {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: calc(14vw/3.9);
   }
@@ -247,7 +247,7 @@
   .feedback__content ul,
   .feedback__content li,
   .feedback__content ol {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: calc(14vw/3.9);
   }

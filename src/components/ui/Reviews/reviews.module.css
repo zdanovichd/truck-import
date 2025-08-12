@@ -9,7 +9,7 @@
   }
 
   .reviews__description {
-      font-family: var(--font-gilroy), sans-serif;
+
       font-weight: 400;
       font-size: calc(18vw/14.4);
       text-align: center;
@@ -30,7 +30,7 @@
   }
 
   .review__text {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: calc(16vw/14.4);
     color: #6D758F;
@@ -50,7 +50,7 @@
   }
 
   .review__name {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 700;
     font-size: calc(16vw/14.4);
     color: #141313;
@@ -69,7 +69,7 @@
     }
 
     .reviews__description {
-        font-family: var(--font-gilroy), sans-serif;
+
         font-weight: 400;
         font-size: calc(18vw/3.9);
         text-align: center;
@@ -91,7 +91,7 @@
     }
 
     .review__text {
-      font-family: var(--font-gilroy), sans-serif;
+
       font-weight: 400;
       font-size: calc(14vw/3.9);
       color: #6D758F;
@@ -111,7 +111,7 @@
     }
 
     .review__name {
-      font-family: var(--font-gilroy), sans-serif;
+
       font-weight: 700;
       font-size: calc(16vw/3.9);
       color: #141313;

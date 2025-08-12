@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Feedback() {
 
     return (
-        <div className={styles.feedback}>
+        <div className={`${styles.feedback} feedback`}>
             <p className={styles.feedback__title}>Остались вопросы?</p>
             <p className={styles.feedback__subtitle}>Оставьте заявку, и мы свяжемся с Вами в ближайшее время</p>
             <form action="" method="get" className={styles.feedback__form}>

@@ -8,7 +8,7 @@
 }
 
 .title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 500;
   color: #ffffff;
   font-size: calc(44vw/14.4);
@@ -89,7 +89,7 @@
 
 .article__meta {
   color: rgba(166, 166, 166, 1);
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 700;
   font-size: calc(16vw/14.4);
   text-align: left;
@@ -97,14 +97,14 @@
 
 .article__title.article__title_small {
   color: rgba(20, 19, 19, 1);
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 700;
   font-size: calc(18vw/14.4);
   text-align: left;
 }
 
 .article__content {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(16vw/14.4);
   color: rgba(20, 19, 19, 1);
@@ -122,7 +122,7 @@
   }
 
   .title {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 500;
     color: #ffffff;
     font-size: calc(28vw/3.9);
@@ -205,7 +205,7 @@
 
   .article__meta {
     color: rgba(166, 166, 166, 1);
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 700;
     font-size: calc(14vw/3.9);
     text-align: left;
@@ -213,14 +213,14 @@
 
   .article__title.article__title_small {
     color: rgba(20, 19, 19, 1);
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 700;
     font-size: calc(16vw/3.9);
     text-align: left;
   }
 
   .article__content {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: calc(14vw/3.9);
     color: rgba(20, 19, 19, 1);

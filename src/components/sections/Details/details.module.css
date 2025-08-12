@@ -39,7 +39,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 500;
     font-size: calc(16vw/14.4);
     color: #141313;

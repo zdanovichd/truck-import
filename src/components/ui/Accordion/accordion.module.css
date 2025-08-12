@@ -53,7 +53,7 @@
 }
 
 .accordion__question {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 700;
     font-size: calc(18vw/14.4);
     line-height: calc(22vw/14.4);
@@ -88,7 +88,7 @@
 .accordion__answer {
     /* display: none; */
     height: 0;
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: calc(16vw/14.4);
     /* transition: 0.5s ease-in-out; */
