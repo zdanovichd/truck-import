@@ -1,4 +1,5 @@
 'use client'
+import MadeBy from "@/components/ui/MadeBy/MadeBy";
 import styles from "./footer.module.css";
 import Image from "next/image";
 import Link from 'next/link'
@@ -150,8 +151,11 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <Link className={styles.footer__privacy} href="#">Политика конфиденциальности</Link>
+            <MadeBy/>
+            <Link className={styles.footer__privacy} href="/privacy">Политика<br/>конфиденциальности</Link>
+
         </div>
     </footer>
   )
 }
+
