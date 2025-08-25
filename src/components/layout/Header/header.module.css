@@ -13,6 +13,20 @@
    gap: calc(10vw/14.4);
 }
 
+/* .header__modal {
+   position: absolute;
+   z-index: 999;
+   border: 0;
+   border-radius: .7rem;
+   width: 100%;
+} */
+
+.header__modal_close {
+   position: absolute;
+   top: 2rem;
+   right: 2rem;
+}
+
 .header__button {
    display: flex;
    align-items: center;
@@ -22,7 +36,7 @@
    padding: calc(10vw/14.4) calc(20vw/14.4);
    border-radius: calc(10vw/14.4);
    gap: calc(6vw/14.4);
-   font-family: var(--font-gilroy), sans-serif;
+
    font-weight: 700;
    font-size: calc(16vw/14.4);
    line-height: 120%;
@@ -40,7 +54,7 @@
    padding: calc(10vw/14.4);
    border-radius: calc(10vw/14.4);
    gap: calc(6vw/14.4);
-   font-family: var(--font-gilroy), sans-serif;
+
    font-weight: 700;
    font-size: calc(16vw/14.4);
    line-height: 120%;
@@ -90,7 +104,7 @@
 }
 
 .header__phone {
-   font-family: var(--font-gilroy), sans-serif;
+
    font-weight: 500;
    font-size: calc(20vw/14.4);
    line-height: 105%;
@@ -101,7 +115,7 @@
 }
 
 .header__feedback {
-   font-family: var(--font-gilroy), sans-serif;
+
    font-weight: 500;
    font-size: calc(16vw/14.4);
    line-height: 105%;
@@ -110,10 +124,16 @@
    text-decoration: underline;
    text-decoration-style: dotted;
    color: #C9AC37;
+
+   background-color: transparent;
+   border: none;
+   padding: 0;
+   margin: 0;
+   text-align: left;
 }
 
 .header__working_hours {
-   font-family: var(--font-gilroy), sans-serif;
+
    font-weight: 400;
    font-size: calc(16vw/14.4);
    line-height: 105%;

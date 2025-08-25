@@ -4,7 +4,7 @@
 }
 
 .category__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(44vw/14.4);
   text-align: center;
@@ -53,7 +53,7 @@
 }
 
 .subcategory__name {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 700;
   font-size: calc(20vw/14.4);
   line-height: calc(28vw/14.4);
@@ -91,7 +91,7 @@
 }
 
 .advantages__text {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 700;
   font-size: calc(22vw/14.4);
   text-align: center;
@@ -133,7 +133,7 @@
 .assortment ul,
 .assortment li,
 .assortment ol {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(18vw/14.4);
 }
@@ -154,14 +154,14 @@
 }
 
 .category__search_description {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(18vw/14.4);
   text-align: center;
 }
 
 .category__search_mark {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(16vw/14.4);
   text-align: center;
@@ -206,7 +206,7 @@
 .feedback__content ul,
 .feedback__content li,
 .feedback__content ol {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(18vw/14.4);
 }

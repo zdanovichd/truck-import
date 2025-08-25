@@ -8,7 +8,7 @@
 }
 
 .catalog__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: calc(44vw/14.4);
   text-align: left;

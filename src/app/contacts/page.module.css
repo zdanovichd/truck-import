@@ -11,7 +11,7 @@
 }
 
 .contacts__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 4.4rem;
   line-height: 130%;
@@ -48,7 +48,7 @@
   position: absolute;
   left: 3rem;
   bottom: 3rem;
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 3.6rem;
   line-height: 120%;
@@ -66,7 +66,7 @@
 }
 
 .contacts__item:nth-child(3) p {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 120%;
@@ -90,7 +90,7 @@
 }
 
 .contact__method_name {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 105%;
@@ -99,7 +99,7 @@
 }
 
 .contact__method_value {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 2rem;
   line-height: 120%;
@@ -117,7 +117,7 @@
 }
 
 .contact__method_phone {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 4.8rem;
   line-height: 120%;
@@ -136,7 +136,7 @@
 }
 
 .requisites__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 3.6rem;
   line-height: 120%;
@@ -166,7 +166,7 @@
  }
 
 .socials__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 3.6rem;
   line-height: 120%;
@@ -234,7 +234,7 @@
     bottom: auto;
     top: 3rem;
 
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 2.4rem;
     line-height: 120%;
@@ -253,7 +253,7 @@
   }
 
   .contacts__item:nth-child(3) p {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 120%;
@@ -278,7 +278,7 @@
   }
 
   .contact__method_name {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 105%;
@@ -287,7 +287,7 @@
   }
 
   .contact__method_value {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 2rem;
     line-height: 120%;
@@ -303,7 +303,7 @@
   }
 
   .contact__method_phone {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 3.2rem;
     line-height: 120%;
@@ -322,7 +322,7 @@
   }
 
   .requisites__title {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 2.4rem;
     line-height: 120%;
@@ -352,7 +352,7 @@
   }
 
   .socials__title {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 2.4rem;
     line-height: 120%;

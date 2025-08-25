@@ -29,7 +29,7 @@
 }
 
 .advantages__text {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 700;
     font-size: calc(22vw/14.4);
     text-align: center;
@@ -73,7 +73,7 @@
     }
 
     .advantages__text {
-        font-family: var(--font-gilroy), sans-serif;
+
         font-weight: 700;
         font-size: calc(14vw/3.9);
         text-align: center;

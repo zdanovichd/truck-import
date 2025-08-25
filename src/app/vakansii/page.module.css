@@ -8,7 +8,7 @@
 }
 
 .vakansii__title {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 4.4rem;
   text-align: left;
@@ -24,7 +24,7 @@
 
 .text__left_border {
     max-width: 108.4rem;
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.8rem;
     text-decoration: none;
@@ -33,7 +33,7 @@
 }
 
 .vakansii__h2 {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 3.6rem;
   text-decoration: none;
@@ -41,7 +41,7 @@
 }
 
 .main__text {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 1.8rem;
   text-decoration: none;
@@ -73,7 +73,7 @@
 }
 
 .advantages__subtitle {
-  font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.8rem;
     text-align: center;
@@ -100,7 +100,7 @@
 }
 
 .advantages__text {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 700;
   font-size: 2.2rem;
   text-align: center;
@@ -111,7 +111,7 @@
 }
 
 .advantages__subtext {
-  font-family: var(--font-gilroy), sans-serif;
+
   font-weight: 400;
   font-size: 1.6rem;
   text-align: center;
@@ -157,7 +157,7 @@
   }
 
   .advantages__subtitle {
-  font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.4rem;
     text-align: center;
@@ -198,7 +198,7 @@
   }
 
   .advantages__subtext {
-    font-family: var(--font-gilroy), sans-serif;
+
     font-weight: 400;
     font-size: 1.4rem;
     text-align: center;

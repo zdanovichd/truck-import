@@ -1,4 +1,4 @@
-import { gilroy } from './fonts'
+// import { gilroy } from './fonts'
 import "./globals.css";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
@@ -6,6 +6,7 @@ import Image from "next/image";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 // import MediaQuery from 'react-responsive';
+import { gilroy } from '@/app/fonts'
 
 export const metadata = {
   title: "Грузовые запчасти оптом в Москве | truck-import.ru",
@@ -16,8 +17,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="ru">
-      <body className={`${gilroy.variable}`}>
+    <html lang="ru" className={`${gilroy.className}`}>
+      <body>
         {/* <MediaQuery minWidth={768}> */}
           <Header />
         {/* </MediaQuery> */}
