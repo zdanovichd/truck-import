@@ -20,3 +20,14 @@ export const gilroy = localFont({
   ],
   variable: '--font-gilroy',
 })
+
+export const heronew = localFont({
+  src: [
+    {
+      path: '../../public/fonts/heronew/regular/heronew-regular.woff2',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-heronew',
+})

@@ -1,0 +1,30 @@
+.madeBy {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+
+    background-color: #FFFFFF1A;
+    margin-left: 10rem;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+
+    font-family: var(--font-heronew);
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.4em;
+    letter-spacing: 0%;
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+.logo {
+    width: 14rem;
+    height: 2rem;
+}
