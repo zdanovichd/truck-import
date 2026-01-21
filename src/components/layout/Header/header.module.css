@@ -43,6 +43,7 @@
    vertical-align: middle;
    cursor: pointer;
    height: max-content;
+   text-decoration: none;
 }
 
 .header__account {

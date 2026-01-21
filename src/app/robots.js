@@ -5,6 +5,7 @@ export default function robots() {
             rules: {
             userAgent: '*',
             allow: '/',
+            disallow: '/cart',
             cleanParam: 's&page&model&brand&part&limit&sortBy&sortOrder'
             },
             sitemap: process.env.SITE_URL + '/sitemap.xml',
