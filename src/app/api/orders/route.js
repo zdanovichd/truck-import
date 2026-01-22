@@ -67,7 +67,7 @@ ${orderData.cart?.map(item =>
 
     console.log('Отправляем письмо...');
     const info = await transporter.sendMail({
-      from: `"Truck Import" <${process.env.SMTP_USER}>`,
+      from: `"Truck Import - Заказ" <${process.env.SMTP_USER}>`,
       to: process.env.ORDER_EMAIL,
       subject: `Новый заказ от ${orderData.name}`,
       text: mailText,

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     /* width: 550; */
+    width: 100%;
     height: calc(461vw/14.4);
     gap: calc(30vw/14.4);
     border-radius: calc(8vw/14.4);
@@ -90,6 +91,89 @@
     font-weight: 700;
     font-size: calc(16vw/14.4);
     outline: none;
+}
+
+.successText,
+.errorText {
+    font-family: var(--font-gilroy);
+    font-weight: 400;
+    font-size: 3.2rem;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: -2%;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  gap: 1.5rem;
+
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox__control {
+  position: relative;
+  display: inline-block;
+  min-width: 3rem;
+  width: 3rem;
+  min-height: 3rem;
+  height: 3rem;
+  border: .1rem solid #B0B0B0;
+  border-radius: .6rem;
+  transition: all 0.2s;
+}
+
+.checkbox__input:checked+.checkbox__control {
+  /* background-color: #3b82f6;
+    border-color: #3b82f6; */
+}
+
+.checkbox__input:focus+.checkbox__control {
+  /* box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); */
+}
+
+.checkbox__control::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 1rem;
+  top: .4rem;
+  width: .7rem;
+  height: 1.3rem;
+  border: solid #B0B0B0;
+  border-width: 0 .2rem .2rem 0;
+  transform: rotate(45deg);
+}
+
+.checkbox__input:checked+.checkbox__control::after {
+  display: block;
+}
+
+.checkbox__label {
+  font-family: var(--font-gilroy);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #B0B0B0;
+  letter-spacing: -2.02%;
+
+}
+
+.checkbox__label a {
+  color: #B0B0B0;
+}
+
+.checkout.checkout_submit .checkoutFormWrapper {
+  padding: 12rem 19rem;
+  gap: 6rem;
+  align-items: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -186,5 +270,52 @@
         font-size: calc(14vw/3.9);
         outline: none;
     }
+
+    .successText,
+    .errorText {
+        font-size: 2.4rem;
+    }
+
+    .checkbox {
+    gap: 1rem;
+
+  }
+
+  .checkbox__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox__control {
+    position: relative;
+    display: inline-block;
+    min-width: 2.6rem;
+    width: 2.6rem;
+    min-height: 2.6rem;
+    height: 2.6rem;
+    border: .1rem solid #B0B0B0;
+    border-radius: .6rem;
+    transition: all 0.2s;
+  }
+
+  .checkbox__control::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: .8rem;
+    top: .3rem;
+    width: .8rem;
+    height: 1.3rem;
+    border: solid #B0B0B0;
+    border-width: 0 .2rem .2rem 0;
+    transform: rotate(45deg);
+  }
+
+
+  .checkbox__label {
+    font-size: 1.2rem;
+  }
 
 }

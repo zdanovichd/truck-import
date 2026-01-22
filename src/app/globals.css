@@ -281,6 +281,7 @@ dialog {
 
 dialog > div.feedback {
   width: 61rem;
+  min-width: 61rem;
 }
 
 /* Закрытие при клике на backdrop */
