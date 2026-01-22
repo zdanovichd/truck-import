@@ -47,8 +47,8 @@
 }
 
 .sku {
-    width: 320;
-    height: 73;
+    /* width: 320;
+    height: 73; */
     gap: calc(10vw/14.4);
     padding: calc(10vw/14.4) calc(15vw/14.4);
     border-radius: calc(8vw/14.4);
