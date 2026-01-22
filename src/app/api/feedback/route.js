@@ -1,26 +1,11 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { cookies } from 'next/headers';
-
 
 export async function POST(request) {
   let responseData;
   let statusCode = 200;
   
   try {
-
-    const csrfHeader = request.headers.get('X-CSRF-Token');
-    const cookieStore = await cookies();
-    const csrfCookie = cookieStore.get('csrf_token')?.value;
-    
-    if (!csrfHeader || csrfHeader !== csrfCookie) {
-      console.error('CSRF validation failed');
-      return NextResponse.json({
-        success: false,
-        message: 'CSRF token validation failed'
-      }, { status: 403 });
-    }
-    
     // Пробуем прочитать тело запроса
     let formData;
     try {
