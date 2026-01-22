@@ -1,25 +1,39 @@
 import styles from "./productaddtocart.module.css";
 import Image from "next/image";
 
-export default function ProductAddToCartServer({ props_count = 0 }) {
+export default function ProductAddToCartServer({ 
+  props_count = 0, 
+  productId,
+  productSku 
+}) {
   return (
-    <div className={`${styles.cart__button} ${styles.cart__button_add}`} id="add-to-cart-button">
+    <div 
+      className={`${styles.cart__button} ${styles.cart__button_add}`} 
+      id={`add-to-cart-button-${productId}`}
+      data-product-id={productId}
+    >
       {props_count > 0 ? (
         <button
           className={styles.cart__button_enabled}
-           // Добавляем ID для гидрации
+          type="button"
+          aria-label={`Добавить ${productSku} в корзину`}
         >
           <Image
             src="/cart.svg"
-            alt="cart"
+            alt="Корзина"
             className={styles.cart__icon}
             width={20}
             height={20}
+            priority
           />
           Добавить в корзину
         </button>
       ) : (
-        <button className={styles.cart__button_disabled} disabled>
+        <button 
+          className={styles.cart__button_disabled} 
+          disabled
+          aria-label="Товара нет в наличии"
+        >
           Нет в наличии
         </button>
       )}

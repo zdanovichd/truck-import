@@ -1,7 +1,5 @@
-import SectionTitle from '@/components/ui/SectionTitle/SectionTitle';
+import CartClient from './CartClient';
 import styles from './page.module.css'
-import Image from 'next/image';
-import Breadcrumbs from '@/components/sections/Breadcrumbs/Breadcrumbs';
 
 export async function generateMetadata() {
   return {
@@ -10,23 +8,15 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Page() {
-
+export default function CartPage() {
   return (
     <main>
       <section className={styles.cart__hero}>
-        <h1 className={styles.cart__title}>
-          Корзина
-        </h1>
+        <h1 className={styles.cart__title}>Корзина</h1>
       </section>
-      {/* <Breadcrumbs
-        data={[
-          { title: "Главная", path: "/" },
-          { title: "Корзина" },
-        ]}
-      /> */}
-
-
+      <section className={styles.cart__content}>
+        <CartClient />
+      </section>
     </main>
   );
 }

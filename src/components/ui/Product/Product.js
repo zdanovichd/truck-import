@@ -165,7 +165,12 @@ export default function Product({ product = [] }) {
                                 </span>
                             </span>
                         </div>
-                        <ProductAddToCart props_count={product.count}/>
+                        {/* <ProductAddToCart props_count={product.count}/> */}
+                        <ProductAddToCart 
+        props_count={product.count}
+        productId={product.id}
+        productSku={product.sku}
+      />
                         <div className={`${styles.specifications} ${styles._mobile}`}>
                             <p className={styles.specifications__title}>
                                 Технические характеристики
