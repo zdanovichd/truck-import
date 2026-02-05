@@ -4,6 +4,7 @@ import Link from "next/link";
 export default function MadeBy() {
     return (
         <div className={styles.madeBy}>
+
             <Link
                 href={"https://seo-performance.ru/?utm_source=truck-import.ru&utm_medium=footer&utm_campaign=made_by"}
                 aria-label="Перейти на сайт разработчика SEO-PERFORMANCE"
@@ -16,7 +17,7 @@ export default function MadeBy() {
                     height="20"
                     width="140"
                     version="1.1"
-                    className={styles.logo}
+                    className={`${styles.logo} made-by`}
                 >
                     <defs/>
                     <g transform="matrix(1.3333333,0,0,-1.3333333,0,206.82667)">
