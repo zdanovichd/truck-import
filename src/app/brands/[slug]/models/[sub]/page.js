@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import brands from '@/json/brands.json';
 import { notFound } from "next/navigation";
 import Details from "@/components/sections/Details/Details";
-import Search from "@/components/ui/Search/Search";
+import SearchWithResults from "@/components/ui/Search/SearchWithResults";
 import SectionTitle from "@/components/ui/SectionTitle/SectionTitle";
 import Faq from "@/components/sections/Faq/Faq";
 import Feedback from "@/components/ui/Feedback/Feedback";
@@ -48,6 +48,10 @@ export default async function Page({ params }) {
       notFound();
     }
 
+  if (subcategory.h1 === 'h1') {
+    notFound();
+  }
+
   return (
     <main>
       <section className={styles.category__hero}>
@@ -63,7 +67,7 @@ export default async function Page({ params }) {
         />
         <div className={styles.category__search__inner}>
           <p className={styles.category__search_description}>Чтобы найти нужную запчасть, воспользуйтесь удобным поиском по артикулу. Просто<br/>введите код детали в строку поиска, и система покажет наличие товара.</p>
-          <Search />
+          <SearchWithResults />
           <p className={styles.category__search_mark}>*Для оформления заказа требуется регистрация в личном кабинете. После авторизации<br/>введите артикул или загрузите таблицу с кодами и количеством товаров. После подтверждения<br/>вам будет выставлен счёт. Оплата возможна различными способами, включая оптовый расчёт.<br/>После обработки заказа можно отслеживать его статус в личном кабинете. Доставка<br/>осуществляется по всей России.</p>
         </div>
       </section>

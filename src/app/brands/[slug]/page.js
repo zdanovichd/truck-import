@@ -2,6 +2,7 @@
 import styles from "./page.module.css";
 import brands from '@/json/brands.json';
 import Category from "@/components/ui/Category/Category";
+import { notFound } from 'next/navigation';
 
 export const dynamicParams = false;
 
@@ -34,6 +35,10 @@ export default async function Page({ params }) {
   // const brands = data.brands;
 
   const brand = brands.find(brand => brand.slug === slug);
+
+  if (brand.h1 === 'h1') {
+    notFound();
+  }
 
   return ( <>
     {brand &&

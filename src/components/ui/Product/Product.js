@@ -1,7 +1,7 @@
 import styles from "./product.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Search from "@/components/ui/Search/Search";
+import SearchWithResults from "@/components/ui/Search/SearchWithResults";
 import ProductAddToCart from "@/components/ui/ProductAddToCart/ProductAddToCart";
 
 export default function Product({ product = [] }) {
@@ -13,7 +13,7 @@ export default function Product({ product = [] }) {
                 <p className={styles.product__search_title}>
                     Быстрый поиск детали по артикулу:
                 </p>
-                <Search />
+                <SearchWithResults />
             </section>
             <section className={styles.product}>
                 <h1 className={styles.product__title}>

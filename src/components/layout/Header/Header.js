@@ -2,8 +2,11 @@
 import styles from "./header.module.css";
 import Image from "next/image";
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Search from "../../ui/Search/Search";
+import SearchWithResults from "@/components/ui/Search/SearchWithResults";
+import HeaderSearch from "../../ui/Search/HeaderSearch";
 import Feedback from "@/components/ui/Feedback/Feedback";
 
 const menuItems = [
@@ -73,18 +76,24 @@ const ArrowIcon = ({ isOpen }) => (
 );
 
 export default function Header() {
-
+  const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
   const [modalActive, setModalActive] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const dialogRef = useRef(null);
 
   const closeModal = () => {
     dialogRef.current?.close();
-    // document.body.classList.remove("stop-scrolling");
   };
+
+  useEffect(() => {
+    closeModal();
+    setBurgerActive(false);
+    setOpenSubmenu(null);
+  }, [pathname]);
 
   const openModal = () => {
     dialogRef.current?.showModal();
@@ -225,7 +234,8 @@ export default function Header() {
           </div>
 
           <div className={`${styles.burger__content} ${burgerActive ? styles._active : ''}`}>
-            <Search/>
+            {/* <Search/> */}
+            <SearchWithResults />
             <nav className={styles.site_nav_mobile} aria-label="Сайт">
               <ul className={`${styles.menu} ${styles.main__menu}`}>
                 {menuItems.map((section, index) => (
@@ -236,9 +246,14 @@ export default function Header() {
           </div>
         </header>
       ) : (
-        <header className={`${styles.header} ${styles._desktop}`}>
+        <header className={`${styles.header} ${styles._desktop} ${isSearchOpen ? styles.header_fixed : ''} ${isSearchOpen ? styles.header_search_open : ''}`}>
           <div className={styles.header__top}>
-            <Link className={styles.logo} href="/" passHref>
+            <Link
+              className={styles.logo}
+              href="/"
+              passHref
+              onClick={() => setIsSearchOpen(false)}
+            >
               <Image
                 src="/logo.svg"
                 alt="logo"
@@ -251,8 +266,8 @@ export default function Header() {
                 priority
               />
             </Link>
-
-            <div className={styles.header__inner}>
+            <HeaderSearch onOpenChange={setIsSearchOpen} isOpen={isSearchOpen} />
+            <div className={styles.header__inner} hidden={isSearchOpen}>
               <div className={styles.header__item}>
                 <Link className={styles.header__phone} href={phoneNumbers[0].href}>
                   {phoneNumbers[0].number}
