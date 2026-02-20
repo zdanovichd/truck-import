@@ -24,6 +24,9 @@ export default async function Page({ params }) {
   const brand = brands.find((b) => b.slug === slug);
 
   if (!brand || !service) notFound();
+  if (brand.h1 === 'h1') {
+    notFound();
+  }
 
   return <ClientPage brand={brand} service={service} />;
 }

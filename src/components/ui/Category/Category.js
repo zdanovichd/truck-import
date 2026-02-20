@@ -5,7 +5,7 @@ import SectionTitle from "@/components/ui/SectionTitle/SectionTitle";
 import Image from "next/image";
 import Link from 'next/link';
 import Reviews from "@/components/ui/Reviews/Reviews";
-import Search from "@/components/ui/Search/Search";
+import SearchWithResults from "@/components/ui/Search/SearchWithResults";
 import Faq from "@/components/sections/Faq/Faq";
 import Feedback from "@/components/ui/Feedback/Feedback";
 import { useState, useEffect } from "react";
@@ -62,7 +62,7 @@ export default function Category({ brand = [] }) {
         />
         <div className={styles.category__search__inner}>
           <p className={styles.category__search_description}>Чтобы найти нужную запчасть, воспользуйтесь удобным поиском по артикулу. Просто<br/>введите код детали в строку поиска, и система покажет наличие товара.</p>
-          <Search />
+          <SearchWithResults />
           <p className={styles.category__search_mark}>*Для оформления заказа требуется регистрация в личном кабинете. После авторизации<br/>введите артикул или загрузите таблицу с кодами и количеством товаров. После подтверждения<br/>вам будет выставлен счёт. Оплата возможна различными способами, включая оптовый расчёт.<br/>После обработки заказа можно отслеживать его статус в личном кабинете. Доставка<br/>осуществляется по всей России.</p>
         </div>
       </section>

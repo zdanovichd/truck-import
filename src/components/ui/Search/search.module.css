@@ -88,3 +88,19 @@
         height: calc(20vw/3.9);
       }
 }
+
+@media screen and (min-width: 768px) {
+  header .search {
+    width: calc(548vw/14.4);
+  }
+  
+  header .search,
+  header .search__button {
+    height: calc(42vw/14.4);
+  }
+  
+  header .search__icon {
+    width: calc(20vw/14.4);
+    height: calc(20vw/14.4);
+  }
+}

@@ -7,6 +7,15 @@
    z-index: 9;
 }
 
+.header_fixed {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+}
+
+
 .header__buttons {
    display: flex;
    flex-direction: row;
@@ -79,7 +88,8 @@
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   border-bottom: 0.5px solid #BCA13480
+   border-bottom: 0.5px solid #BCA13480;
+   align-items: center;
 }
 
 .header__bottom {
@@ -96,6 +106,10 @@
    display: flex;
    flex-direction: row;
    gap: calc(60vw/14.4);
+}
+
+.header__inner[hidden] {
+   display: none;
 }
 
 .header__item {
@@ -131,6 +145,8 @@
    padding: 0;
    margin: 0;
    text-align: left;
+   
+   cursor: pointer;
 }
 
 .header__working_hours {
@@ -261,11 +277,18 @@
       gap: calc(60vw/3.9);
    }
 
-   .burger__content._active form input {
+   .burger__content._active input[type="search"] {
       width: 100%!important;
    }
 
    .menu {
       overflow-y: scroll;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .header_search_open .header__top {
+      justify-content: unset;
+      gap: calc(151vw/14.4);
    }
 }
