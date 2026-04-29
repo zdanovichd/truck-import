@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import styles from './brandfilter.module.css';
 
 export default function BrandFilter({ title = "", allBrands, selectedBrands, onChange }) {
-  const handleCheckboxChange = (brand) => {
-    if (selectedBrands.includes(brand)) {
-      onChange(selectedBrands.filter((b) => b !== brand));
+  const handleCheckboxChange = (value) => {
+    if (selectedBrands.includes(value)) {
+      onChange(selectedBrands.filter((b) => b !== value));
     } else {
-      onChange([...selectedBrands, brand]);
+      onChange([...selectedBrands, value]);
     }
   };
 
@@ -16,18 +16,24 @@ export default function BrandFilter({ title = "", allBrands, selectedBrands, onC
     <div className={styles.filter}>
       <p className={styles.title}>{title}</p>
       <div className={styles.filters}>
-        {allBrands.map((brand) => (
-            <label key={brand} className={styles.checkbox}>
+        {allBrands.map((brandOption) => {
+          const value = typeof brandOption === 'string' ? brandOption : brandOption?.value;
+          const label = typeof brandOption === 'string' ? brandOption : (brandOption?.label || brandOption?.value);
+          if (!value) return null;
+
+          return (
+            <label key={value} className={styles.checkbox}>
             <input
                 type="checkbox"
-                checked={selectedBrands.includes(brand)}
-                onChange={() => handleCheckboxChange(brand)}
+                checked={selectedBrands.includes(value)}
+                onChange={() => handleCheckboxChange(value)}
                 className={styles.checkbox__input}
             />
                 <span className={styles.checkbox__control}></span>
-                {brand && <span className={styles.checkbox__label}>{brand}</span>}
+                <span className={styles.checkbox__label}>{label}</span>
             </label>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

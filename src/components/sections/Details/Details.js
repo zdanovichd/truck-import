@@ -13,7 +13,7 @@ export default function Details({ sub = [], data = [] }) {
                     <Link
                         key={index}
                         // href={`/catalog?model=${data.model}?part=${item.slug}`}
-                        href={`/catalog?page=1&model=${data.slug}`}
+                        href={`/catalog?page=1&brand=${data.slug}`}
                         className={styles.service}
                     >
                         <Image

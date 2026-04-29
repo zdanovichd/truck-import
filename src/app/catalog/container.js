@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import Loading from "./loading";
 
 const fetcher = async (path) => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}&limit=${LIMIT}`);
+  const response = await fetch(`/api/${path}&limit=${LIMIT}`);
   if (!response.ok) throw new Error('Failed to fetch products');
   return response.json();
 };
@@ -100,12 +100,12 @@ export const ProductsContainer = () => {
           selectedBrands={selectedBrands}
           onChange={handleBrandChange}
         />
-        <BrandFilter
+        {/* <BrandFilter
           title="Модель"
           allBrands={allModels}
           selectedBrands={selectedModels}
           onChange={handleModelChange}
-        />
+        /> */}
       </aside>
             <div className={styles.container}>
               {totalCount !== 0 && <>
