@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server';
-import productsData from '@/json/products.json';
+import {
+  fetchLkProducts,
+  getJsonProducts,
+  isLkProductsSource,
+} from '@/lib/products-source';
 
 /**
  * GET /api/search?q=...&limit=...&page=...
@@ -28,7 +32,11 @@ export async function GET(request) {
       });
     }
 
-    const matches = productsData.filter((p) => {
+    const sourceProducts = isLkProductsSource()
+      ? await fetchLkProducts({ sku: query, limit: 200, page: 1 })
+      : getJsonProducts();
+
+    const matches = sourceProducts.filter((p) => {
       const nameMatch =
         p.name && String(p.name).toLowerCase().includes(query);
       const skuMatch =

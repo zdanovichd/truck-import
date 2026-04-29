@@ -85,9 +85,13 @@ function ProductItem({ product, innerWidth, cart, fetchCart }) {
         </span>
 
         <span className={styles.product__brand}>
-          <span className={styles.product__brand_name}>Модель: </span>
+          <span className={styles.product__brand_name}>Бренд: </span>
           <span className={styles.product__brand_value}>
-            <Link href={`/brands/${product.model}`}>{product.model}</Link>
+            {product.brand ? (
+              <Link href={`/brands/${product.brand}`}>{product.brand_name || product.brand}</Link>
+            ) : (
+              <span>{product.brand_name || '—'}</span>
+            )}
           </span>
         </span>
 

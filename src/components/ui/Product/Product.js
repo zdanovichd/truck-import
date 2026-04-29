@@ -3,10 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import SearchWithResults from "@/components/ui/Search/SearchWithResults";
 import ProductAddToCart from "@/components/ui/ProductAddToCart/ProductAddToCart";
+import brands from "@/json/brands.json";
+
+const BRAND_SLUGS = new Set(brands.map((item) => item.slug));
 
 export default function Product({ product = [] }) {
 
     const specifications = product.specifications;
+    const brandLabel = product.brand_name || product.brand || product.truck_manufacturers?.[0]?.name || '—';
+    const hasBrandLink = Boolean(product.brand) && BRAND_SLUGS.has(product.brand);
+    const deliveryLabel = product.delivery || '4-7 недель';
     return (
         <main>
             <section className={styles.product__search}>
@@ -54,30 +60,13 @@ export default function Product({ product = [] }) {
                                                 styles.specification__value
                                             }
                                         >
-                                            <Link href={`/brands/${product.brand}`}>
-                                                {product.brand}
-                                            </Link>
-                                        </span>
-                                    </span>
-
-                                    <span
-                                        className={styles.specification}
-                                    >
-                                        <span
-                                            className={
-                                                styles.specification__name
-                                            }
-                                        >
-                                            Модель
-                                        </span>
-                                        <span
-                                            className={
-                                                styles.specification__value
-                                            }
-                                        >
-                                            <Link href={`/brands/${product.model}`}>
-                                                {product.model}
-                                            </Link>
+                                            {hasBrandLink ? (
+                                                <Link href={`/brands/${product.brand}`}>
+                                                    {brandLabel}
+                                                </Link>
+                                            ) : (
+                                                brandLabel
+                                            )}
                                         </span>
                                     </span>
 
@@ -96,7 +85,8 @@ export default function Product({ product = [] }) {
                                                 styles.specification__value
                                             }
                                         >
-                                            {product.category_id}
+                                            {/* TODO: брать категорию из API, когда поле будет стабильным */}
+                                            Прочее
                                         </span>
                                     </span>
                                 {specifications.map((item, index) => (
@@ -141,9 +131,13 @@ export default function Product({ product = [] }) {
                                     Бренд:{" "}
                                 </span>
                                 <span className={styles.selling__brand_value}>
-                                    <Link href={`/brands/${product.brand}`}>
-                                        {product.brand}
-                                    </Link>
+                                    {hasBrandLink ? (
+                                        <Link href={`/brands/${product.brand}`}>
+                                            {brandLabel}
+                                        </Link>
+                                    ) : (
+                                        brandLabel
+                                    )}
                                 </span>
                             </span>
                             <span className={styles.selling__delivery}>
@@ -153,7 +147,7 @@ export default function Product({ product = [] }) {
                                 <span
                                     className={styles.selling__delivery_value}
                                 >
-                                    {product.delivery}
+                                    {deliveryLabel}
                                 </span>
                             </span>
                             <span className={styles.selling__price}>
@@ -191,26 +185,7 @@ export default function Product({ product = [] }) {
                                                 styles.specification__value
                                             }
                                         >
-                                            {product.brand}
-                                        </span>
-                                    </span>
-
-                                    <span
-                                        className={styles.specification}
-                                    >
-                                        <span
-                                            className={
-                                                styles.specification__name
-                                            }
-                                        >
-                                            Модель
-                                        </span>
-                                        <span
-                                            className={
-                                                styles.specification__value
-                                            }
-                                        >
-                                            {product.model}
+                                            {brandLabel}
                                         </span>
                                     </span>
 
@@ -229,7 +204,8 @@ export default function Product({ product = [] }) {
                                                 styles.specification__value
                                             }
                                         >
-                                            {product.category_id}
+                                            {/* TODO: брать категорию из API, когда поле будет стабильным */}
+                                            Прочее
                                         </span>
                                     </span>
                                 {specifications.map((item, index) => (
@@ -260,7 +236,7 @@ export default function Product({ product = [] }) {
                 <div className={styles.about}>
                     <h2 className={styles.about__title}>О товаре:</h2>
                     <p className={styles.about__description}>
-                        Оригинальная запчасть или качественный аналог — {product.name}, арт. {product.sku}. Подходит для {product.model}. Производитель: {product.brand}. Высокая износостойкость и точное соответствие заводским стандартам. Закажите надёжную запчасть в интернет-магазине Truck-Import — оперативная доставка по всей России.
+                        Оригинальная запчасть или качественный аналог — {product.name}, арт. {product.sku}. Производитель: {brandLabel}. Высокая износостойкость и точное соответствие заводским стандартам. Закажите надёжную запчасть в интернет-магазине Truck-Import — оперативная доставка по всей России.
                     </p>
                 </div>
             </section>

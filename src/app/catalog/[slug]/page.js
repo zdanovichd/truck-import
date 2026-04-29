@@ -1,11 +1,22 @@
 import styles from "./page.module.css";
-import products from '@/json/products.json';
 import Product from "@/components/ui/Product/Product";
 import { notFound } from "next/navigation";
 import { Suspense } from 'react';
+import { headers } from "next/headers";
+
+async function getBaseUrl() {
+  const headersStore = await headers();
+  const host = headersStore.get('x-forwarded-host') || headersStore.get('host');
+  const protocol = headersStore.get('x-forwarded-proto') || 'http';
+  return host
+    ? `${protocol}://${host}`
+    : (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000');
+}
+
 async function getProduct(sku) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${sku}`);
+    const baseUrl = await getBaseUrl();
+    const res = await fetch(`${baseUrl}/api/products/${sku}`, { cache: 'no-store' });
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -47,9 +58,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { slug } = await params
-  // const products = data.products;
-
-  const product = products.find(product => product.sku === slug);
+  const product = await getProduct(slug);
   if (!product) {
     notFound();
   }

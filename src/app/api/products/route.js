@@ -1,107 +1,116 @@
 import { NextResponse } from 'next/server';
-import productsData from '@/json/products.json';
+import {
+  fetchLkBrands,
+  fetchLkProducts,
+  fetchLkProductsPage,
+  getJsonProducts,
+  isLkProductsSource,
+} from '@/lib/products-source';
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function getMultiValue(searchParams, key) {
+  const csv = searchParams.get(key);
+  const arrayValues = searchParams.getAll(`${key}[]`);
+  const values = [];
+
+  if (csv) {
+    values.push(
+      ...csv
+        .split(',')
+        .map((v) => v.trim())
+        .filter(Boolean),
+    );
+  }
+
+  if (arrayValues.length > 0) {
+    values.push(
+      ...arrayValues
+        .map((v) => v.trim())
+        .filter(Boolean),
+    );
+  }
+
+  if (values.length === 0) return null;
+  return [...new Set(values)].join(',');
 }
 
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
-    let products = [...productsData];
-
-    // Получаем все уникальные бренды и модели из исходных данных
-    const allBrands = [...new Set(productsData.map(p => p.brand))];
-    const allModels = [...new Set(productsData.map(p => p.model))];
-
-    // Получаем параметры запроса
     const sortBy = searchParams.get('sortBy');
     const sortOrder = searchParams.get('sortOrder') || 'asc';
     const limit = searchParams.get('limit');
-    const page = searchParams.get('page') || '1'; // По умолчанию первая страница
-    const brand = searchParams.get('brand');
-    const model = searchParams.get('model');
+    const page = searchParams.get('page') || '1';
+    const brand = getMultiValue(searchParams, 'brand');
+    const model = getMultiValue(searchParams, 'model');
     const part = searchParams.get('part');
+    const sku = searchParams.get('sku');
+    const price = searchParams.get('price');
 
-    // Фильтрация по бренду
-    if (brand) {
+    if (isLkProductsSource()) {
+      const baseQuery = { brand, model, part, sku, price };
+      const [productsPage, modelsFirstPage, lkBrands] = await Promise.all([
+        fetchLkProductsPage({ ...baseQuery, limit, page }),
+        fetchLkProducts({ ...baseQuery, limit: 1000, page: 1 }),
+        fetchLkBrands(),
+      ]);
 
-      const selectedBrands = brand.split(',').map(m => m.trim().toLowerCase());
-
-      // Если products - это массив всех продуктов
-      let filteredProducts = products.filter(p =>
-        selectedBrands.includes(p.brand.toLowerCase())
-      );
-
-      // Или если нужно фильтровать уже отфильтрованные данные
-      filteredProducts = products.filter(p =>
-        selectedBrands.some(selectedBrand =>
-          p.brand.toLowerCase() === selectedBrand
-        )
-      );
-
-      products = filteredProducts;
-
+      return NextResponse.json({
+        paginatedProducts: productsPage.items,
+        totalCount: productsPage.total,
+        allBrands: lkBrands,
+        // TODO: when backend gives dedicated models endpoint, take all models from it.
+        allModels: [...new Set(modelsFirstPage.map((p) => p.model).filter(Boolean))],
+      });
     }
 
-    // Фильтрация по модели
+    let products = getJsonProducts();
+    const allBrands = [...new Set(products.map((p) => p.brand))];
+    const allModels = [...new Set(products.map((p) => p.model))];
+
+    if (brand) {
+      const selectedBrands = brand.split(',').map((m) => m.trim().toLowerCase());
+      products = products.filter((p) =>
+        selectedBrands.some((selectedBrand) => p.brand.toLowerCase() === selectedBrand),
+      );
+    }
 
     if (model) {
-
-      const selectedModels = model.split(',').map(m => m.trim().toLowerCase());
-
-      // Если products - это массив всех продуктов
-      let filteredProducts = products.filter(p =>
-        selectedModels.includes(p.model.toLowerCase())
+      const selectedModels = model.split(',').map((m) => m.trim().toLowerCase());
+      products = products.filter((p) =>
+        selectedModels.some((selectedModel) => p.model.toLowerCase() === selectedModel),
       );
-
-      // Или если нужно фильтровать уже отфильтрованные данные
-      filteredProducts = products.filter(p =>
-        selectedModels.some(selectedModel =>
-          p.model.toLowerCase() === selectedModel
-        )
-      );
-
-      products = filteredProducts;
-
     }
 
     if (part) {
-      products = products.filter(p => p.category_slug.toLowerCase() === part.toLowerCase());
+      products = products.filter((p) => p.category_slug.toLowerCase() === part.toLowerCase());
     }
 
-    // Сортировка
     if (sortBy === 'price') {
       products.sort((a, b) => {
         const priceA = parseFloat(a.price);
         const priceB = parseFloat(b.price);
         return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
       });
-    }
-    // Если sortBy не указан или не 'price', сортируем по цене (по умолчанию)
-    else {
+    } else {
       products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     }
 
-    // Пагинация
     let paginatedProducts = [...products];
     const totalCount = products.length;
 
     if (limit) {
-      const limitNum = parseInt(limit);
-      const pageNum = parseInt(page);
+      const limitNum = parseInt(limit, 10);
+      const pageNum = parseInt(page, 10);
       const startIndex = (pageNum - 1) * limitNum;
       const endIndex = startIndex + limitNum;
       paginatedProducts = products.slice(startIndex, endIndex);
     }
 
-    // await sleep(2000); // Ожидание 10 секунд (для тестирования)
-
     return NextResponse.json({
       paginatedProducts,
       totalCount,
-      allBrands,
-      allModels
+      allBrands: allBrands.filter(Boolean).map((b) => ({ value: b, label: b })),
+      allModels: allModels.filter(Boolean),
     });
   } catch (error) {
     return NextResponse.json(
