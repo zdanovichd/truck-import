@@ -7,11 +7,19 @@ import {
   ssoStateCookieOptions,
 } from '@/lib/lk-sso';
 
+function getPublicSiteBase(fallbackOrigin) {
+  const fromEnv = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
+  if (fromEnv) {
+    return fromEnv.replace(/\/$/, '');
+  }
+  return fallbackOrigin;
+}
+
 /**
  * Начало SSO: редирект на lk с redirect_uri на этот сайт и случайным state.
  */
 export async function GET(request) {
-  const origin = request.nextUrl.origin;
+  const origin = getPublicSiteBase(request.nextUrl.origin);
   const redirectUri = `${origin}/auth/callback`;
   const state = createSsoState();
 
