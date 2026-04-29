@@ -32,7 +32,9 @@ export function normalizeProduct(raw, fallback = {}) {
   const modelSlug = raw?.model_slug ?? raw?.model?.slug ?? raw?.model ?? '';
   const modelName = raw?.model_name ?? raw?.model?.name ?? raw?.model ?? '';
   return {
-    id: Number.isFinite(raw?.id) ? raw.id : makeStableIdFromSku(sku),
+    // Для API lk в списке часто нет numeric id. Используем sku как стабильный id,
+    // чтобы корзина могла повторно загрузить товар через /api/products/{idOrSku}.
+    id: Number.isFinite(raw?.id) ? raw.id : (sku || makeStableIdFromSku(sku)),
     sku,
     name: raw?.name ?? raw?.title ?? '',
     title: raw?.title ?? raw?.name ?? '',
