@@ -151,7 +151,9 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <MadeBy/>
+            {process.env.SITE_URL === 'https://truck-import.ru' && (
+              <MadeBy/>
+            )}
             <Link className={styles.footer__privacy} href="/privacy">Политика<br/>конфиденциальности</Link>
 
         </div>
