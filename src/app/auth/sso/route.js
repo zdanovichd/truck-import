@@ -6,15 +6,8 @@ import {
   ssoStateCookieOptions,
   normalizeSsoPostLoginPath,
   composeSsoOAuthState,
+  getPublicSiteBase,
 } from '@/lib/lk-sso';
-
-function getPublicSiteBase(fallbackOrigin) {
-  const fromEnv = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
-  if (fromEnv) {
-    return fromEnv.replace(/\/$/, '');
-  }
-  return fallbackOrigin;
-}
 
 /**
  * Начало SSO: редирект на lk с redirect_uri на этот сайт и случайным state.
@@ -22,7 +15,7 @@ function getPublicSiteBase(fallbackOrigin) {
  * иначе при несовпадении www/apex с redirect_uri cookie на callback не доезжает).
  */
 export async function GET(request) {
-  const origin = getPublicSiteBase(request.nextUrl.origin);
+  const origin = getPublicSiteBase(request);
   const redirectUri = `${origin}/auth/callback`;
   const nonce = createSsoState();
   const nextRaw = request.nextUrl.searchParams.get('next');

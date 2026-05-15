@@ -1,14 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { LK_TOKEN_COOKIE, getLkApiBase } from '@/lib/lk-sso';
-
-function getPublicSiteBase(fallbackOrigin) {
-  const fromEnv = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
-  if (fromEnv) {
-    return fromEnv.replace(/\/$/, '');
-  }
-  return fallbackOrigin;
-}
+import { LK_TOKEN_COOKIE, getLkApiBase, getPublicSiteBase } from '@/lib/lk-sso';
 
 /**
  * Есть токен на Next → в личный кабинет (origin из LK_API_BASE_URL).
@@ -23,7 +15,7 @@ export async function GET(request) {
     return NextResponse.redirect(lk.endsWith('/') ? lk : `${lk}/`);
   }
 
-  const publicBase = getPublicSiteBase(request.nextUrl.origin);
+  const publicBase = getPublicSiteBase(request);
   const sso = new URL('/auth/sso', publicBase);
   return NextResponse.redirect(sso);
 }
