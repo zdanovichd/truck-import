@@ -73,8 +73,7 @@ export default async function Page() {
                     <p>
                         Тел/факс:{" "}
                         <Link href={`tel:89269261359`}>8 (926) 926 13-59</Link>;
-                        Московская область, Раменский район, д. Толмачево, ул.
-                        Сергея Воробьева
+                        111625, Москва, Каскадная улица, 20к2, пом.1
                     </p>
                 </div>
             </section>
@@ -83,62 +82,39 @@ export default async function Page() {
                 <h2 className={styles.requisites__title}>Наши реквизиты</h2>
                 <div className={styles.requisites__inner}>
                     <div className={styles.contact__method}>
-                        <p className={styles.contact__method_name}>
-                            Генеральный директор
-                        </p>
+                        <p className={styles.contact__method_name}>Номер счёта</p>
+                        <p className={styles.contact__method_value}>40802810301380002924</p>
+                    </div>
+                    <div className={styles.contact__method}>
+                        <p className={styles.contact__method_name}>Валюта</p>
+                        <p className={styles.contact__method_value}>RUR</p>
+                    </div>
+                    <div className={styles.contact__method}>
+                        <p className={styles.contact__method_name}>Название</p>
                         <p className={styles.contact__method_value}>
-                            А.В. Рачков
+                            ШЕВЦОВ АНТОН АЛЕКСАНДРОВИЧ (ИП)
                         </p>
                     </div>
                     <div className={styles.contact__method}>
-                        <p className={styles.contact__method_name}>ИНН/КПП</p>
-                        <p className={styles.contact__method_value}>
-                            5027260005/502701001
-                        </p>
-                    </div>
-                    <div className={styles.contact__method}>
-                        <p className={styles.contact__method_name}>
-                            Ресчетный счет
-                        </p>
-                        <p className={styles.contact__method_value}>
-                            40702810502710002846
-                        </p>
-                    </div>
-                    <div className={styles.contact__method}>
-                        <p className={styles.contact__method_name}>
-                            Юридический адрес
-                        </p>
-                        <p className={styles.contact__method_value}>
-                            140060, Московская Область, Г.О. Люберцы, ПГТ.
-                            Октябрьский, ул. Ленина, д. 41
-                        </p>
+                        <p className={styles.contact__method_name}>ИНН</p>
+                        <p className={styles.contact__method_value}>772071947050</p>
                     </div>
                     <div className={styles.contact__method}>
                         <p className={styles.contact__method_name}>Банк</p>
-                        <p className={styles.contact__method_value}>
-                            АО «Альфа Банк» г. Москва
-                        </p>
+                        <p className={styles.contact__method_value}>АО &quot;АЛЬФА-БАНК&quot;</p>
                     </div>
                     <div className={styles.contact__method}>
                         <p className={styles.contact__method_name}>БИК</p>
-                        <p className={styles.contact__method_value}>
-                            044525593
-                        </p>
+                        <p className={styles.contact__method_value}>044525593</p>
                     </div>
                     <div className={styles.contact__method}>
-                        <p className={styles.contact__method_name}>
-                            Корреспондентский счет
-                        </p>
-                        <p className={styles.contact__method_value}>
-                            30101810200000000815
-                        </p>
+                        <p className={styles.contact__method_name}>Кор. счёт</p>
+                        <p className={styles.contact__method_value}>30101810200000000593</p>
                     </div>
                     <div className={styles.contact__method}>
-                        <p className={styles.contact__method_name}>
-                            Наименование организации
-                        </p>
+                        <p className={styles.contact__method_name}>Адрес получателя</p>
                         <p className={styles.contact__method_value}>
-                            ООО &quot;Импорт&quot;
+                            улица Каскадная, д. 20, корп./ст. 2, кв./оф. 69, г. Москва
                         </p>
                     </div>
                 </div>

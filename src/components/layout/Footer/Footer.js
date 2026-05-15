@@ -114,7 +114,7 @@ export default function Footer() {
                                 height: 'calc(32vw/14.4)',
                               }}
                             />
-                        МО, городской округ Люберцы, рп. Октябрьский, ул. Ленина д.41
+                        111625, Москва, Каскадная улица, 20к2, пом.1
                     </Link>
                 </div>
                 <div className={styles.footer__socials}>

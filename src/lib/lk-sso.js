@@ -61,6 +61,19 @@ export function getRequestOrigin(request) {
   }
 }
 
+/**
+ * Публичный origin витрины для SSO `redirect_uri` и редиректов.
+ * Сначала хост из запроса (Vercel: x-forwarded-host), иначе SITE_URL — чтобы env с localhost
+ * не ломал прод при деплое с .env.local.
+ * @param {Request} request
+ */
+export function getPublicSiteBase(request) {
+  const fromRequest = getRequestOrigin(request);
+  if (fromRequest) return fromRequest;
+  const fromEnv = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
+  return fromEnv ? fromEnv.replace(/\/$/, '') : '';
+}
+
 export function createSsoState() {
   return randomBytes(32).toString('hex');
 }
