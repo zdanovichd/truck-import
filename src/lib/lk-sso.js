@@ -1,14 +1,64 @@
 import { randomBytes } from 'crypto';
 
-/** Имя cookie с Bearer-токеном для API lk (httpOnly). */
-export const LK_TOKEN_COOKIE = 'ti_lk_token';
+export { LK_TOKEN_COOKIE, lkBearerTokenLooksExpired } from './lk-auth-cookie.js';
 
 /** Временная cookie для проверки state при возврате с SSO. */
 export const SSO_STATE_COOKIE = 'ti_sso_state';
 
+/**
+ * Суффикс к OAuth `state` (и к значению в cookie): после логина — `/cart`.
+ * Идёт в URL callback с LK, не зависит от домена cookie (www / apex).
+ */
+const SSO_STATE_SUFFIX_CART = '_ti_cart';
+
+/**
+ * @param {string} nonce — случайная часть (`createSsoState`)
+ * @param {string | null} postLoginPath — только `null` или `/cart`
+ * @returns {string}
+ */
+export function composeSsoOAuthState(nonce, postLoginPath) {
+  if (postLoginPath === '/cart') return `${nonce}${SSO_STATE_SUFFIX_CART}`;
+  return nonce;
+}
+
+/**
+ * Куда редиректить после успешного SSO, если `state` уже сверен с cookie.
+ * @param {string} validatedState — значение `state` из callback URL
+ * @returns {string | null}
+ */
+export function postLoginPathFromValidatedSsoState(validatedState) {
+  if (typeof validatedState !== 'string' || !validatedState.endsWith(SSO_STATE_SUFFIX_CART)) {
+    return null;
+  }
+  const nonce = validatedState.slice(0, -SSO_STATE_SUFFIX_CART.length);
+  if (nonce.length !== 64 || !/^[0-9a-f]+$/.test(nonce)) return null;
+  return '/cart';
+}
+
 export function getLkApiBase() {
   const base = process.env.LK_API_BASE_URL || 'https://lk.truck-import.ru';
   return base.replace(/\/$/, '');
+}
+
+/**
+ * Публичный origin запроса (учёт reverse-proxy: x-forwarded-host / x-forwarded-proto).
+ * Нужен для внутренних редиректов, когда `request.url` указывает на внутренний хост.
+ * @param {Request} request
+ * @returns {string}
+ */
+export function getRequestOrigin(request) {
+  const forwardedHost = request.headers.get('x-forwarded-host');
+  const forwardedProto = request.headers.get('x-forwarded-proto');
+  if (forwardedHost) {
+    const host = forwardedHost.split(',')[0].trim();
+    const proto = (forwardedProto || 'https').split(',')[0].trim();
+    return `${proto}://${host}`.replace(/\/$/, '');
+  }
+  try {
+    return new URL(request.url).origin.replace(/\/$/, '');
+  } catch {
+    return '';
+  }
 }
 
 export function createSsoState() {
@@ -47,6 +97,20 @@ export function lkTokenCookieOptions() {
     ...cookieBaseOptions(),
     maxAge: Number.isFinite(maxAge) && maxAge > 0 ? maxAge : 60 * 60 * 24 * 30,
   };
+}
+
+/** Снять SSO-cookie витрины (надёжнее, чем только `delete`, если cookie ставилась с теми же опциями). */
+export function applyClearLkAuthCookies(res) {
+  res.cookies.set(LK_TOKEN_COOKIE, '', { ...lkTokenCookieOptions(), maxAge: 0 });
+  res.cookies.set(SSO_STATE_COOKIE, '', { ...ssoStateCookieOptions(), maxAge: 0 });
+}
+
+/** Разрешённый путь после SSO из cookie (защита от open redirect). */
+export function normalizeSsoPostLoginPath(raw) {
+  if (typeof raw !== 'string') return null;
+  const p = raw.trim().replace(/\/+$/, '') || '/';
+  if (p === '/cart') return '/cart';
+  return null;
 }
 
 /**

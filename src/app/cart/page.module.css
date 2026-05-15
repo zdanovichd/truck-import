@@ -403,6 +403,10 @@
 
 }
 
+.cartSummary__bottomForm {
+  display: contents;
+}
+
 .cart__checkout {
   display: flex;
   align-items: center;
@@ -416,10 +420,15 @@
 
   font-family: var(--font-gilroy);
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #141313;
 
   text-decoration: none;
+}
+
+button.cart__checkout {
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
@@ -636,7 +645,94 @@
 
   .cart__checkout {
     width: 32.2rem;
-    height: 4rem;
-    font-size: 1.6rem;
+    height: 4.8rem;
+    font-size: 1.8rem;
   }
+}
+
+/* Успешный заказ: попап на корзине */
+.thanksOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(20, 19, 19, 0.45);
+}
+
+.thanksDialog {
+  max-width: 48rem;
+  width: 100%;
+  padding: 3.2rem 3.6rem;
+  border-radius: 1rem;
+  background: #f4f4f3;
+  box-shadow: 0 1.2rem 4rem rgba(0, 0, 0, 0.12);
+}
+
+.thanksTitle {
+  margin: 0 0 1.6rem;
+  font-weight: 600;
+  font-size: 2.4rem;
+  color: #141313;
+  font-family: var(--font-gilroy);
+}
+
+.thanksText {
+  margin: 0 0 2.4rem;
+  font-size: 1.8rem;
+  line-height: 1.45;
+  color: #141313;
+  font-family: var(--font-gilroy);
+}
+
+.thanksActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.thanksToOrder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14rem;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.6rem;
+  background: #141313;
+  color: #f4f4f3;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: var(--font-gilroy);
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #141313;
+  box-sizing: border-box;
+}
+
+.thanksToOrder:hover {
+  opacity: 0.92;
+}
+
+.thanksClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14rem;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid #141313;
+  border-radius: 0.6rem;
+  background: transparent;
+  color: #141313;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: var(--font-gilroy);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.thanksClose:hover {
+  background: rgba(20, 19, 19, 0.06);
 }

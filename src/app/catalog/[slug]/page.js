@@ -2,7 +2,9 @@ import styles from "./page.module.css";
 import Product from "@/components/ui/Product/Product";
 import { notFound } from "next/navigation";
 import { Suspense } from 'react';
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
+import { LK_TOKEN_COOKIE } from '@/lib/lk-auth-cookie';
+import { resolveVitrineAuthState } from '@/lib/lk-client-cart';
 
 async function getBaseUrl() {
   const headersStore = await headers();
@@ -63,10 +65,15 @@ export default async function Page({ params }) {
     notFound();
   }
 
+  const cookieStore = await cookies();
+  const raw = cookieStore.get(LK_TOKEN_COOKIE)?.value;
+  const token = typeof raw === 'string' ? raw.trim() : '';
+  const { authenticated: cartAuthenticated } = await resolveVitrineAuthState(token);
+
   return ( <>
     {product &&
       <Suspense fallback={<p>Loading product...</p>}>
-        <Product product={product} />
+        <Product product={product} cartAuthenticated={cartAuthenticated} />
       </Suspense>
     }
   </>

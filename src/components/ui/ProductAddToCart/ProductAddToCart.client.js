@@ -1,85 +1,75 @@
 "use client";
-import { useState, useEffect } from "react";
-import * as CartActions from '@/actions/cart';
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { apiGetCart, apiPostCart, cartRowKeyMatchesProduct, ensureAuthenticatedForCart } from '@/lib/cart-api';
+import CartAuthChoiceModal from '@/components/ui/CartAuthChoiceModal/CartAuthChoiceModal';
 import styles from "./productaddtocart.module.css";
 
-export default function ProductAddToCartClient({ 
-  props_count = 0, 
+function applyCartPayload(data, productId, productSku, setCount, setInputValue) {
+  const items = Array.isArray(data?.i) ? data.i : [];
+  const currentCount =
+    items.find((x) => cartRowKeyMatchesProduct(x[0], productId, productSku))?.[1] || 0;
+  setCount(currentCount);
+  setInputValue(String(currentCount));
+}
+
+export default function ProductAddToCartClient({
+  props_count = 0,
   productId,
-  productSku 
+  productSku,
 }) {
-  const [cart, setCart] = useState({ i: [] });
   const [count, setCount] = useState(0);
   const [inputValue, setInputValue] = useState("0");
+  const [authChoiceOpen, setAuthChoiceOpen] = useState(false);
 
-  // Загружаем корзину при монтировании
-  useEffect(() => {
-    fetchCart();
-  }, []);
-
-  const fetchCart = async () => {
+  const fetchCart = useCallback(async () => {
     try {
-      const res = await fetch('/api/cart');
-      const data = await res.json();
-      setCart(data);
-      
-      // Находим текущее количество для этого товара
-      const currentCount = 
-        data.i.find(x => String(x[0]) === String(productId))?.[1] || 0;
-      setCount(currentCount);
-      setInputValue(String(currentCount));
+      const data = await apiGetCart();
+      applyCartPayload(data, productId, productSku, setCount, setInputValue);
     } catch (error) {
       console.error('Ошибка загрузки корзины:', error);
     }
-  };
+  }, [productId, productSku]);
 
   useEffect(() => {
-    // Гидрация - добавляем обработчики к серверной кнопке
-    const button = document.getElementById(`add-to-cart-button-${productId}`);
-    if (button) {
-      const handleClick = async () => {
-        await handleCountChange(1);
-        button.style.display = 'none';
-      };
-      
-      button.addEventListener('click', handleClick);
-      
-      // Если товар уже в корзине, скрываем серверную кнопку
-      if (count > 0) {
-        button.style.display = 'none';
-      }
-      
-      return () => {
-        button.removeEventListener('click', handleClick);
-      };
-    }
-  }, [productId, count]);
+    void fetchCart();
+  }, [fetchCart]);
 
-  const handleCountChange = async (newCount) => {
+  useEffect(() => {
+    const onRefresh = () => {
+      void fetchCart();
+    };
+    window.addEventListener('catalog-auth-refresh', onRefresh);
+    return () => window.removeEventListener('catalog-auth-refresh', onRefresh);
+  }, [fetchCart]);
+
+  const handleCountChange = useCallback(async (newCount) => {
     const validatedCount = Math.max(0, Math.min(newCount, props_count));
-    
-    try {
-      await CartActions.setCartQuantity(productId, validatedCount);
-      
-      // Обновляем локальное состояние
-      setCount(validatedCount);
-      setInputValue(validatedCount.toString());
-      
-      // Обновляем данные корзины
-      await fetchCart();
-      
-      // Показываем/скрываем серверную кнопку
-      const button = document.getElementById(`add-to-cart-button-${productId}`);
-      if (button) {
-        button.style.display = validatedCount === 0 ? '' : 'none';
+
+    if (validatedCount > 0) {
+      const ok = await ensureAuthenticatedForCart();
+      if (!ok) {
+        setAuthChoiceOpen(true);
+        await fetchCart();
+        return;
       }
+    }
+
+    try {
+      const data = await apiPostCart({ action: 'set', productId, quantity: validatedCount });
+      applyCartPayload(data, productId, productSku, setCount, setInputValue);
     } catch (error) {
+      if (error?.status === 401) {
+        if (validatedCount > 0) setAuthChoiceOpen(true);
+        await fetchCart();
+        return;
+      }
       console.error('Ошибка обновления корзины:', error);
     }
-  };
+  }, [count, productId, productSku, props_count, fetchCart]);
 
   const handleInputBlur = async () => {
-    const numValue = parseInt(inputValue) || 0;
+    const numValue = parseInt(inputValue, 10) || 0;
     await handleCountChange(numValue);
   };
 
@@ -89,46 +79,73 @@ export default function ProductAddToCartClient({
     }
   };
 
-  // Если товара нет в корзине, не рендерим клиентский компонент
-  // (полагаемся на серверную кнопку)
-  if (count === 0) return null;
-
   return (
-    <div className={styles.cart__button}>
-      <button
-        className={styles.cart__button_enabled}
-        onClick={() => handleCountChange(count - 1)}
-        aria-label="Уменьшить количество"
-      >
-        -
-      </button>
+    <>
+      <CartAuthChoiceModal open={authChoiceOpen} onClose={() => setAuthChoiceOpen(false)} />
+      {count === 0 ? (
+        <div className={`${styles.cart__button} ${styles.cart__button_add}`}>
+          {props_count > 0 ? (
+            <button
+              type="button"
+              className={styles.cart__button_enabled}
+              aria-label={`Добавить ${productSku} в корзину`}
+              onClick={() => void handleCountChange(1)}
+            >
+              <Image
+                src="/cart.svg"
+                alt="Корзина"
+                className={styles.cart__icon}
+                width={20}
+                height={20}
+                priority
+              />
+              Добавить в корзину
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={styles.cart__button_disabled}
+              disabled
+              aria-label="Товара нет в наличии"
+            >
+              Нет в наличии
+            </button>
+          )}
+        </div>
+      ) : (
+        <div className={styles.cart__button}>
+          <button
+            type="button"
+            className={styles.cart__button_enabled}
+            onClick={() => void handleCountChange(count - 1)}
+            aria-label="Уменьшить количество"
+          >
+            -
+          </button>
 
-      <input
-        type="number"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onBlur={handleInputBlur}
-        onKeyDown={handleInputKeyDown}
-        max={props_count}
-        min="0"
-        className={styles.counter__input}
-        aria-label={`Количество товара ${productSku}`}
-      />
+          <input
+            type="number"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onBlur={() => void handleInputBlur()}
+            onKeyDown={(e) => void handleInputKeyDown(e)}
+            max={props_count}
+            min="0"
+            className={styles.counter__input}
+            aria-label={`Количество товара ${productSku}`}
+          />
 
-      <button
-        className={styles.cart__button_enabled}
-        onClick={() => handleCountChange(count + 1)}
-        disabled={count >= props_count}
-        aria-label="Увеличить количество"
-      >
-        +
-      </button>
-      
-      {/* {count > 0 && (
-        <span className={styles.cart__count_info}>
-          В корзине: {count}
-        </span>
-      )} */}
-    </div>
+          <button
+            type="button"
+            className={styles.cart__button_enabled}
+            onClick={() => void handleCountChange(count + 1)}
+            disabled={count >= props_count}
+            aria-label="Увеличить количество"
+          >
+            +
+          </button>
+        </div>
+      )}
+    </>
   );
 }
