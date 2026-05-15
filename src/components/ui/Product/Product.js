@@ -7,7 +7,7 @@ import brands from "@/json/brands.json";
 
 const BRAND_SLUGS = new Set(brands.map((item) => item.slug));
 
-export default function Product({ product = [] }) {
+export default function Product({ product = [], cartAuthenticated = false }) {
 
     const specifications = product.specifications;
     const brandLabel = product.brand_name || product.brand || product.truck_manufacturers?.[0]?.name || '—';
@@ -160,11 +160,12 @@ export default function Product({ product = [] }) {
                             </span>
                         </div>
                         {/* <ProductAddToCart props_count={product.count}/> */}
-                        <ProductAddToCart 
-        props_count={product.count}
-        productId={product.id}
-        productSku={product.sku}
-      />
+                        <ProductAddToCart
+                          props_count={product.count}
+                          productId={product.id}
+                          productSku={product.sku}
+                          cartAuthenticated={cartAuthenticated}
+                        />
                         <div className={`${styles.specifications} ${styles._mobile}`}>
                             <p className={styles.specifications__title}>
                                 Технические характеристики

@@ -1,36 +1,46 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './productlist.module.css';
-import * as CartActions from '@/actions/cart';
+import { apiGetCart, apiPostCart, cartRowKeyMatchesProduct, ensureAuthenticatedForCart } from '@/lib/cart-api';
+import CartAuthChoiceModal from '@/components/ui/CartAuthChoiceModal/CartAuthChoiceModal';
 
 export default function ProductList({ products }) {
   const { innerWidth } = useWindowSize();
   const [cart, setCart] = useState({ i: [] });
+  const [authChoiceOpen, setAuthChoiceOpen] = useState(false);
 
-  // Загружаем корзину при монтировании
-  useEffect(() => {
-    fetchCart();
+  const fetchCart = useCallback(async () => {
+    const data = await apiGetCart();
+    setCart({ i: Array.isArray(data.i) ? data.i : [] });
   }, []);
 
-  const fetchCart = async () => {
-    const res = await fetch('/api/cart');
-    const data = await res.json();
-    setCart(data);
-  };
+  useEffect(() => {
+    void fetchCart();
+  }, [fetchCart]);
+
+  useEffect(() => {
+    const onRefresh = () => {
+      void fetchCart();
+    };
+    window.addEventListener('catalog-auth-refresh', onRefresh);
+    return () => window.removeEventListener('catalog-auth-refresh', onRefresh);
+  }, [fetchCart]);
 
   if (!innerWidth) return null;
 
   return (
     <>
+      <CartAuthChoiceModal open={authChoiceOpen} onClose={() => setAuthChoiceOpen(false)} />
       {products.map(product => (
         <Suspense key={product.id} fallback={<p>Loading...</p>}>
           <ProductItem
             product={product}
             innerWidth={innerWidth}
             cart={cart}
-            fetchCart={fetchCart} // передаем функцию, чтобы ProductItem мог обновлять корзину
+            onNeedAuth={() => setAuthChoiceOpen(true)}
+            fetchCart={fetchCart}
           />
         </Suspense>
       ))}
@@ -38,10 +48,10 @@ export default function ProductList({ products }) {
   );
 }
 
-function ProductItem({ product, innerWidth, cart, fetchCart }) {
+function ProductItem({ product, innerWidth, cart, onNeedAuth, fetchCart }) {
   // количество товара берется **из актуального состояния cart**
   const currentCount =
-    cart.i.find(x => String(x[0]) === String(product.id))?.[1] || 0;
+    cart.i.find((x) => cartRowKeyMatchesProduct(x[0], product.id, product.sku))?.[1] || 0;
 
   const [count, setCount] = useState(currentCount);
   const [inputValue, setInputValue] = useState(String(currentCount));
@@ -54,8 +64,27 @@ function ProductItem({ product, innerWidth, cart, fetchCart }) {
 
   const handleCountChange = async newCount => {
     const validatedCount = Math.max(0, Math.min(newCount, product.count));
-    await CartActions.setCartQuantity(product.id, validatedCount);
-    await fetchCart(); // синхронизируем корзину после изменения
+
+    if (validatedCount > 0) {
+      const ok = await ensureAuthenticatedForCart();
+      if (!ok) {
+        onNeedAuth?.();
+        await fetchCart();
+        return;
+      }
+    }
+
+    try {
+      await apiPostCart({ action: 'set', productId: product.id, quantity: validatedCount });
+      await fetchCart();
+    } catch (e) {
+      if (e?.status === 401) {
+        if (validatedCount > count) onNeedAuth?.();
+        await fetchCart();
+        return;
+      }
+      console.error(e);
+    }
   };
 
   const handleInputBlur = async () => {
@@ -132,7 +161,8 @@ function ProductItem({ product, innerWidth, cart, fetchCart }) {
             ) : (
               <button
                 className={styles.cart__button_enabled}
-                onClick={() => handleCountChange(count + 1)}
+                type="button"
+                onClick={() => void handleCountChange(1)}
               >
                 Купить
               </button>

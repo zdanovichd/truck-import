@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
 import {
   SSO_STATE_COOKIE,
   createSsoState,
   buildSsoAuthorizeUrl,
   ssoStateCookieOptions,
+  normalizeSsoPostLoginPath,
+  composeSsoOAuthState,
 } from '@/lib/lk-sso';
 
 function getPublicSiteBase(fallbackOrigin) {
@@ -17,15 +18,21 @@ function getPublicSiteBase(fallbackOrigin) {
 
 /**
  * Начало SSO: редирект на lk с redirect_uri на этот сайт и случайным state.
+ * `?next=/cart` — после callback вернуть в корзину (суффикс в OAuth state, не отдельная cookie:
+ * иначе при несовпадении www/apex с redirect_uri cookie на callback не доезжает).
  */
 export async function GET(request) {
   const origin = getPublicSiteBase(request.nextUrl.origin);
   const redirectUri = `${origin}/auth/callback`;
-  const state = createSsoState();
+  const nonce = createSsoState();
+  const nextRaw = request.nextUrl.searchParams.get('next');
+  const postLogin = normalizeSsoPostLoginPath(nextRaw ?? '');
+  const oauthState = composeSsoOAuthState(nonce, postLogin);
 
-  const cookieStore = await cookies();
-  cookieStore.set(SSO_STATE_COOKIE, state, ssoStateCookieOptions());
+  const authorizeUrl = buildSsoAuthorizeUrl(redirectUri, oauthState);
+  const res = NextResponse.redirect(authorizeUrl);
+  res.cookies.set(SSO_STATE_COOKIE, oauthState, ssoStateCookieOptions());
 
-  const authorizeUrl = buildSsoAuthorizeUrl(redirectUri, state);
-  return NextResponse.redirect(authorizeUrl);
+  res.headers.set('Cache-Control', 'private, no-store, max-age=0, must-revalidate');
+  return res;
 }

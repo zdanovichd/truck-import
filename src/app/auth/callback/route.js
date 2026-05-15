@@ -5,6 +5,7 @@ import {
   SSO_STATE_COOKIE,
   exchangeSsoCode,
   lkTokenCookieOptions,
+  postLoginPathFromValidatedSsoState,
 } from '@/lib/lk-sso';
 
 function redirectWithError(request, code) {
@@ -12,11 +13,13 @@ function redirectWithError(request, code) {
   url.pathname = '/';
   url.search = '';
   url.searchParams.set('auth_error', code);
-  return NextResponse.redirect(url);
+  const res = NextResponse.redirect(url);
+  return res;
 }
 
 /**
  * Callback с lk: проверка state, обмен code → token, httpOnly-cookie.
+ * «Вернуть в корзину» после checkout — суффикс в OAuth `state` (см. `composeSsoOAuthState`).
  */
 export async function GET(request) {
   const { searchParams } = request.nextUrl;
@@ -39,15 +42,22 @@ export async function GET(request) {
     return redirectWithError(request, 'state');
   }
 
+  const afterLoginPath = postLoginPathFromValidatedSsoState(state);
+
   try {
     const data = await exchangeSsoCode(code);
-    cookieStore.set(LK_TOKEN_COOKIE, data.token, lkTokenCookieOptions());
+    const dest = request.nextUrl.clone();
+    if (afterLoginPath) {
+      dest.pathname = afterLoginPath;
+      dest.search = '';
+    } else {
+      dest.pathname = '/';
+      dest.search = '';
+    }
+    const res = NextResponse.redirect(dest);
+    res.cookies.set(LK_TOKEN_COOKIE, data.token, lkTokenCookieOptions());
+    return res;
   } catch {
     return redirectWithError(request, 'exchange');
   }
-
-  const url = request.nextUrl.clone();
-  url.pathname = '/';
-  url.search = '';
-  return NextResponse.redirect(url);
 }

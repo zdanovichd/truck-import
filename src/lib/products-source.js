@@ -1,4 +1,5 @@
 import productsData from '@/json/products.json';
+import { catalogProductLookupKeys } from '@/lib/catalog-sku-keys';
 
 const DEFAULT_LK_PRODUCTS_API_BASE = 'https://lk.truck-import.ru/api/v1/client';
 
@@ -25,16 +26,40 @@ function makeStableIdFromSku(sku) {
   return Math.abs(hash) || 1;
 }
 
-export function normalizeProduct(raw, fallback = {}) {
-  const sku = String(raw?.sku || '');
+/** Laravel / LK часто отдаёт сущность как `{ data: { id, sku, ... } }`. */
+export function unwrapLkEntityJson(json) {
+  if (json == null || typeof json !== 'object') return json;
+  const d = json.data;
+  if (d != null && typeof d === 'object' && !Array.isArray(d)) return d;
+  return json;
+}
+
+/** Числовой id товара в ЛК (Laravel может отдавать id строкой). */
+function coerceProductIdFromRaw(raw) {
+  const inner = unwrapLkEntityJson(raw);
+  if (!inner || typeof inner !== 'object') return null;
+  const v = inner.id ?? inner.product_id ?? inner?.product?.id;
+  if (v === undefined || v === null || v === '') return null;
+  const n = Number(v);
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return Math.trunc(n);
+}
+
+export function normalizeProduct(rawInput, fallback = {}) {
+  const raw = unwrapLkEntityJson(rawInput);
+  const skuRaw = String(raw?.sku || '').trim();
+  const keys = isLkProductsSource() ? catalogProductLookupKeys(skuRaw) : [skuRaw];
+  const sku = isLkProductsSource() && keys.length > 0 ? keys[keys.length - 1] : skuRaw;
   const brandSlug = raw?.brand_slug ?? raw?.brand?.slug ?? raw?.brand ?? '';
   const brandName = raw?.brand_name ?? raw?.brand?.name ?? raw?.brand ?? '';
   const modelSlug = raw?.model_slug ?? raw?.model?.slug ?? raw?.model ?? '';
   const modelName = raw?.model_name ?? raw?.model?.name ?? raw?.model ?? '';
+  const lkNumericId = coerceProductIdFromRaw(raw);
+  const lkIdFromSku = isLkProductsSource() && lkNumericId == null && Boolean(sku);
   return {
     // Для API lk в списке часто нет numeric id. Используем sku как стабильный id,
     // чтобы корзина могла повторно загрузить товар через /api/products/{idOrSku}.
-    id: Number.isFinite(raw?.id) ? raw.id : (sku || makeStableIdFromSku(sku)),
+    id: lkNumericId != null ? lkNumericId : (lkIdFromSku ? sku : (sku || makeStableIdFromSku(skuRaw))),
     sku,
     name: raw?.name ?? raw?.title ?? '',
     title: raw?.title ?? raw?.name ?? '',
@@ -141,6 +166,37 @@ export async function fetchLkBrands() {
     .map((b) => ({ value: b.slug, label: b.name || b.slug }));
 }
 
+/**
+ * Реальный `product_id` для POST корзины ЛК.
+ * В списке `GET …/products` у ЛК нет поля `id`; оно есть в `GET …/products/{sku}`.
+ * Числовой сегмент в URL каталога не всегда резолвится (PK ≠ сегмент маршрута) — тогда
+ * используем число как уже известный `product_id` из строки корзины ЛК.
+ * @param {string|number} idOrSku
+ * @returns {Promise<number|null>}
+ */
+export async function resolveLkProductIdForCartPost(idOrSku) {
+  if (!isLkProductsSource()) {
+    const n = Number(idOrSku);
+    return Number.isFinite(n) && n > 0 ? Math.trunc(n) : null;
+  }
+  const s = String(idOrSku ?? '').trim();
+  if (!s) return null;
+
+  const asNum = Number(s);
+  const looksLikeIntegerId = Number.isFinite(asNum)
+    && asNum > 0
+    && String(Math.trunc(asNum)) === s;
+
+  const product = await fetchProductByIdOrSku(s);
+  if (product) {
+    const n = Number(product.id);
+    if (Number.isFinite(n) && n > 0) return Math.trunc(n);
+  }
+
+  if (looksLikeIntegerId) return Math.trunc(asNum);
+  return null;
+}
+
 export async function fetchProductByIdOrSku(idOrSku) {
   if (!isLkProductsSource()) {
     const local = getJsonProducts();
@@ -152,18 +208,40 @@ export async function fetchProductByIdOrSku(idOrSku) {
     return local.find((p) => String(p.sku).toLowerCase() === String(idOrSku).toLowerCase()) || null;
   }
 
-  const numeric = Number(idOrSku);
-  if (Number.isFinite(numeric)) {
-    const byIdRes = await fetch(`${getLkProductsApiBase()}/products/${numeric}`, {
+  const base = getLkProductsApiBase();
+  const s = String(idOrSku ?? '').trim();
+  if (!s) return null;
+
+  /** Карточка товара ЛК: в пути — SKU (не числовой PK). Ответ содержит `id`. */
+  const fetchLkProductDetail = async (segment) => {
+    const seg = String(segment ?? '').trim();
+    if (!seg) return null;
+    const res = await fetch(`${base}/products/${encodeURIComponent(seg)}`, {
       headers: { Accept: 'application/json' },
       cache: 'no-store',
     });
-    if (byIdRes.ok) {
-      const data = await byIdRes.json();
-      return normalizeProduct(data);
-    }
+    if (!res.ok) return null;
+    const data = unwrapLkEntityJson(await res.json());
+    return normalizeProduct(data);
+  };
+
+  for (const key of catalogProductLookupKeys(s)) {
+    const bySegment = await fetchLkProductDetail(key);
+    if (bySegment) return bySegment;
   }
 
-  const matches = await fetchLkProducts({ sku: idOrSku, limit: 20, page: 1 });
-  return matches.find((p) => String(p.sku).toLowerCase() === String(idOrSku).toLowerCase()) || matches[0] || null;
+  for (const key of catalogProductLookupKeys(s)) {
+    const matches = await fetchLkProducts({ sku: key, limit: 20, page: 1 });
+    const aliases = new Set(
+      catalogProductLookupKeys(s).map((k) => k.toLowerCase()),
+    );
+    const found =
+      matches.find((p) => aliases.has(String(p.sku).toLowerCase())) || matches[0];
+    if (!found?.sku) continue;
+
+    const fromDetail = await fetchLkProductDetail(found.sku);
+    if (fromDetail) return fromDetail;
+  }
+
+  return null;
 }

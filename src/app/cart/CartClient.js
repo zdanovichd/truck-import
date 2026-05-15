@@ -1,16 +1,55 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import * as CartActions from '@/actions/cart';
+import { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { apiGetCart, apiPostCart } from '@/lib/cart-api';
+import CartAuthChoiceModal from '@/components/ui/CartAuthChoiceModal/CartAuthChoiceModal';
 import styles from './page.module.css'
-import Link from 'next/link';
 
 export default function CartClient() {
+  const searchParams = useSearchParams();
   const [cart, setCart] = useState({ i: [] });
   const [products, setProducts] = useState({});
   const [selectedProducts, setSelectedProducts] = useState(new Set()); // Для удаления
   const [loading, setLoading] = useState(true);
   const [selectAll, setSelectAll] = useState(false);
+  const [thanksModalOpen, setThanksModalOpen] = useState(false);
+  const [thanksOrderNo, setThanksOrderNo] = useState(null);
+  const [thanksOrderId, setThanksOrderId] = useState(null);
+  const thanksHandledRef = useRef(false);
+  const [authChoiceOpen, setAuthChoiceOpen] = useState(false);
+
+  // Успешное оформление: /auth/place-order → корзина с query
+  useEffect(() => {
+    if (thanksHandledRef.current) return;
+    const thanks = searchParams.get('order_thanks');
+    if (thanks !== '1') return;
+    thanksHandledRef.current = true;
+    const rawNo = searchParams.get('order_no');
+    const rawId = searchParams.get('order_id');
+    setThanksOrderNo(rawNo ? decodeURIComponent(rawNo) : null);
+    setThanksOrderId(rawId ? decodeURIComponent(rawId) : null);
+    setThanksModalOpen(true);
+    if (typeof window !== 'undefined') {
+      const u = new URL(window.location.href);
+      u.searchParams.delete('order_thanks');
+      u.searchParams.delete('order_no');
+      u.searchParams.delete('order_id');
+      window.history.replaceState({}, '', u.pathname + u.search);
+    }
+  }, [searchParams]);
+
+  // Ошибка после неудачного /auth/place-order
+  useEffect(() => {
+    const err = searchParams.get('order_error');
+    if (!err) return;
+    alert(decodeURIComponent(err));
+    if (typeof window !== 'undefined') {
+      const u = new URL(window.location.href);
+      u.searchParams.delete('order_error');
+      window.history.replaceState({}, '', u.pathname + u.search);
+    }
+  }, [searchParams]);
 
   // Загружаем корзину и информацию о товарах
   useEffect(() => {
@@ -27,9 +66,8 @@ export default function CartClient() {
   const loadCartAndProducts = async () => {
     try {
       // 1. Загружаем корзину
-      const cartRes = await fetch('/api/cart');
-      const cartData = await cartRes.json();
-      setCart(cartData);
+      const cartData = await apiGetCart();
+      setCart({ i: Array.isArray(cartData.i) ? cartData.i : [] });
 
       // 2. Загружаем информацию о товарах из корзины
       if (cartData.i && cartData.i.length > 0) {
@@ -63,6 +101,9 @@ export default function CartClient() {
 
         setProducts(productsInfo);
         // Пустой выбор по умолчанию
+        setSelectedProducts(new Set());
+      } else {
+        setProducts({});
         setSelectedProducts(new Set());
       }
     } catch (err) {
@@ -109,6 +150,8 @@ export default function CartClient() {
       return;
     }
 
+    const idsToRemove = [...selectedProducts];
+
     // Создаем копии для оптимистичного обновления
     const newProducts = { ...products };
     const newSelected = new Set(selectedProducts);
@@ -126,12 +169,19 @@ export default function CartClient() {
     // 2. Обновляем локальную корзину
     setCart(prev => ({
       ...prev,
-      i: prev.i.filter(([id]) => !selectedProducts.has(id))
+      i: prev.i.filter(([id]) => !idsToRemove.some((x) => String(x) === String(id)))
     }));
 
-    // 3. Удаляем выбранные товары из куки
-    for (const productId of selectedProducts) {
-      await CartActions.removeFromCart(productId);
+    // 3. Удаляем выбранные товары из ЛК
+    try {
+      for (const productId of idsToRemove) {
+        await apiPostCart({ action: 'remove', productId });
+      }
+    } catch (e) {
+      if (e?.status === 401) {
+        setAuthChoiceOpen(true);
+      }
+      await loadCartAndProducts();
     }
   };
 
@@ -146,8 +196,15 @@ export default function CartClient() {
     setSelectedProducts(new Set());
     setCart({ i: [] });
 
-    // 2. Очищаем куки
-    await CartActions.clearCart();
+    // 2. Очищаем ЛК
+    try {
+      await apiPostCart({ action: 'clear' });
+    } catch (e) {
+      if (e?.status === 401) {
+        setAuthChoiceOpen(true);
+      }
+      await loadCartAndProducts();
+    }
   };
 
   // Изменение количества с сохранением в куки
@@ -178,8 +235,15 @@ export default function CartClient() {
       return { ...prev, i: newItems };
     });
 
-    // 3. Сохраняем в куки (но не перезагружаем товары!)
-    await CartActions.setCartQuantity(productId, quantity);
+    // 3. Сохраняем в ЛК
+    try {
+      await apiPostCart({ action: 'set', productId, quantity });
+    } catch (e) {
+      if (e?.status === 401) {
+        setAuthChoiceOpen(true);
+      }
+      await loadCartAndProducts();
+    }
   };
 
   // Удаление одного товара
@@ -203,11 +267,18 @@ export default function CartClient() {
     // 3. Обновляем локальную корзину
     setCart(prev => ({
       ...prev,
-      i: prev.i.filter(([id]) => id !== productId)
+      i: prev.i.filter(([id]) => String(id) !== String(productId))
     }));
 
-    // 4. Удаляем из куки
-    await CartActions.removeFromCart(productId);
+    // 4. Удаляем в ЛК
+    try {
+      await apiPostCart({ action: 'remove', productId });
+    } catch (e) {
+      if (e?.status === 401) {
+        setAuthChoiceOpen(true);
+      }
+      await loadCartAndProducts();
+    }
   };
 
   // Подсчет общего количества всех товаров (штук)
@@ -236,16 +307,66 @@ export default function CartClient() {
     return total.toFixed(2);
   };
 
+  const handleCheckoutSubmit = async (e) => {
+    e.preventDefault();
+    window.location.assign('/auth/continue-checkout');
+  };
+
   // Количество товаров для удаления
   const selectedForDeletion = selectedProducts.size;
   const totalItems = Object.keys(products).length;
 
-  if (loading) return <p>Загрузка корзины...</p>;
-
-
   return (
     <>
-      {cart.i.length === 0 ? (
+      {thanksModalOpen ? (
+        <div
+          className={styles.thanksOverlay}
+          role="presentation"
+          onClick={() => setThanksModalOpen(false)}
+        >
+          <div
+            className={styles.thanksDialog}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cart-thanks-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 id="cart-thanks-title" className={styles.thanksTitle}>
+              Спасибо за заказ
+            </h2>
+            {thanksOrderNo ? (
+              <p className={styles.thanksText}>Номер заказа: {thanksOrderNo}</p>
+            ) : (
+              <p className={styles.thanksText}>Мы получили ваш заказ и скоро свяжемся с вами.</p>
+            )}
+            <div className={styles.thanksActions}>
+              {thanksOrderId ? (
+                <a
+                  href={`/auth/lk-order?id=${encodeURIComponent(thanksOrderId)}`}
+                  className={styles.thanksToOrder}
+                >
+                  К заказу
+                </a>
+              ) : null}
+              <button
+                type="button"
+                className={styles.thanksClose}
+                onClick={() => setThanksModalOpen(false)}
+              >
+                Закрыть
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      <CartAuthChoiceModal
+        open={authChoiceOpen}
+        onClose={() => setAuthChoiceOpen(false)}
+        description="Чтобы оформить заказ, войдите в личный кабинет. Или продолжите просмотр без оформления."
+      />
+      {loading ? (
+        <p>Загрузка корзины...</p>
+      ) : cart.i.length === 0 ? (
           <p className={styles.cart__empty}>Корзина пуста</p>
         ) : (
           <>
@@ -420,12 +541,14 @@ export default function CartClient() {
                 </div>
 
                 <div className={styles.cartSummary__bottom}>
-                  <Link
-                  href={"/cart/checkout"}
-                  className={styles.cart__checkout}
+                  <form
+                    onSubmit={handleCheckoutSubmit}
+                    className={styles.cartSummary__bottomForm}
                   >
-                    Оформить заказ
-                  </Link>
+                    <button type="submit" className={styles.cart__checkout}>
+                      Оформить заказ
+                    </button>
+                  </form>
                 </div>
 
               </div>
